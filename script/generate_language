@@ -4,7 +4,7 @@ cd "`dirname \"$0\"`/.."
 
 LANGUAGE="$1"
 CONFIG_FILE="swagger-config.json"
-CLIENT_DIRECTORY="clients/$LANGUAGE"
+CLIENT_DIRECTORY="client"
 
 rm -rf $CLIENT_DIRECTORY
 mkdir -p $CLIENT_DIRECTORY
