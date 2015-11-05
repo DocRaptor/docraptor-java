@@ -3,7 +3,7 @@ set -e
 cd "`dirname \"$0\"`/.."
 
 LANGUAGE="$1"
-CONFIG_FILE="config.$LANGUAGE.json"
+CONFIG_FILE="swagger-config.json"
 CLIENT_DIRECTORY="clients/$LANGUAGE"
 
 rm -rf $CLIENT_DIRECTORY
