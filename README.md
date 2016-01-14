@@ -47,11 +47,11 @@ public class Sync {
 
     Doc doc = new Doc();
     doc.setTest(true); # test documents are free but watermarked
-    doc.setDocumentContent("<html><body>Swagger Java</body></html>"); // supply content directly
-    doc.setDocumentUrl("http://docraptor.com/examples/invoice.html"); // or use a url
-    doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                    // PDF or XLS or XLSX
-    doc.setName("swagger-java.pdf");                                  // help you find a document later
-    doc.setJavascript(true);                                          // enable JavaScript processing
+    doc.setDocumentContent("<html><body>Swagger Java</body></html>");    // supply content directly
+    // doc.setDocumentUrl("http://docraptor.com/examples/invoice.html"); // or use a url
+    doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
+    doc.setName("swagger-java.pdf");                                     // help you find a document later
+    doc.setJavascript(true);                                             // enable JavaScript processing
     // prince_options = new PrinceOptions();
     // doc.setPrinceOptions(prince_options);
     // prince_options.setMedia("screen");                             // use screen styles instead of print styles
