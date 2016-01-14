@@ -1,6 +1,6 @@
 # DocRaptor Java Native Client Library
 
-**WARNING: This code is not production ready, you should use [doc_raptor_gem](https://github.com/expectedbehavior/java).**
+**WARNING: This code is not production ready, you should use [this](https://docraptor.com/documentation/java).**
 
 This is a maven package for using [DocRaptor API](http://docraptor.com/documentation) to convert HTML to PDF and XLSX.
 
