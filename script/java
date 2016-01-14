@@ -11,7 +11,11 @@ echo "compiling test class..."
 
 compile_and_run() {
   base_name=`basename -s .java $1`
-  cap_base_name=`echo $base_name | ruby -e "puts gets.split(/_/).map(&:capitalize).join"`
+  if [[ $string == *"_"* ]]; then
+    cap_base_name=`echo $base_name | ruby -e "puts gets.split(/_/).map(&:capitalize).join"`
+  else
+    cap_base_name=$base_name
+  fi
   javac -classpath .:"../target/swagger-java-client-1.0.0.jar" $cap_base_name.java
   echo "running tests"
   java -classpath .:"../target/swagger-java-client-1.0.0.jar":"../target/lib/*" $cap_base_name
