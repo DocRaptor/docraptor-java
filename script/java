@@ -4,18 +4,17 @@ cd "`dirname \"$0\"`/.."
 
 ./script/generate_language java
 
-cd client
 mvn package
 
-cd ../test
+cd test
 echo "compiling test class..."
 
 compile_and_run() {
   base_name=`basename -s .java $1`
   cap_base_name=`echo $base_name | ruby -e "puts gets.split(/_/).map(&:capitalize).join"`
-  javac -classpath .:"../client/target/swagger-java-client-1.0.0.jar" $cap_base_name.java
+  javac -classpath .:"../target/swagger-java-client-1.0.0.jar" $cap_base_name.java
   echo "running tests"
-  java -classpath .:"../client/target/swagger-java-client-1.0.0.jar":"../client/target/lib/*" $cap_base_name
+  java -classpath .:"../target/swagger-java-client-1.0.0.jar":"../target/lib/*" $cap_base_name
 }
 
 if [ "$1" == "" ]; then
