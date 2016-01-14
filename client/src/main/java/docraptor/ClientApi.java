@@ -1,10 +1,11 @@
 package docraptor;
 
+import com.sun.jersey.api.client.GenericType;
+
 import docraptor.ApiException;
 import docraptor.ApiClient;
 import docraptor.Configuration;
 import docraptor.Pair;
-import docraptor.TypeRef;
 
 import docraptor.AsyncDoc;
 import docraptor.Doc;
@@ -13,7 +14,7 @@ import docraptor.AsyncDocStatus;
 
 import java.util.*;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-05T11:45:34.151-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-13T21:30:07.177-05:00")
 public class ClientApi {
   private ApiClient apiClient;
 
@@ -40,9 +41,8 @@ public class ClientApi {
    * @param doc The document to be created.
    * @return AsyncDoc
    */
-  public AsyncDoc asyncDocsPost (Doc doc) throws ApiException {
+  public AsyncDoc asyncDocsPost(Doc doc) throws ApiException {
     Object postBody = doc;
-    byte[] postBinaryBody = null;
     
      // verify the required parameter 'doc' is set
      if (doc == null) {
@@ -76,15 +76,9 @@ public class ClientApi {
     String[] authNames = new String[] { "basicAuth" };
 
     
-
+    GenericType<AsyncDoc> returnType = new GenericType<AsyncDoc>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
-    
-    TypeRef returnType = new TypeRef<AsyncDoc>() {};
-    return apiClient.invokeAPI(path, "POST", queryParams, postBody, postBinaryBody, headerParams, formParams, accept, contentType, authNames, returnType);
-    
-    
-
-
   }
   
   /**
@@ -93,9 +87,8 @@ public class ClientApi {
    * @param doc The document to be created.
    * @return File
    */
-  public File docsPost (Doc doc) throws ApiException {
+  public File docsPost(Doc doc) throws ApiException {
     Object postBody = doc;
-    byte[] postBinaryBody = null;
     
      // verify the required parameter 'doc' is set
      if (doc == null) {
@@ -129,15 +122,9 @@ public class ClientApi {
     String[] authNames = new String[] { "basicAuth" };
 
     
-
+    GenericType<File> returnType = new GenericType<File>() {};
+    return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
-    
-    TypeRef returnType = new TypeRef<File>() {};
-    return apiClient.invokeAPI(path, "POST", queryParams, postBody, postBinaryBody, headerParams, formParams, accept, contentType, authNames, returnType);
-    
-    
-
-
   }
   
   /**
@@ -146,9 +133,8 @@ public class ClientApi {
    * @param id The download_id returned from status request or a callback.
    * @return File
    */
-  public File downloadIdGet (String id) throws ApiException {
+  public File downloadIdGet(String id) throws ApiException {
     Object postBody = null;
-    byte[] postBinaryBody = null;
     
      // verify the required parameter 'id' is set
      if (id == null) {
@@ -183,15 +169,9 @@ public class ClientApi {
     String[] authNames = new String[] { "basicAuth" };
 
     
-
+    GenericType<File> returnType = new GenericType<File>() {};
+    return apiClient.invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
-    
-    TypeRef returnType = new TypeRef<File>() {};
-    return apiClient.invokeAPI(path, "GET", queryParams, postBody, postBinaryBody, headerParams, formParams, accept, contentType, authNames, returnType);
-    
-    
-
-
   }
   
   /**
@@ -200,9 +180,8 @@ public class ClientApi {
    * @param id The status_id returned when creating an asynchronous document.
    * @return AsyncDocStatus
    */
-  public AsyncDocStatus statusIdGet (String id) throws ApiException {
+  public AsyncDocStatus statusIdGet(String id) throws ApiException {
     Object postBody = null;
-    byte[] postBinaryBody = null;
     
      // verify the required parameter 'id' is set
      if (id == null) {
@@ -237,15 +216,9 @@ public class ClientApi {
     String[] authNames = new String[] { "basicAuth" };
 
     
-
+    GenericType<AsyncDocStatus> returnType = new GenericType<AsyncDocStatus>() {};
+    return apiClient.invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
-    
-    TypeRef returnType = new TypeRef<AsyncDocStatus>() {};
-    return apiClient.invokeAPI(path, "GET", queryParams, postBody, postBinaryBody, headerParams, formParams, accept, contentType, authNames, returnType);
-    
-    
-
-
   }
   
 }

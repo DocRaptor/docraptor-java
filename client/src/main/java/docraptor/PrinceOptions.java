@@ -1,15 +1,16 @@
 package docraptor;
 
-import docraptor.StringUtil;
-
-
-
-import io.swagger.annotations.*;
+import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-05T11:45:34.151-05:00")
+
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-13T21:30:07.177-05:00")
 public class PrinceOptions   {
   
   private String baseurl = null;
@@ -20,7 +21,7 @@ public class PrinceOptions   {
   private String httpProxy = null;
   private Integer httpTimeout = null;
   private Boolean insecure = null;
-  private String media = null;
+  private String media = "print";
   private Boolean noAuthorStyle = null;
   private Boolean noDefaultStyle = null;
   private Boolean noEmbedFonts = null;
@@ -35,24 +36,26 @@ public class PrinceOptions   {
   private Boolean disallowAnnotate = null;
   private Boolean disallowModify = null;
 
-public enum InputEnum {
-  HTML("html"),
-  XML("xml"),
-  AUTO("auto");
 
-  private String value;
+  public enum InputEnum {
+    HTML("html"),
+    XML("xml"),
+    AUTO("auto");
 
-  InputEnum(String value) {
-    this.value = value;
+    private String value;
+
+    InputEnum(String value) {
+      this.value = value;
+    }
+
+    @Override
+    @JsonValue
+    public String toString() {
+      return value;
+    }
   }
 
-  @Override
-  public String toString() {
-    return value;
-  }
-}
-
-  private InputEnum input = null;
+  private InputEnum input = InputEnum.HTML;
   private String version = null;
   private Boolean javascript = null;
   private Integer cssDpi = null;
@@ -62,6 +65,7 @@ public enum InputEnum {
   /**
    * Set the baseurl for assets.
    **/
+  
   @ApiModelProperty(value = "Set the baseurl for assets.")
   @JsonProperty("baseurl")
   public String getBaseurl() {
@@ -75,6 +79,7 @@ public enum InputEnum {
   /**
    * Disable XML inclusion.
    **/
+  
   @ApiModelProperty(value = "Disable XML inclusion.")
   @JsonProperty("no_xinclude")
   public Boolean getNoXinclude() {
@@ -88,6 +93,7 @@ public enum InputEnum {
   /**
    * Disable network access.
    **/
+  
   @ApiModelProperty(value = "Disable network access.")
   @JsonProperty("no_network")
   public Boolean getNoNetwork() {
@@ -101,6 +107,7 @@ public enum InputEnum {
   /**
    * Set the user for HTTP authentication.
    **/
+  
   @ApiModelProperty(value = "Set the user for HTTP authentication.")
   @JsonProperty("http_user")
   public String getHttpUser() {
@@ -114,6 +121,7 @@ public enum InputEnum {
   /**
    * Set the password for HTTP authentication.
    **/
+  
   @ApiModelProperty(value = "Set the password for HTTP authentication.")
   @JsonProperty("http_password")
   public String getHttpPassword() {
@@ -127,6 +135,7 @@ public enum InputEnum {
   /**
    * Set the HTTP proxy server.
    **/
+  
   @ApiModelProperty(value = "Set the HTTP proxy server.")
   @JsonProperty("http_proxy")
   public String getHttpProxy() {
@@ -140,6 +149,7 @@ public enum InputEnum {
   /**
    * Set the HTTP request timeout.
    **/
+  
   @ApiModelProperty(value = "Set the HTTP request timeout.")
   @JsonProperty("http_timeout")
   public Integer getHttpTimeout() {
@@ -153,6 +163,7 @@ public enum InputEnum {
   /**
    * Disable SSL verification.
    **/
+  
   @ApiModelProperty(value = "Disable SSL verification.")
   @JsonProperty("insecure")
   public Boolean getInsecure() {
@@ -166,6 +177,7 @@ public enum InputEnum {
   /**
    * Specify the CSS media type. Defaults to \"print\" but you may want to use \"screen\" for web styles.
    **/
+  
   @ApiModelProperty(value = "Specify the CSS media type. Defaults to \"print\" but you may want to use \"screen\" for web styles.")
   @JsonProperty("media")
   public String getMedia() {
@@ -179,6 +191,7 @@ public enum InputEnum {
   /**
    * Ignore author stylesheets.
    **/
+  
   @ApiModelProperty(value = "Ignore author stylesheets.")
   @JsonProperty("no_author_style")
   public Boolean getNoAuthorStyle() {
@@ -192,6 +205,7 @@ public enum InputEnum {
   /**
    * Ignore default stylesheets.
    **/
+  
   @ApiModelProperty(value = "Ignore default stylesheets.")
   @JsonProperty("no_default_style")
   public Boolean getNoDefaultStyle() {
@@ -205,6 +219,7 @@ public enum InputEnum {
   /**
    * Disable font embedding in PDFs.
    **/
+  
   @ApiModelProperty(value = "Disable font embedding in PDFs.")
   @JsonProperty("no_embed_fonts")
   public Boolean getNoEmbedFonts() {
@@ -218,6 +233,7 @@ public enum InputEnum {
   /**
    * Disable font subsetting in PDFs.
    **/
+  
   @ApiModelProperty(value = "Disable font subsetting in PDFs.")
   @JsonProperty("no_subset_fonts")
   public Boolean getNoSubsetFonts() {
@@ -231,6 +247,7 @@ public enum InputEnum {
   /**
    * Disable PDF compression.
    **/
+  
   @ApiModelProperty(value = "Disable PDF compression.")
   @JsonProperty("no_compress")
   public Boolean getNoCompress() {
@@ -244,6 +261,7 @@ public enum InputEnum {
   /**
    * Encrypt PDF output.
    **/
+  
   @ApiModelProperty(value = "Encrypt PDF output.")
   @JsonProperty("encrypt")
   public Boolean getEncrypt() {
@@ -257,6 +275,7 @@ public enum InputEnum {
   /**
    * Set encryption key size.
    **/
+  
   @ApiModelProperty(value = "Set encryption key size.")
   @JsonProperty("key_bits")
   public Integer getKeyBits() {
@@ -270,6 +289,7 @@ public enum InputEnum {
   /**
    * Set the PDF user password.
    **/
+  
   @ApiModelProperty(value = "Set the PDF user password.")
   @JsonProperty("user_password")
   public String getUserPassword() {
@@ -283,6 +303,7 @@ public enum InputEnum {
   /**
    * Set the PDF owner password.
    **/
+  
   @ApiModelProperty(value = "Set the PDF owner password.")
   @JsonProperty("owner_password")
   public String getOwnerPassword() {
@@ -296,6 +317,7 @@ public enum InputEnum {
   /**
    * Disallow printing of this PDF.
    **/
+  
   @ApiModelProperty(value = "Disallow printing of this PDF.")
   @JsonProperty("disallow_print")
   public Boolean getDisallowPrint() {
@@ -309,6 +331,7 @@ public enum InputEnum {
   /**
    * Disallow copying of this PDF.
    **/
+  
   @ApiModelProperty(value = "Disallow copying of this PDF.")
   @JsonProperty("disallow_copy")
   public Boolean getDisallowCopy() {
@@ -322,6 +345,7 @@ public enum InputEnum {
   /**
    * Disallow annotation of this PDF.
    **/
+  
   @ApiModelProperty(value = "Disallow annotation of this PDF.")
   @JsonProperty("disallow_annotate")
   public Boolean getDisallowAnnotate() {
@@ -335,6 +359,7 @@ public enum InputEnum {
   /**
    * Disallow modification of this PDF.
    **/
+  
   @ApiModelProperty(value = "Disallow modification of this PDF.")
   @JsonProperty("disallow_modify")
   public Boolean getDisallowModify() {
@@ -348,6 +373,7 @@ public enum InputEnum {
   /**
    * Specify the input format.
    **/
+  
   @ApiModelProperty(value = "Specify the input format.")
   @JsonProperty("input")
   public InputEnum getInput() {
@@ -361,6 +387,7 @@ public enum InputEnum {
   /**
    * Specify a specific verison of PrinceXML to use.
    **/
+  
   @ApiModelProperty(value = "Specify a specific verison of PrinceXML to use.")
   @JsonProperty("version")
   public String getVersion() {
@@ -374,6 +401,7 @@ public enum InputEnum {
   /**
    * Enable PrinceXML JavaScript. DocRaptor JavaScript parsing is also available elsewhere.
    **/
+  
   @ApiModelProperty(value = "Enable PrinceXML JavaScript. DocRaptor JavaScript parsing is also available elsewhere.")
   @JsonProperty("javascript")
   public Boolean getJavascript() {
@@ -387,6 +415,7 @@ public enum InputEnum {
   /**
    * Set the DPI when rendering CSS. Defaults to 96 but can be set with Prince 9.0 and up.
    **/
+  
   @ApiModelProperty(value = "Set the DPI when rendering CSS. Defaults to 96 but can be set with Prince 9.0 and up.")
   @JsonProperty("css_dpi")
   public Integer getCssDpi() {
@@ -400,6 +429,7 @@ public enum InputEnum {
   /**
    * In Prince 9.0 and up you can set the PDF profile.
    **/
+  
   @ApiModelProperty(value = "In Prince 9.0 and up you can set the PDF profile.")
   @JsonProperty("profile")
   public String getProfile() {
@@ -412,38 +442,93 @@ public enum InputEnum {
   
 
   @Override
-  public String toString()  {
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    PrinceOptions princeOptions = (PrinceOptions) o;
+    return Objects.equals(baseurl, princeOptions.baseurl) &&
+        Objects.equals(noXinclude, princeOptions.noXinclude) &&
+        Objects.equals(noNetwork, princeOptions.noNetwork) &&
+        Objects.equals(httpUser, princeOptions.httpUser) &&
+        Objects.equals(httpPassword, princeOptions.httpPassword) &&
+        Objects.equals(httpProxy, princeOptions.httpProxy) &&
+        Objects.equals(httpTimeout, princeOptions.httpTimeout) &&
+        Objects.equals(insecure, princeOptions.insecure) &&
+        Objects.equals(media, princeOptions.media) &&
+        Objects.equals(noAuthorStyle, princeOptions.noAuthorStyle) &&
+        Objects.equals(noDefaultStyle, princeOptions.noDefaultStyle) &&
+        Objects.equals(noEmbedFonts, princeOptions.noEmbedFonts) &&
+        Objects.equals(noSubsetFonts, princeOptions.noSubsetFonts) &&
+        Objects.equals(noCompress, princeOptions.noCompress) &&
+        Objects.equals(encrypt, princeOptions.encrypt) &&
+        Objects.equals(keyBits, princeOptions.keyBits) &&
+        Objects.equals(userPassword, princeOptions.userPassword) &&
+        Objects.equals(ownerPassword, princeOptions.ownerPassword) &&
+        Objects.equals(disallowPrint, princeOptions.disallowPrint) &&
+        Objects.equals(disallowCopy, princeOptions.disallowCopy) &&
+        Objects.equals(disallowAnnotate, princeOptions.disallowAnnotate) &&
+        Objects.equals(disallowModify, princeOptions.disallowModify) &&
+        Objects.equals(input, princeOptions.input) &&
+        Objects.equals(version, princeOptions.version) &&
+        Objects.equals(javascript, princeOptions.javascript) &&
+        Objects.equals(cssDpi, princeOptions.cssDpi) &&
+        Objects.equals(profile, princeOptions.profile);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(baseurl, noXinclude, noNetwork, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, input, version, javascript, cssDpi, profile);
+  }
+
+  @Override
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class PrinceOptions {\n");
     
-    sb.append("    baseurl: ").append(StringUtil.toIndentedString(baseurl)).append("\n");
-    sb.append("    noXinclude: ").append(StringUtil.toIndentedString(noXinclude)).append("\n");
-    sb.append("    noNetwork: ").append(StringUtil.toIndentedString(noNetwork)).append("\n");
-    sb.append("    httpUser: ").append(StringUtil.toIndentedString(httpUser)).append("\n");
-    sb.append("    httpPassword: ").append(StringUtil.toIndentedString(httpPassword)).append("\n");
-    sb.append("    httpProxy: ").append(StringUtil.toIndentedString(httpProxy)).append("\n");
-    sb.append("    httpTimeout: ").append(StringUtil.toIndentedString(httpTimeout)).append("\n");
-    sb.append("    insecure: ").append(StringUtil.toIndentedString(insecure)).append("\n");
-    sb.append("    media: ").append(StringUtil.toIndentedString(media)).append("\n");
-    sb.append("    noAuthorStyle: ").append(StringUtil.toIndentedString(noAuthorStyle)).append("\n");
-    sb.append("    noDefaultStyle: ").append(StringUtil.toIndentedString(noDefaultStyle)).append("\n");
-    sb.append("    noEmbedFonts: ").append(StringUtil.toIndentedString(noEmbedFonts)).append("\n");
-    sb.append("    noSubsetFonts: ").append(StringUtil.toIndentedString(noSubsetFonts)).append("\n");
-    sb.append("    noCompress: ").append(StringUtil.toIndentedString(noCompress)).append("\n");
-    sb.append("    encrypt: ").append(StringUtil.toIndentedString(encrypt)).append("\n");
-    sb.append("    keyBits: ").append(StringUtil.toIndentedString(keyBits)).append("\n");
-    sb.append("    userPassword: ").append(StringUtil.toIndentedString(userPassword)).append("\n");
-    sb.append("    ownerPassword: ").append(StringUtil.toIndentedString(ownerPassword)).append("\n");
-    sb.append("    disallowPrint: ").append(StringUtil.toIndentedString(disallowPrint)).append("\n");
-    sb.append("    disallowCopy: ").append(StringUtil.toIndentedString(disallowCopy)).append("\n");
-    sb.append("    disallowAnnotate: ").append(StringUtil.toIndentedString(disallowAnnotate)).append("\n");
-    sb.append("    disallowModify: ").append(StringUtil.toIndentedString(disallowModify)).append("\n");
-    sb.append("    input: ").append(StringUtil.toIndentedString(input)).append("\n");
-    sb.append("    version: ").append(StringUtil.toIndentedString(version)).append("\n");
-    sb.append("    javascript: ").append(StringUtil.toIndentedString(javascript)).append("\n");
-    sb.append("    cssDpi: ").append(StringUtil.toIndentedString(cssDpi)).append("\n");
-    sb.append("    profile: ").append(StringUtil.toIndentedString(profile)).append("\n");
+    sb.append("    baseurl: ").append(toIndentedString(baseurl)).append("\n");
+    sb.append("    noXinclude: ").append(toIndentedString(noXinclude)).append("\n");
+    sb.append("    noNetwork: ").append(toIndentedString(noNetwork)).append("\n");
+    sb.append("    httpUser: ").append(toIndentedString(httpUser)).append("\n");
+    sb.append("    httpPassword: ").append(toIndentedString(httpPassword)).append("\n");
+    sb.append("    httpProxy: ").append(toIndentedString(httpProxy)).append("\n");
+    sb.append("    httpTimeout: ").append(toIndentedString(httpTimeout)).append("\n");
+    sb.append("    insecure: ").append(toIndentedString(insecure)).append("\n");
+    sb.append("    media: ").append(toIndentedString(media)).append("\n");
+    sb.append("    noAuthorStyle: ").append(toIndentedString(noAuthorStyle)).append("\n");
+    sb.append("    noDefaultStyle: ").append(toIndentedString(noDefaultStyle)).append("\n");
+    sb.append("    noEmbedFonts: ").append(toIndentedString(noEmbedFonts)).append("\n");
+    sb.append("    noSubsetFonts: ").append(toIndentedString(noSubsetFonts)).append("\n");
+    sb.append("    noCompress: ").append(toIndentedString(noCompress)).append("\n");
+    sb.append("    encrypt: ").append(toIndentedString(encrypt)).append("\n");
+    sb.append("    keyBits: ").append(toIndentedString(keyBits)).append("\n");
+    sb.append("    userPassword: ").append(toIndentedString(userPassword)).append("\n");
+    sb.append("    ownerPassword: ").append(toIndentedString(ownerPassword)).append("\n");
+    sb.append("    disallowPrint: ").append(toIndentedString(disallowPrint)).append("\n");
+    sb.append("    disallowCopy: ").append(toIndentedString(disallowCopy)).append("\n");
+    sb.append("    disallowAnnotate: ").append(toIndentedString(disallowAnnotate)).append("\n");
+    sb.append("    disallowModify: ").append(toIndentedString(disallowModify)).append("\n");
+    sb.append("    input: ").append(toIndentedString(input)).append("\n");
+    sb.append("    version: ").append(toIndentedString(version)).append("\n");
+    sb.append("    javascript: ").append(toIndentedString(javascript)).append("\n");
+    sb.append("    cssDpi: ").append(toIndentedString(cssDpi)).append("\n");
+    sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

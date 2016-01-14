@@ -5,7 +5,7 @@ import docraptor.Pair;
 import java.util.Map;
 import java.util.List;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-05T11:45:34.151-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-13T21:30:07.177-05:00")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;
@@ -44,6 +44,9 @@ public class ApiKeyAuth implements Authentication {
 
   @Override
   public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams) {
+    if (apiKey == null) {
+      return;
+    }
     String value;
     if (apiKeyPrefix != null) {
       value = apiKeyPrefix + " " + apiKey;

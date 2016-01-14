@@ -1,15 +1,16 @@
 package docraptor;
 
-import docraptor.StringUtil;
-
-
-
-import io.swagger.annotations.*;
+import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-05T11:45:34.151-05:00")
+
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-13T21:30:07.177-05:00")
 public class AsyncDocStatus   {
   
   private String status = null;
@@ -23,6 +24,7 @@ public class AsyncDocStatus   {
   /**
    * The present status of the document. Can be queued, working, completed, and failed.
    **/
+  
   @ApiModelProperty(value = "The present status of the document. Can be queued, working, completed, and failed.")
   @JsonProperty("status")
   public String getStatus() {
@@ -36,6 +38,7 @@ public class AsyncDocStatus   {
   /**
    * The URL where the document can be retrieved. This URL may only be used a few times.
    **/
+  
   @ApiModelProperty(value = "The URL where the document can be retrieved. This URL may only be used a few times.")
   @JsonProperty("download_url")
   public String getDownloadUrl() {
@@ -49,6 +52,7 @@ public class AsyncDocStatus   {
   /**
    * The identifier for downloading the document with the download api.
    **/
+  
   @ApiModelProperty(value = "The identifier for downloading the document with the download api.")
   @JsonProperty("download_id")
   public String getDownloadId() {
@@ -62,6 +66,7 @@ public class AsyncDocStatus   {
   /**
    * Additional information.
    **/
+  
   @ApiModelProperty(value = "Additional information.")
   @JsonProperty("message")
   public String getMessage() {
@@ -75,6 +80,7 @@ public class AsyncDocStatus   {
   /**
    * Number of PDF pages in document.
    **/
+  
   @ApiModelProperty(value = "Number of PDF pages in document.")
   @JsonProperty("number_of_pages")
   public Integer getNumberOfPages() {
@@ -88,6 +94,7 @@ public class AsyncDocStatus   {
   /**
    * Error information.
    **/
+  
   @ApiModelProperty(value = "Error information.")
   @JsonProperty("validation_errors")
   public String getValidationErrors() {
@@ -100,17 +107,51 @@ public class AsyncDocStatus   {
   
 
   @Override
-  public String toString()  {
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AsyncDocStatus asyncDocStatus = (AsyncDocStatus) o;
+    return Objects.equals(status, asyncDocStatus.status) &&
+        Objects.equals(downloadUrl, asyncDocStatus.downloadUrl) &&
+        Objects.equals(downloadId, asyncDocStatus.downloadId) &&
+        Objects.equals(message, asyncDocStatus.message) &&
+        Objects.equals(numberOfPages, asyncDocStatus.numberOfPages) &&
+        Objects.equals(validationErrors, asyncDocStatus.validationErrors);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(status, downloadUrl, downloadId, message, numberOfPages, validationErrors);
+  }
+
+  @Override
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AsyncDocStatus {\n");
     
-    sb.append("    status: ").append(StringUtil.toIndentedString(status)).append("\n");
-    sb.append("    downloadUrl: ").append(StringUtil.toIndentedString(downloadUrl)).append("\n");
-    sb.append("    downloadId: ").append(StringUtil.toIndentedString(downloadId)).append("\n");
-    sb.append("    message: ").append(StringUtil.toIndentedString(message)).append("\n");
-    sb.append("    numberOfPages: ").append(StringUtil.toIndentedString(numberOfPages)).append("\n");
-    sb.append("    validationErrors: ").append(StringUtil.toIndentedString(validationErrors)).append("\n");
+    sb.append("    status: ").append(toIndentedString(status)).append("\n");
+    sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    downloadId: ").append(toIndentedString(downloadId)).append("\n");
+    sb.append("    message: ").append(toIndentedString(message)).append("\n");
+    sb.append("    numberOfPages: ").append(toIndentedString(numberOfPages)).append("\n");
+    sb.append("    validationErrors: ").append(toIndentedString(validationErrors)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+

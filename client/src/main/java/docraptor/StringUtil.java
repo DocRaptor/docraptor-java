@@ -1,6 +1,6 @@
 package docraptor;
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-05T11:45:34.151-05:00")
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-13T21:30:07.177-05:00")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
@@ -38,14 +38,5 @@ public class StringUtil {
       out.append(separator).append(array[i]);
     }
     return out.toString();
-  }
-
-  /**
-   * Convert the given object to string with each line indented by 4 spaces
-   * (except the first line).
-   */
-  public static String toIndentedString(Object o) {
-    if (o == null) return "null";
-    return o.toString().replace("\n", "\n    ");
   }
 }

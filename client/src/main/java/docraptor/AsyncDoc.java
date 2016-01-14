@@ -1,15 +1,16 @@
 package docraptor;
 
-import docraptor.StringUtil;
-
-
-
-import io.swagger.annotations.*;
+import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonValue;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 
-@ApiModel(description = "")
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2015-11-05T11:45:34.151-05:00")
+
+
+
+@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-13T21:30:07.177-05:00")
 public class AsyncDoc   {
   
   private String statusId = null;
@@ -18,6 +19,7 @@ public class AsyncDoc   {
   /**
    * The identifier used to get the status of the document using the status api.
    **/
+  
   @ApiModelProperty(value = "The identifier used to get the status of the document using the status api.")
   @JsonProperty("status_id")
   public String getStatusId() {
@@ -30,12 +32,41 @@ public class AsyncDoc   {
   
 
   @Override
-  public String toString()  {
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    AsyncDoc asyncDoc = (AsyncDoc) o;
+    return Objects.equals(statusId, asyncDoc.statusId);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(statusId);
+  }
+
+  @Override
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AsyncDoc {\n");
     
-    sb.append("    statusId: ").append(StringUtil.toIndentedString(statusId)).append("\n");
+    sb.append("    statusId: ").append(toIndentedString(statusId)).append("\n");
     sb.append("}");
     return sb.toString();
   }
+
+  /**
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
+   */
+  private String toIndentedString(Object o) {
+    if (o == null) {
+      return "null";
+    }
+    return o.toString().replace("\n", "\n    ");
+  }
 }
+
