@@ -15,6 +15,6 @@ public class Sync {
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
-    docraptor.docsPost(doc);
+    docraptor.createDoc(doc);
   }
 }

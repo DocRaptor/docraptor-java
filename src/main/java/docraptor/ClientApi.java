@@ -41,12 +41,12 @@ public class ClientApi {
    * @param doc The document to be created.
    * @return AsyncDoc
    */
-  public AsyncDoc asyncDocsPost(Doc doc) throws ApiException {
+  public AsyncDoc createAsyncDoc(Doc doc) throws ApiException {
     Object postBody = doc;
     
      // verify the required parameter 'doc' is set
      if (doc == null) {
-        throw new ApiException(400, "Missing the required parameter 'doc' when calling asyncDocsPost");
+        throw new ApiException(400, "Missing the required parameter 'doc' when calling createAsyncDoc");
      }
      
     // create path and map variables
@@ -87,12 +87,12 @@ public class ClientApi {
    * @param doc The document to be created.
    * @return File
    */
-  public File docsPost(Doc doc) throws ApiException {
+  public File createDoc(Doc doc) throws ApiException {
     Object postBody = doc;
     
      // verify the required parameter 'doc' is set
      if (doc == null) {
-        throw new ApiException(400, "Missing the required parameter 'doc' when calling docsPost");
+        throw new ApiException(400, "Missing the required parameter 'doc' when calling createDoc");
      }
      
     // create path and map variables
@@ -133,12 +133,12 @@ public class ClientApi {
    * @param id The download_id returned from status request or a callback.
    * @return File
    */
-  public File downloadIdGet(String id) throws ApiException {
+  public File getAsyncDoc(String id) throws ApiException {
     Object postBody = null;
     
      // verify the required parameter 'id' is set
      if (id == null) {
-        throw new ApiException(400, "Missing the required parameter 'id' when calling downloadIdGet");
+        throw new ApiException(400, "Missing the required parameter 'id' when calling getAsyncDoc");
      }
      
     // create path and map variables
@@ -180,12 +180,12 @@ public class ClientApi {
    * @param id The status_id returned when creating an asynchronous document.
    * @return AsyncDocStatus
    */
-  public AsyncDocStatus statusIdGet(String id) throws ApiException {
+  public AsyncDocStatus getAsyncDocStatus(String id) throws ApiException {
     Object postBody = null;
     
      // verify the required parameter 'id' is set
      if (id == null) {
-        throw new ApiException(400, "Missing the required parameter 'id' when calling statusIdGet");
+        throw new ApiException(400, "Missing the required parameter 'id' when calling getAsyncDocStatus");
      }
      
     // create path and map variables

@@ -15,11 +15,11 @@ public class InvalidAsync {
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
-    AsyncDoc response = docraptor.asyncDocsPost(doc);
+    AsyncDoc response = docraptor.createAsyncDoc(doc);
 
     AsyncDocStatus status_response = null;
     for(int i=0; i<30; i++) {
-      status_response = docraptor.statusIdGet(response.getStatusId());
+      status_response = docraptor.getAsyncDocStatus(response.getStatusId());
       if (status_response.getStatus().equals("failed")) {
         System.exit(0);
       }

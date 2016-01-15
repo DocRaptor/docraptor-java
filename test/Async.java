@@ -15,18 +15,18 @@ public class Async {
     doc.setDocumentContent("<html><body>Swagger Java</body></html>");
     doc.setTest(true);
 
-    AsyncDoc response = docraptor.asyncDocsPost(doc);
+    AsyncDoc response = docraptor.createAsyncDoc(doc);
 
     AsyncDocStatus status_response = null;
     while(true) {
-      status_response = docraptor.statusIdGet(response.getStatusId());
+      status_response = docraptor.getAsyncDocStatus(response.getStatusId());
       if (status_response.getStatus().equals("completed")) {
         break;
       }
       Thread.sleep(1000);
     }
 
-    docraptor.downloadIdGet(status_response.getDownloadId());
+    docraptor.getAsyncDoc(status_response.getDownloadId());
 
   }
 }

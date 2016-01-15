@@ -56,7 +56,7 @@ public class Sync {
     // doc.setPrinceOptions(prince_options);
     // prince_options.setMedia("screen");                             // use screen styles instead of print styles
     // prince_options.setBaseurl("http://hello.com")                  // pretend URL when using document_content
-    docraptor.docsPost(doc);
+    docraptor.createDoc(doc);
   }
 }
 ```

@@ -16,7 +16,7 @@ public class InvalidSync {
     doc.setTest(true);
 
     try {
-      docraptor.docsPost(doc);
+      docraptor.createDoc(doc);
     } catch (docraptor.ApiException error) {
       System.exit(0);
     }

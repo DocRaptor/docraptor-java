@@ -15,6 +15,6 @@ public class Xlsx {
     doc.setDocumentContent("<html><body><table><tr><td>Swagger Java</td></tr></table></body></html>");
     doc.setTest(true);
 
-    docraptor.docsPost(doc);
+    docraptor.createDoc(doc);
   }
 }
