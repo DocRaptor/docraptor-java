@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 
-@javax.annotation.Generated(value = "class io.swagger.codegen.languages.JavaClientCodegen", date = "2016-01-14T12:48:47.840-05:00")
+
 public class PrinceOptions   {
   
   private String baseurl = null;
