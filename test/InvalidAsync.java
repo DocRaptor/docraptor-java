@@ -7,12 +7,12 @@ public class InvalidAsync {
     ClientApi docraptor = new ClientApi();
     ApiClient foo = docraptor.getApiClient();
     foo.setUsername("YOUR_API_KEY_HERE");
-    foo.setDebugging(true);
+    // foo.setDebugging(true);
 
     Doc doc = new Doc();
-    doc.setName(new String(new char[201]).replace("\0", "s"));
+    doc.setName(new String(new char[201]).replace("\0", "s")); // limit is 200 characters
     doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
-    doc.setDocumentContent("<html><body>Swagger Java</body></html>");
+    doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 
     AsyncDoc response = docraptor.createAsyncDoc(doc);

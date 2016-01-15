@@ -7,12 +7,12 @@ public class Async {
     ClientApi docraptor = new ClientApi();
     ApiClient foo = docraptor.getApiClient();
     foo.setUsername("YOUR_API_KEY_HERE");
-    foo.setDebugging(true);
+    // foo.setDebugging(true);
 
     Doc doc = new Doc();
-    doc.setName("swagger-java.pdf");
+    doc.setName("java-async.pdf");
     doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
-    doc.setDocumentContent("<html><body>Swagger Java</body></html>");
+    doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 
     AsyncDoc response = docraptor.createAsyncDoc(doc);

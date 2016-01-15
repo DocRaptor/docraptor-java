@@ -7,12 +7,12 @@ public class Xlsx {
     ClientApi docraptor = new ClientApi();
     ApiClient foo = docraptor.getApiClient();
     foo.setUsername("YOUR_API_KEY_HERE");
-    foo.setDebugging(true);
+    // foo.setDebugging(true);
 
     Doc doc = new Doc();
-    doc.setName("swagger-java.xlsx");
+    doc.setName("java-xlsx.xlsx");
     doc.setDocumentType(Doc.DocumentTypeEnum.XLSX);
-    doc.setDocumentContent("<html><body><table><tr><td>Swagger Java</td></tr></table></body></html>");
+    doc.setDocumentContent("<html><body><table><tr><td>Hello from Java</td></tr></table></body></html>");
     doc.setTest(true);
 
     docraptor.createDoc(doc);

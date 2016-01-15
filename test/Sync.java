@@ -7,12 +7,12 @@ public class Sync {
     ClientApi docraptor = new ClientApi();
     ApiClient foo = docraptor.getApiClient();
     foo.setUsername("YOUR_API_KEY_HERE");
-    foo.setDebugging(true);
+    // foo.setDebugging(true);
 
     Doc doc = new Doc();
-    doc.setName("swagger-java.pdf");
+    doc.setName("java-sync.pdf");
     doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
-    doc.setDocumentContent("<html><body>Swagger Java</body></html>");
+    doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 
     docraptor.createDoc(doc);
