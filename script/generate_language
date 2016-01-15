@@ -5,6 +5,11 @@ cd "`dirname \"$0\"`/.."
 LANGUAGE="$1"
 CONFIG_FILE="swagger-config.json"
 
+if [ "$LANGUAGE" == "" ]; then
+  ./script/swagger # prints languages
+  exit 1
+fi
+
 if [ ! -f "$CONFIG_FILE" ]; then
   echo "Could not find $CONFIG_FILE"
   ./script/swagger config-help -l $LANGUAGE
