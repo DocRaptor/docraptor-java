@@ -1,5 +1,5 @@
-group = 'io.swagger'
-version = '1.0.0'
+group = 'com.docraptor'
+version = '0.0.1'
 
 buildscript {
     repositories {
@@ -80,7 +80,7 @@ if(hasProperty('target') && target == 'android') {
     
     install {
         repositories.mavenInstaller {
-            pom.artifactId = 'swagger-java-client'
+            pom.artifactId = 'docraptor'
         }
     }
     

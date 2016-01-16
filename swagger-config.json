@@ -1,5 +1,8 @@
 {
 	"modelPackage": "docraptor",
   "invokerPackage": "docraptor",
-  "apiPackage": "docraptor"
+  "apiPackage": "docraptor",
+  "groupId": "com.docraptor",
+  "artifactId": "docraptor",
+  "artifactVersion": "0.0.1"
 }

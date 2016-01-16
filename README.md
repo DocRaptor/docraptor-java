@@ -9,14 +9,12 @@ This is a maven package for using [DocRaptor API](http://docraptor.com/documenta
 To install the API client library to your local Maven repository, simply execute:
 
 ```sh
-cd client
 mvn install
 ```
 
 To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
 
 ```sh
-cd client
 mvn deploy
 ```
 
@@ -24,10 +22,9 @@ After the client libarary is installed/deployed, you can use it in your Maven pr
 
 ```xml
 <dependency>
-    <groupId>io.swagger</groupId>
-    <artifactId>swagger-java-client</artifactId>
-    <version>1.0.0</version>
-    <scope>compile</scope>
+    <groupId>com.docraptor</groupId>
+    <artifactId>docraptor</artifactId>
+    <version>0.0.1</version>
 </dependency>
 ```
 
