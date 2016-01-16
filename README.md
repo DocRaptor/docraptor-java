@@ -33,6 +33,8 @@ After the client libarary is installed/deployed, you can use it in your Maven pr
 
 ## Usage
 
+See [examples](examples/) for runnable examples with file output, error handling, etc.
+
 ```java
 import java.io.*;
 import java.net.*;
@@ -41,27 +43,27 @@ import docraptor.*;
 public class Sync {
   public static void main(String[] args) throws Exception{
     ClientApi docraptor = new ClientApi();
-    ApiClient dr = docraptor.getApiClient();
-    dr.setUsername("YOUR_API_KEY_HERE"); // this key works for test documents
-    // dr.setDebugging(true);
+    ApiClientclient = docraptor.getApiClient();
+   client.setUsername("YOUR_API_KEY_HERE"); // this key works for test documents
+    //client.setDebugging(true);
 
     Doc doc = new Doc();
-    doc.setTest(true); # test documents are free but watermarked
-    doc.setDocumentContent("<html><body>Swagger Java</body></html>");    // supply content directly
+    doc.setTest(true);                                                   // test documents are free but watermarked
+    doc.setDocumentContent("<html><body>Hello World</body></html>");     // supply content directly
     // doc.setDocumentUrl("http://docraptor.com/examples/invoice.html"); // or use a url
     doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
-    doc.setName("swagger-java.pdf");                                     // help you find a document later
+    doc.setName("docraptor-java.pdf");                                   // help you find a document later
     doc.setJavascript(true);                                             // enable JavaScript processing
     // prince_options = new PrinceOptions();
     // doc.setPrinceOptions(prince_options);
-    // prince_options.setMedia("screen");                             // use screen styles instead of print styles
-    // prince_options.setBaseurl("http://hello.com")                  // pretend URL when using document_content
+    // prince_options.setMedia("screen");                                // use screen styles instead of print styles
+    // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
     docraptor.createDoc(doc);
   }
 }
 ```
 
-If your document will take longer than 60 seconds to render to PDF you will need to use our async api which allows up to 10 minutes, check out the [example](example/Async.java).
+Docs created like this are limited to 60 seconds to render, check out the [async example](examples/Async.java) which allows 10 minutes.
 
 
 We have guides for doing some of the common things:

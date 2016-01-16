@@ -3,11 +3,11 @@ import java.net.*;
 import docraptor.*;
 
 public class InvalidAsync {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
     ClientApi docraptor = new ClientApi();
-    ApiClient foo = docraptor.getApiClient();
-    foo.setUsername("YOUR_API_KEY_HERE");
-    // foo.setDebugging(true);
+    ApiClient client = docraptor.getApiClient();
+    client.setUsername("YOUR_API_KEY_HERE");
+    // client.setDebugging(true);
 
     Doc doc = new Doc();
     doc.setName(new String(new char[201]).replace("\0", "s")); // limit is 200 characters
@@ -27,7 +27,5 @@ public class InvalidAsync {
     }
     System.err.println("Did not receive failed validation within 30 seconds.");
     System.exit(1);
-
-
   }
 }

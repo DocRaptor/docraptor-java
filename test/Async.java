@@ -3,11 +3,11 @@ import java.net.*;
 import docraptor.*;
 
 public class Async {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
     ClientApi docraptor = new ClientApi();
-    ApiClient foo = docraptor.getApiClient();
-    foo.setUsername("YOUR_API_KEY_HERE");
-    // foo.setDebugging(true);
+    ApiClient client = docraptor.getApiClient();
+    client.setUsername("YOUR_API_KEY_HERE");
+    // client.setDebugging(true);
 
     Doc doc = new Doc();
     doc.setName("java-async.pdf");
@@ -27,6 +27,5 @@ public class Async {
     }
 
     docraptor.getAsyncDoc(status_response.getDownloadId());
-
   }
 }
