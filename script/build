@@ -6,5 +6,8 @@ if [[ `ls target/*.jar` ]] && [ "$1" == "lazy" ]; then
   exit
 fi
 
-which mvn > /dev/null    || (echo "mvn (aka maven) must be installed"; exit 1)
+# check dependencies
+which mvn > /dev/null     || (echo "mvn (aka maven) must be installed"; exit 1)
+java -version > /dev/null || (echo "java must be installed"; exit 1)
+
 mvn package
