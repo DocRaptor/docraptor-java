@@ -1,6 +1,6 @@
 import java.io.*;
 import java.net.*;
-import docraptor.*;
+import com.docraptor.*;
 
 public class InvalidSync {
   public static void main(String[] args) throws Exception {
@@ -17,7 +17,7 @@ public class InvalidSync {
 
     try {
       docraptor.createDoc(doc);
-    } catch (docraptor.ApiException error) {
+    } catch (com.docraptor.ApiException error) {
       System.exit(0);
     }
     System.err.println("Exception expected, but not raised");

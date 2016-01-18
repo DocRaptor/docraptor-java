@@ -35,7 +35,7 @@ See [examples](examples/) for runnable examples with file output, error handling
 ```java
 import java.io.*;
 import java.net.*;
-import docraptor.*;
+import com.docraptor.*;
 
 public class Sync {
   public static void main(String[] args) throws Exception{

@@ -13,7 +13,7 @@
 
 import java.io.*;
 import java.net.*;
-import docraptor.*;
+import com.docraptor.*;
 
 public class Sync {
   public static void main(String[] args) throws Exception {
@@ -38,7 +38,7 @@ public class Sync {
       File create_response = docraptor.createDoc(doc);
       create_response.renameTo(new File("/tmp/docraptor-java.pdf"));
       System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
-    } catch (docraptor.ApiException error) {
+    } catch (com.docraptor.ApiException error) {
       System.err.println(error);
       System.err.println(error.getCode());
       System.err.println(error.getMessage());

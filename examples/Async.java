@@ -12,7 +12,7 @@
 
 import java.io.*;
 import java.net.*;
-import docraptor.*;
+import com.docraptor.*;
 
 public class Async {
   public static void main(String[] args) throws Exception {
@@ -53,7 +53,7 @@ public class Async {
           break;
         }
       }
-    } catch (docraptor.ApiException error) {
+    } catch (com.docraptor.ApiException error) {
       System.err.println(error);
       System.err.println(error.getCode());
       System.err.println(error.getMessage());

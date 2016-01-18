@@ -1,6 +1,6 @@
 import java.io.*;
 import java.net.*;
-import docraptor.*;
+import com.docraptor.*;
 
 public class Xlsx {
   public static void main(String[] args) throws Exception {
