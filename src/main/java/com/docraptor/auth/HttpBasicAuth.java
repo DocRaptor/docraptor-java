@@ -1,6 +1,6 @@
-package docraptor.auth;
+package com.docraptor.auth;
 
-import docraptor.Pair;
+import com.docraptor.Pair;
 
 import com.migcomponents.migbase64.Base64;
 

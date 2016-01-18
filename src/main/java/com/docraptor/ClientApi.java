@@ -1,16 +1,16 @@
-package docraptor;
+package com.docraptor;
 
 import com.sun.jersey.api.client.GenericType;
 
-import docraptor.ApiException;
-import docraptor.ApiClient;
-import docraptor.Configuration;
-import docraptor.Pair;
+import com.docraptor.ApiException;
+import com.docraptor.ApiClient;
+import com.docraptor.Configuration;
+import com.docraptor.Pair;
 
-import docraptor.AsyncDoc;
-import docraptor.Doc;
+import com.docraptor.AsyncDoc;
+import com.docraptor.Doc;
 import java.io.File;
-import docraptor.AsyncDocStatus;
+import com.docraptor.AsyncDocStatus;
 
 import java.util.*;
 

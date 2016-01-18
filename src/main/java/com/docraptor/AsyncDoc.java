@@ -1,4 +1,4 @@
-package docraptor;
+package com.docraptor;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;

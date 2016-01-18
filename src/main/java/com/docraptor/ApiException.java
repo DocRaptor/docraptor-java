@@ -1,4 +1,4 @@
-package docraptor;
+package com.docraptor;
 
 import java.util.Map;
 import java.util.List;

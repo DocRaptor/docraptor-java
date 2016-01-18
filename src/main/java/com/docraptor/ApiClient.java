@@ -1,4 +1,4 @@
-package docraptor;
+package com.docraptor;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.*;
@@ -36,10 +36,10 @@ import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
-import docraptor.auth.Authentication;
-import docraptor.auth.HttpBasicAuth;
-import docraptor.auth.ApiKeyAuth;
-import docraptor.auth.OAuth;
+import com.docraptor.auth.Authentication;
+import com.docraptor.auth.HttpBasicAuth;
+import com.docraptor.auth.ApiKeyAuth;
+import com.docraptor.auth.OAuth;
 
 
 public class ApiClient {

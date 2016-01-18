@@ -1,4 +1,4 @@
-package docraptor;
+package com.docraptor;
 
 
 public class StringUtil {
