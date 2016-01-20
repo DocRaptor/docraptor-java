@@ -22,9 +22,9 @@ After the client libarary is installed/deployed, you can use it in your Maven pr
 
 ```xml
 <dependency>
-    <groupId>com.docraptor</groupId>
-    <artifactId>docraptor</artifactId>
-    <version>0.0.1</version>
+  <groupId>com.docraptor</groupId>
+  <artifactId>docraptor</artifactId>
+  <version>0.0.1</version>
 </dependency>
 ```
 
@@ -38,7 +38,7 @@ import java.net.*;
 import com.docraptor.*;
 
 public class Sync {
-  public static void main(String[] args) throws Exception{
+  public static void main(String[] args) throws Exception {
     ClientApi docraptor = new ClientApi();
     ApiClientclient = docraptor.getApiClient();
    client.setUsername("YOUR_API_KEY_HERE"); // this key works for test documents
