@@ -442,7 +442,7 @@ public class PrinceOptions   {
   
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -450,7 +450,8 @@ public class PrinceOptions   {
       return false;
     }
     PrinceOptions princeOptions = (PrinceOptions) o;
-    return Objects.equals(baseurl, princeOptions.baseurl) &&
+
+    return true && Objects.equals(baseurl, princeOptions.baseurl) &&
         Objects.equals(noXinclude, princeOptions.noXinclude) &&
         Objects.equals(noNetwork, princeOptions.noNetwork) &&
         Objects.equals(httpUser, princeOptions.httpUser) &&
@@ -476,7 +477,8 @@ public class PrinceOptions   {
         Objects.equals(version, princeOptions.version) &&
         Objects.equals(javascript, princeOptions.javascript) &&
         Objects.equals(cssDpi, princeOptions.cssDpi) &&
-        Objects.equals(profile, princeOptions.profile);
+        Objects.equals(profile, princeOptions.profile)
+    ;
   }
 
   @Override
@@ -524,7 +526,7 @@ public class PrinceOptions   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

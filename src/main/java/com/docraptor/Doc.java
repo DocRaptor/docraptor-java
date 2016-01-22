@@ -250,7 +250,7 @@ public class Doc   {
   
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -258,7 +258,8 @@ public class Doc   {
       return false;
     }
     Doc doc = (Doc) o;
-    return Objects.equals(name, doc.name) &&
+
+    return true && Objects.equals(name, doc.name) &&
         Objects.equals(documentType, doc.documentType) &&
         Objects.equals(documentContent, doc.documentContent) &&
         Objects.equals(documentUrl, doc.documentUrl) &&
@@ -270,7 +271,8 @@ public class Doc   {
         Objects.equals(javascript, doc.javascript) &&
         Objects.equals(referrer, doc.referrer) &&
         Objects.equals(callbackUrl, doc.callbackUrl) &&
-        Objects.equals(princeOptions, doc.princeOptions);
+        Objects.equals(princeOptions, doc.princeOptions)
+    ;
   }
 
   @Override
@@ -304,7 +306,7 @@ public class Doc   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

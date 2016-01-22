@@ -107,7 +107,7 @@ public class AsyncDocStatus   {
   
 
   @Override
-  public boolean equals(Object o) {
+  public boolean equals(java.lang.Object o) {
     if (this == o) {
       return true;
     }
@@ -115,12 +115,14 @@ public class AsyncDocStatus   {
       return false;
     }
     AsyncDocStatus asyncDocStatus = (AsyncDocStatus) o;
-    return Objects.equals(status, asyncDocStatus.status) &&
+
+    return true && Objects.equals(status, asyncDocStatus.status) &&
         Objects.equals(downloadUrl, asyncDocStatus.downloadUrl) &&
         Objects.equals(downloadId, asyncDocStatus.downloadId) &&
         Objects.equals(message, asyncDocStatus.message) &&
         Objects.equals(numberOfPages, asyncDocStatus.numberOfPages) &&
-        Objects.equals(validationErrors, asyncDocStatus.validationErrors);
+        Objects.equals(validationErrors, asyncDocStatus.validationErrors)
+    ;
   }
 
   @Override
@@ -147,7 +149,7 @@ public class AsyncDocStatus   {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(Object o) {
+  private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }

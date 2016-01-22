@@ -40,8 +40,10 @@ public class Async {
         AsyncDocStatus status_response = docraptor.getAsyncDocStatus(response.getStatusId());
         switch (status_response.getStatus()) {
         case "completed":
-          File doc_response = docraptor.getAsyncDoc(status_response.getDownloadId());
-          doc_response.renameTo(new File("/tmp/docraptor-java.pdf"));
+          byte[] doc_response = docraptor.getAsyncDoc(status_response.getDownloadId());
+          FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
+          file.write(doc_response);
+          file.close();
           System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
           return;
         case "failed":

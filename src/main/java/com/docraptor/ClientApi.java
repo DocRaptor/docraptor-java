@@ -9,7 +9,6 @@ import com.docraptor.Pair;
 
 import com.docraptor.AsyncDoc;
 import com.docraptor.Doc;
-import java.io.File;
 import com.docraptor.AsyncDocStatus;
 
 import java.util.*;
@@ -85,9 +84,9 @@ public class ClientApi {
    * 
    * Creates a document synchronously.
    * @param doc The document to be created.
-   * @return File
+   * @return byte[]
    */
-  public File createDoc(Doc doc) throws ApiException {
+  public byte[] createDoc(Doc doc) throws ApiException {
     Object postBody = doc;
     
      // verify the required parameter 'doc' is set
@@ -122,7 +121,7 @@ public class ClientApi {
     String[] authNames = new String[] { "basicAuth" };
 
     
-    GenericType<File> returnType = new GenericType<File>() {};
+    GenericType<byte[]> returnType = new GenericType<byte[]>() {};
     return apiClient.invokeAPI(path, "POST", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
   }
@@ -131,9 +130,9 @@ public class ClientApi {
    * 
    * Downloads a document.
    * @param id The download_id returned from status request or a callback.
-   * @return File
+   * @return byte[]
    */
-  public File getAsyncDoc(String id) throws ApiException {
+  public byte[] getAsyncDoc(String id) throws ApiException {
     Object postBody = null;
     
      // verify the required parameter 'id' is set
@@ -169,7 +168,7 @@ public class ClientApi {
     String[] authNames = new String[] { "basicAuth" };
 
     
-    GenericType<File> returnType = new GenericType<File>() {};
+    GenericType<byte[]> returnType = new GenericType<byte[]>() {};
     return apiClient.invokeAPI(path, "GET", queryParams, postBody, headerParams, formParams, accept, contentType, authNames, returnType);
     
   }
