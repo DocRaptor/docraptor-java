@@ -38,6 +38,7 @@ public class Async {
 
       while(true) {
         AsyncDocStatus status_response = docraptor.getAsyncDocStatus(response.getStatusId());
+        System.err.println("status: " + status_response.getStatus());
         switch (status_response.getStatus()) {
         case "completed":
           byte[] doc_response = docraptor.getAsyncDoc(status_response.getDownloadId());
