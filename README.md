@@ -89,7 +89,8 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 3. Update [CHANGELOG.md](CHANGELOG.md)
 4. Tag version: `git tag 'v0.0.x' && git push --tags`
 5. Push to GitHub
-6. mvn clean deploy
+6. `echo "warm" | gpg --use-agent --armor --detach-sign > /dev/null`
+7. `mvn clean deploy`
 
 ## Version Policy
 
