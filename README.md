@@ -1,20 +1,19 @@
 # DocRaptor Java Native Client Library
 
-**WARNING: This code is not production ready, you should use [this](https://docraptor.com/documentation/java).**
-
 This is a maven package for using [DocRaptor API](http://docraptor.com/documentation) to convert HTML to PDF and XLSX.
+
 
 ## Installation
 
 To install the API client library to your local Maven repository, simply execute:
 
-```sh
+```bash
 mvn install
 ```
 
 To deploy it to a remote Maven repository instead, configure the settings of the repository and execute:
 
-```sh
+```bash
 mvn deploy
 ```
 
@@ -27,6 +26,7 @@ After the client libarary is installed/deployed, you can use it in your Maven pr
   <version>0.0.1</version>
 </dependency>
 ```
+
 
 ## Usage
 
@@ -62,11 +62,12 @@ public class Sync {
 
 Docs created like this are limited to 60 seconds to render, check out the [async example](examples/Async.java) which allows 10 minutes.
 
-
 We have guides for doing some of the common things:
+
 * [Headers and Footers](https://docraptor.com/documentation/style#pdf-headers-footers) including page skipping
 * [CSS Media Selector](https://docraptor.com/documentation/api#api_basic_pdf) to make the page look exactly as it does in your browser
 * [Protected Content](https://docraptor.com/documentation/api#api_advanced_pdf) to secure your URLs so only DocRaptor can access them
+
 
 ## More Help
 
@@ -78,6 +79,7 @@ Stuck? We're experts at using DocRaptor so please [email us](mailto:support@docr
 ## Development
 
 The majority of the code in this repo is generated using swagger-codegen on [docraptor.yaml](docraptor.yaml). You can modify this file and regenerate the client using `script/generate_language java`.
+
 
 ## Release Process
 
@@ -93,6 +95,8 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 6. `echo "warm" | gpg --use-agent --armor --detach-sign > /dev/null`
 7. `mvn clean deploy`
 8. Use the git tag and make a new release with `target/*` attached, https://github.com/DocRaptor/docraptor-java/releases/new
+9. Update documentation on docraptor.com
+
 
 ## Version Policy
 
