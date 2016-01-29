@@ -14,14 +14,14 @@ import com.docraptor.AsyncDocStatus;
 import java.util.*;
 
 
-public class ClientApi {
+public class DocApi {
   private ApiClient apiClient;
 
-  public ClientApi() {
+  public DocApi() {
     this(Configuration.getDefaultApiClient());
   }
 
-  public ClientApi(ApiClient apiClient) {
+  public DocApi(ApiClient apiClient) {
     this.apiClient = apiClient;
   }
 

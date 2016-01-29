@@ -4,7 +4,7 @@ import com.docraptor.*;
 
 public class InvalidSync {
   public static void main(String[] args) throws Exception {
-    ClientApi docraptor = new ClientApi();
+    DocApi docraptor = new DocApi();
     ApiClient client = docraptor.getApiClient();
     client.setUsername("YOUR_API_KEY_HERE");
     // client.setDebugging(true);

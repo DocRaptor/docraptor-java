@@ -17,7 +17,7 @@ import com.docraptor.*;
 public class Async {
   public static void main(String[] args) throws Exception {
     try {
-      ClientApi docraptor = new ClientApi();
+      DocApi docraptor = new DocApi();
       ApiClient client = docraptor.getApiClient();
       client.setUsername("YOUR_API_KEY_HERE"); // this key works for test documents
       // client.setDebugging(true);
