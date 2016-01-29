@@ -92,10 +92,11 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 3. Update [CHANGELOG.md](CHANGELOG.md)
 4. Tag version: `git tag 'v0.0.x' && git push --tags`
 5. Push to GitHub
-6. `echo "warm" | gpg --use-agent --armor --detach-sign > /dev/null`
-7. `mvn clean deploy`
-8. Use the git tag and make a new release with `target/*` attached, https://github.com/DocRaptor/docraptor-java/releases/new
-9. Update documentation on docraptor.com
+6. `eval $(gpg-agent --daemon)`
+7. `gpg --use-agent --armor --detach-sign`
+8. `mvn clean deploy`
+9. Use the git tag and make a new release with `target/*` attached, https://github.com/DocRaptor/docraptor-java/releases/new
+10. Update documentation on docraptor.com
 
 
 ## Version Policy
