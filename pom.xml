@@ -5,7 +5,7 @@
   <artifactId>docraptor</artifactId>
   <packaging>jar</packaging>
   <name>docraptor</name>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <url>https://github.com/DocRaptor/docraptor-java</url>
   <description>A native client library for the DocRaptor HTML to PDF/XLS service.</description>
 

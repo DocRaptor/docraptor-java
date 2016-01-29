@@ -23,7 +23,7 @@ After the client libarary is installed/deployed, you can use it in your Maven pr
 <dependency>
   <groupId>com.docraptor</groupId>
   <artifactId>docraptor</artifactId>
-  <version>0.0.1</version>
+  <version>0.2.0</version>
 </dependency>
 ```
 
