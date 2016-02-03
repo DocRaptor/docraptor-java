@@ -12,14 +12,14 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 public class AsyncDoc   {
-  
+
   private String statusId = null;
 
-  
+
   /**
    * The identifier used to get the status of the document using the status api.
    **/
-  
+
   @ApiModelProperty(value = "The identifier used to get the status of the document using the status api.")
   @JsonProperty("status_id")
   public String getStatusId() {
@@ -29,7 +29,7 @@ public class AsyncDoc   {
     this.statusId = statusId;
   }
 
-  
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -54,7 +54,7 @@ public class AsyncDoc   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AsyncDoc {\n");
-    
+
     sb.append("    statusId: ").append(toIndentedString(statusId)).append("\n");
     sb.append("}");
     return sb.toString();

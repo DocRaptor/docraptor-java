@@ -13,7 +13,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 public class Doc   {
-  
+
   private String name = null;
 
 
@@ -66,11 +66,11 @@ public class Doc   {
   private String callbackUrl = null;
   private PrinceOptions princeOptions = null;
 
-  
+
   /**
    * A name for identifying your document.
    **/
-  
+
   @ApiModelProperty(required = true, value = "A name for identifying your document.")
   @JsonProperty("name")
   public String getName() {
@@ -80,11 +80,11 @@ public class Doc   {
     this.name = name;
   }
 
-  
+
   /**
    * The type of document being created.
    **/
-  
+
   @ApiModelProperty(required = true, value = "The type of document being created.")
   @JsonProperty("document_type")
   public DocumentTypeEnum getDocumentType() {
@@ -94,11 +94,11 @@ public class Doc   {
     this.documentType = documentType;
   }
 
-  
+
   /**
    * The HTML data to be transformed into a document. You must supply content using document_content or document_url.
    **/
-  
+
   @ApiModelProperty(required = true, value = "The HTML data to be transformed into a document. You must supply content using document_content or document_url.")
   @JsonProperty("document_content")
   public String getDocumentContent() {
@@ -108,11 +108,11 @@ public class Doc   {
     this.documentContent = documentContent;
   }
 
-  
+
   /**
    * The URL to fetch the HTML data to be transformed into a document. You must supply content using document_content or document_url.
    **/
-  
+
   @ApiModelProperty(value = "The URL to fetch the HTML data to be transformed into a document. You must supply content using document_content or document_url.")
   @JsonProperty("document_url")
   public String getDocumentUrl() {
@@ -122,11 +122,11 @@ public class Doc   {
     this.documentUrl = documentUrl;
   }
 
-  
+
   /**
    * Enable test mode for this document. Test documents are not charged for but include a watermark.
    **/
-  
+
   @ApiModelProperty(value = "Enable test mode for this document. Test documents are not charged for but include a watermark.")
   @JsonProperty("test")
   public Boolean getTest() {
@@ -136,11 +136,11 @@ public class Doc   {
     this.test = test;
   }
 
-  
+
   /**
    * Force strict HTML validation.
    **/
-  
+
   @ApiModelProperty(value = "Force strict HTML validation.")
   @JsonProperty("strict")
   public StrictEnum getStrict() {
@@ -150,11 +150,11 @@ public class Doc   {
     this.strict = strict;
   }
 
-  
+
   /**
    * Failed loading of images/javascripts/stylesheets/etc. will not cause the rendering to stop.
    **/
-  
+
   @ApiModelProperty(value = "Failed loading of images/javascripts/stylesheets/etc. will not cause the rendering to stop.")
   @JsonProperty("ignore_resource_errors")
   public Boolean getIgnoreResourceErrors() {
@@ -164,11 +164,11 @@ public class Doc   {
     this.ignoreResourceErrors = ignoreResourceErrors;
   }
 
-  
+
   /**
    * A field for storing a small amount of metadata with this document.
    **/
-  
+
   @ApiModelProperty(value = "A field for storing a small amount of metadata with this document.")
   @JsonProperty("tag")
   public String getTag() {
@@ -178,11 +178,11 @@ public class Doc   {
     this.tag = tag;
   }
 
-  
+
   /**
    * Request support help with this request if it succeeds.
    **/
-  
+
   @ApiModelProperty(value = "Request support help with this request if it succeeds.")
   @JsonProperty("help")
   public Boolean getHelp() {
@@ -192,11 +192,11 @@ public class Doc   {
     this.help = help;
   }
 
-  
+
   /**
    * Enable DocRaptor JavaScript parsing. PrinceXML JavaScript parsing is also available elsewhere.
    **/
-  
+
   @ApiModelProperty(value = "Enable DocRaptor JavaScript parsing. PrinceXML JavaScript parsing is also available elsewhere.")
   @JsonProperty("javascript")
   public Boolean getJavascript() {
@@ -206,11 +206,11 @@ public class Doc   {
     this.javascript = javascript;
   }
 
-  
+
   /**
    * Set HTTP referrer when generating this document.
    **/
-  
+
   @ApiModelProperty(value = "Set HTTP referrer when generating this document.")
   @JsonProperty("referrer")
   public String getReferrer() {
@@ -220,11 +220,11 @@ public class Doc   {
     this.referrer = referrer;
   }
 
-  
+
   /**
    * A URL that will receive a POST request after successfully completing an asynchronous document. The POST data will include download_url and download_id similar to status api responses. WARNING: this only works on asynchronous documents.
    **/
-  
+
   @ApiModelProperty(value = "A URL that will receive a POST request after successfully completing an asynchronous document. The POST data will include download_url and download_id similar to status api responses. WARNING: this only works on asynchronous documents.")
   @JsonProperty("callback_url")
   public String getCallbackUrl() {
@@ -234,10 +234,10 @@ public class Doc   {
     this.callbackUrl = callbackUrl;
   }
 
-  
+
   /**
    **/
-  
+
   @ApiModelProperty(value = "")
   @JsonProperty("prince_options")
   public PrinceOptions getPrinceOptions() {
@@ -247,7 +247,7 @@ public class Doc   {
     this.princeOptions = princeOptions;
   }
 
-  
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -284,7 +284,7 @@ public class Doc   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Doc {\n");
-    
+
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");

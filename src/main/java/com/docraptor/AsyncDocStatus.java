@@ -12,7 +12,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 
 public class AsyncDocStatus   {
-  
+
   private String status = null;
   private String downloadUrl = null;
   private String downloadId = null;
@@ -20,11 +20,11 @@ public class AsyncDocStatus   {
   private Integer numberOfPages = null;
   private String validationErrors = null;
 
-  
+
   /**
    * The present status of the document. Can be queued, working, completed, and failed.
    **/
-  
+
   @ApiModelProperty(value = "The present status of the document. Can be queued, working, completed, and failed.")
   @JsonProperty("status")
   public String getStatus() {
@@ -34,11 +34,11 @@ public class AsyncDocStatus   {
     this.status = status;
   }
 
-  
+
   /**
    * The URL where the document can be retrieved. This URL may only be used a few times.
    **/
-  
+
   @ApiModelProperty(value = "The URL where the document can be retrieved. This URL may only be used a few times.")
   @JsonProperty("download_url")
   public String getDownloadUrl() {
@@ -48,11 +48,11 @@ public class AsyncDocStatus   {
     this.downloadUrl = downloadUrl;
   }
 
-  
+
   /**
    * The identifier for downloading the document with the download api.
    **/
-  
+
   @ApiModelProperty(value = "The identifier for downloading the document with the download api.")
   @JsonProperty("download_id")
   public String getDownloadId() {
@@ -62,11 +62,11 @@ public class AsyncDocStatus   {
     this.downloadId = downloadId;
   }
 
-  
+
   /**
    * Additional information.
    **/
-  
+
   @ApiModelProperty(value = "Additional information.")
   @JsonProperty("message")
   public String getMessage() {
@@ -76,11 +76,11 @@ public class AsyncDocStatus   {
     this.message = message;
   }
 
-  
+
   /**
    * Number of PDF pages in document.
    **/
-  
+
   @ApiModelProperty(value = "Number of PDF pages in document.")
   @JsonProperty("number_of_pages")
   public Integer getNumberOfPages() {
@@ -90,11 +90,11 @@ public class AsyncDocStatus   {
     this.numberOfPages = numberOfPages;
   }
 
-  
+
   /**
    * Error information.
    **/
-  
+
   @ApiModelProperty(value = "Error information.")
   @JsonProperty("validation_errors")
   public String getValidationErrors() {
@@ -104,7 +104,7 @@ public class AsyncDocStatus   {
     this.validationErrors = validationErrors;
   }
 
-  
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -134,7 +134,7 @@ public class AsyncDocStatus   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class AsyncDocStatus {\n");
-    
+
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    downloadId: ").append(toIndentedString(downloadId)).append("\n");
