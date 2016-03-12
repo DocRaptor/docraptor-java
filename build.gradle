@@ -20,7 +20,7 @@ if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'com.android.library'
     apply plugin: 'com.github.dcendents.android-maven'
-    
+
     android {
         compileSdkVersion 22
         buildToolsVersion '22.0.0'
@@ -32,7 +32,7 @@ if(hasProperty('target') && target == 'android') {
             sourceCompatibility JavaVersion.VERSION_1_7
             targetCompatibility JavaVersion.VERSION_1_7
         }
-    
+
         // Rename the aar correctly
         libraryVariants.all { variant ->
             variant.outputs.each { output ->
@@ -48,7 +48,7 @@ if(hasProperty('target') && target == 'android') {
             provided 'javax.annotation:jsr250-api:1.0'
         }
     }
-    
+
     afterEvaluate {
         android.libraryVariants.all { variant ->
             def task = project.tasks.create "jar${variant.name.capitalize()}", Jar
@@ -60,12 +60,12 @@ if(hasProperty('target') && target == 'android') {
             artifacts.add('archives', task);
         }
     }
-    
+
     task sourcesJar(type: Jar) {
         from android.sourceSets.main.java.srcDirs
         classifier = 'sources'
     }
-    
+
     artifacts {
         archives sourcesJar
     }
@@ -74,16 +74,16 @@ if(hasProperty('target') && target == 'android') {
 
     apply plugin: 'java'
     apply plugin: 'maven'
-    
+
     sourceCompatibility = JavaVersion.VERSION_1_7
     targetCompatibility = JavaVersion.VERSION_1_7
-    
+
     install {
         repositories.mavenInstaller {
             pom.artifactId = 'docraptor'
         }
     }
-    
+
     task execute(type:JavaExec) {
        main = System.getProperty('mainClass')
        classpath = sourceSets.main.runtimeClasspath

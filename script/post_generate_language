@@ -8,3 +8,5 @@ find src -name "*.java" -type f -exec sed -i '' 's/@javax\.annotation\.Generated
 
 echo "Removing trailing whitespace..."
 find src -name "*.java" -type f -exec sed -E -i '' 's/[[:space:]]+$//g' {} +
+find . -name "*.gradle" -depth 1 -type f -exec sed -E -i '' 's/[[:space:]]+$//g' {} +
+find . -name "*.xml" -depth 1 -type f -exec sed -E -i '' 's/[[:space:]]+$//g' {} +
