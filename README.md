@@ -83,20 +83,23 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 
 ## Release Process
 
-1. `script/test`
-2. Increment version in code:
+1. Pull latest master
+2. Merge feature branch(es) into master
+3. `script/test`
+4. Increment version in code:
   - `swagger-config.json`
   - `build.gradle`
   - `pom.xml`
   - `README.md`
-3. Update [CHANGELOG.md](CHANGELOG.md)
-4. Tag version: `git tag 'v0.0.x' && git push --tags`
-5. Push to GitHub
-6. `eval $(gpg-agent --daemon)`
-7. `gpg --use-agent --armor --detach-sign`
-8. `mvn clean deploy`
-9. Use the git tag and make a new release with `target/*` attached, https://github.com/DocRaptor/docraptor-java/tags
-10. Update documentation on docraptor.com
+5. Update [CHANGELOG.md](CHANGELOG.md)
+6. Commit "Release version vX.Y.Z"
+7. Push to GitHub
+8. Tag version: `git tag 'vX.Y.Z' && git push --tags`
+9. `eval $(gpg-agent --daemon)`
+10. `echo | gpg --use-agent --armor --detach-sign`
+11. `mvn clean deploy`
+12. Use the git tag and make a new release with `target/docraptor-*` attached, https://github.com/DocRaptor/docraptor-java/tags
+13. Update documentation on docraptor.com
 
 
 ## Version Policy
