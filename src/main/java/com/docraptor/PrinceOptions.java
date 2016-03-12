@@ -65,8 +65,12 @@ public class PrinceOptions   {
   /**
    * Set the baseurl for assets.
    **/
+  public PrinceOptions baseurl(String baseurl) {
+    this.baseurl = baseurl;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the baseurl for assets.")
+  @ApiModelProperty(example = "null", value = "Set the baseurl for assets.")
   @JsonProperty("baseurl")
   public String getBaseurl() {
     return baseurl;
@@ -79,8 +83,12 @@ public class PrinceOptions   {
   /**
    * Disable XML inclusion.
    **/
+  public PrinceOptions noXinclude(Boolean noXinclude) {
+    this.noXinclude = noXinclude;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disable XML inclusion.")
+  @ApiModelProperty(example = "null", value = "Disable XML inclusion.")
   @JsonProperty("no_xinclude")
   public Boolean getNoXinclude() {
     return noXinclude;
@@ -93,8 +101,12 @@ public class PrinceOptions   {
   /**
    * Disable network access.
    **/
+  public PrinceOptions noNetwork(Boolean noNetwork) {
+    this.noNetwork = noNetwork;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disable network access.")
+  @ApiModelProperty(example = "null", value = "Disable network access.")
   @JsonProperty("no_network")
   public Boolean getNoNetwork() {
     return noNetwork;
@@ -107,8 +119,12 @@ public class PrinceOptions   {
   /**
    * Set the user for HTTP authentication.
    **/
+  public PrinceOptions httpUser(String httpUser) {
+    this.httpUser = httpUser;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the user for HTTP authentication.")
+  @ApiModelProperty(example = "null", value = "Set the user for HTTP authentication.")
   @JsonProperty("http_user")
   public String getHttpUser() {
     return httpUser;
@@ -121,8 +137,12 @@ public class PrinceOptions   {
   /**
    * Set the password for HTTP authentication.
    **/
+  public PrinceOptions httpPassword(String httpPassword) {
+    this.httpPassword = httpPassword;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the password for HTTP authentication.")
+  @ApiModelProperty(example = "null", value = "Set the password for HTTP authentication.")
   @JsonProperty("http_password")
   public String getHttpPassword() {
     return httpPassword;
@@ -135,8 +155,12 @@ public class PrinceOptions   {
   /**
    * Set the HTTP proxy server.
    **/
+  public PrinceOptions httpProxy(String httpProxy) {
+    this.httpProxy = httpProxy;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the HTTP proxy server.")
+  @ApiModelProperty(example = "null", value = "Set the HTTP proxy server.")
   @JsonProperty("http_proxy")
   public String getHttpProxy() {
     return httpProxy;
@@ -149,8 +173,12 @@ public class PrinceOptions   {
   /**
    * Set the HTTP request timeout.
    **/
+  public PrinceOptions httpTimeout(Integer httpTimeout) {
+    this.httpTimeout = httpTimeout;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the HTTP request timeout.")
+  @ApiModelProperty(example = "null", value = "Set the HTTP request timeout.")
   @JsonProperty("http_timeout")
   public Integer getHttpTimeout() {
     return httpTimeout;
@@ -163,8 +191,12 @@ public class PrinceOptions   {
   /**
    * Disable SSL verification.
    **/
+  public PrinceOptions insecure(Boolean insecure) {
+    this.insecure = insecure;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disable SSL verification.")
+  @ApiModelProperty(example = "null", value = "Disable SSL verification.")
   @JsonProperty("insecure")
   public Boolean getInsecure() {
     return insecure;
@@ -177,8 +209,12 @@ public class PrinceOptions   {
   /**
    * Specify the CSS media type. Defaults to \"print\" but you may want to use \"screen\" for web styles.
    **/
+  public PrinceOptions media(String media) {
+    this.media = media;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Specify the CSS media type. Defaults to \"print\" but you may want to use \"screen\" for web styles.")
+  @ApiModelProperty(example = "null", value = "Specify the CSS media type. Defaults to \"print\" but you may want to use \"screen\" for web styles.")
   @JsonProperty("media")
   public String getMedia() {
     return media;
@@ -191,8 +227,12 @@ public class PrinceOptions   {
   /**
    * Ignore author stylesheets.
    **/
+  public PrinceOptions noAuthorStyle(Boolean noAuthorStyle) {
+    this.noAuthorStyle = noAuthorStyle;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Ignore author stylesheets.")
+  @ApiModelProperty(example = "null", value = "Ignore author stylesheets.")
   @JsonProperty("no_author_style")
   public Boolean getNoAuthorStyle() {
     return noAuthorStyle;
@@ -205,8 +245,12 @@ public class PrinceOptions   {
   /**
    * Ignore default stylesheets.
    **/
+  public PrinceOptions noDefaultStyle(Boolean noDefaultStyle) {
+    this.noDefaultStyle = noDefaultStyle;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Ignore default stylesheets.")
+  @ApiModelProperty(example = "null", value = "Ignore default stylesheets.")
   @JsonProperty("no_default_style")
   public Boolean getNoDefaultStyle() {
     return noDefaultStyle;
@@ -219,8 +263,12 @@ public class PrinceOptions   {
   /**
    * Disable font embedding in PDFs.
    **/
+  public PrinceOptions noEmbedFonts(Boolean noEmbedFonts) {
+    this.noEmbedFonts = noEmbedFonts;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disable font embedding in PDFs.")
+  @ApiModelProperty(example = "null", value = "Disable font embedding in PDFs.")
   @JsonProperty("no_embed_fonts")
   public Boolean getNoEmbedFonts() {
     return noEmbedFonts;
@@ -233,8 +281,12 @@ public class PrinceOptions   {
   /**
    * Disable font subsetting in PDFs.
    **/
+  public PrinceOptions noSubsetFonts(Boolean noSubsetFonts) {
+    this.noSubsetFonts = noSubsetFonts;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disable font subsetting in PDFs.")
+  @ApiModelProperty(example = "null", value = "Disable font subsetting in PDFs.")
   @JsonProperty("no_subset_fonts")
   public Boolean getNoSubsetFonts() {
     return noSubsetFonts;
@@ -247,8 +299,12 @@ public class PrinceOptions   {
   /**
    * Disable PDF compression.
    **/
+  public PrinceOptions noCompress(Boolean noCompress) {
+    this.noCompress = noCompress;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disable PDF compression.")
+  @ApiModelProperty(example = "null", value = "Disable PDF compression.")
   @JsonProperty("no_compress")
   public Boolean getNoCompress() {
     return noCompress;
@@ -261,8 +317,12 @@ public class PrinceOptions   {
   /**
    * Encrypt PDF output.
    **/
+  public PrinceOptions encrypt(Boolean encrypt) {
+    this.encrypt = encrypt;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Encrypt PDF output.")
+  @ApiModelProperty(example = "null", value = "Encrypt PDF output.")
   @JsonProperty("encrypt")
   public Boolean getEncrypt() {
     return encrypt;
@@ -275,8 +335,12 @@ public class PrinceOptions   {
   /**
    * Set encryption key size.
    **/
+  public PrinceOptions keyBits(Integer keyBits) {
+    this.keyBits = keyBits;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set encryption key size.")
+  @ApiModelProperty(example = "null", value = "Set encryption key size.")
   @JsonProperty("key_bits")
   public Integer getKeyBits() {
     return keyBits;
@@ -289,8 +353,12 @@ public class PrinceOptions   {
   /**
    * Set the PDF user password.
    **/
+  public PrinceOptions userPassword(String userPassword) {
+    this.userPassword = userPassword;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the PDF user password.")
+  @ApiModelProperty(example = "null", value = "Set the PDF user password.")
   @JsonProperty("user_password")
   public String getUserPassword() {
     return userPassword;
@@ -303,8 +371,12 @@ public class PrinceOptions   {
   /**
    * Set the PDF owner password.
    **/
+  public PrinceOptions ownerPassword(String ownerPassword) {
+    this.ownerPassword = ownerPassword;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the PDF owner password.")
+  @ApiModelProperty(example = "null", value = "Set the PDF owner password.")
   @JsonProperty("owner_password")
   public String getOwnerPassword() {
     return ownerPassword;
@@ -317,8 +389,12 @@ public class PrinceOptions   {
   /**
    * Disallow printing of this PDF.
    **/
+  public PrinceOptions disallowPrint(Boolean disallowPrint) {
+    this.disallowPrint = disallowPrint;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disallow printing of this PDF.")
+  @ApiModelProperty(example = "null", value = "Disallow printing of this PDF.")
   @JsonProperty("disallow_print")
   public Boolean getDisallowPrint() {
     return disallowPrint;
@@ -331,8 +407,12 @@ public class PrinceOptions   {
   /**
    * Disallow copying of this PDF.
    **/
+  public PrinceOptions disallowCopy(Boolean disallowCopy) {
+    this.disallowCopy = disallowCopy;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disallow copying of this PDF.")
+  @ApiModelProperty(example = "null", value = "Disallow copying of this PDF.")
   @JsonProperty("disallow_copy")
   public Boolean getDisallowCopy() {
     return disallowCopy;
@@ -345,8 +425,12 @@ public class PrinceOptions   {
   /**
    * Disallow annotation of this PDF.
    **/
+  public PrinceOptions disallowAnnotate(Boolean disallowAnnotate) {
+    this.disallowAnnotate = disallowAnnotate;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disallow annotation of this PDF.")
+  @ApiModelProperty(example = "null", value = "Disallow annotation of this PDF.")
   @JsonProperty("disallow_annotate")
   public Boolean getDisallowAnnotate() {
     return disallowAnnotate;
@@ -359,8 +443,12 @@ public class PrinceOptions   {
   /**
    * Disallow modification of this PDF.
    **/
+  public PrinceOptions disallowModify(Boolean disallowModify) {
+    this.disallowModify = disallowModify;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Disallow modification of this PDF.")
+  @ApiModelProperty(example = "null", value = "Disallow modification of this PDF.")
   @JsonProperty("disallow_modify")
   public Boolean getDisallowModify() {
     return disallowModify;
@@ -373,8 +461,12 @@ public class PrinceOptions   {
   /**
    * Specify the input format.
    **/
+  public PrinceOptions input(InputEnum input) {
+    this.input = input;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Specify the input format.")
+  @ApiModelProperty(example = "null", value = "Specify the input format.")
   @JsonProperty("input")
   public InputEnum getInput() {
     return input;
@@ -387,8 +479,12 @@ public class PrinceOptions   {
   /**
    * Specify a specific verison of PrinceXML to use.
    **/
+  public PrinceOptions version(String version) {
+    this.version = version;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Specify a specific verison of PrinceXML to use.")
+  @ApiModelProperty(example = "null", value = "Specify a specific verison of PrinceXML to use.")
   @JsonProperty("version")
   public String getVersion() {
     return version;
@@ -401,8 +497,12 @@ public class PrinceOptions   {
   /**
    * Enable PrinceXML JavaScript. DocRaptor JavaScript parsing is also available elsewhere.
    **/
+  public PrinceOptions javascript(Boolean javascript) {
+    this.javascript = javascript;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Enable PrinceXML JavaScript. DocRaptor JavaScript parsing is also available elsewhere.")
+  @ApiModelProperty(example = "null", value = "Enable PrinceXML JavaScript. DocRaptor JavaScript parsing is also available elsewhere.")
   @JsonProperty("javascript")
   public Boolean getJavascript() {
     return javascript;
@@ -415,8 +515,12 @@ public class PrinceOptions   {
   /**
    * Set the DPI when rendering CSS. Defaults to 96 but can be set with Prince 9.0 and up.
    **/
+  public PrinceOptions cssDpi(Integer cssDpi) {
+    this.cssDpi = cssDpi;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set the DPI when rendering CSS. Defaults to 96 but can be set with Prince 9.0 and up.")
+  @ApiModelProperty(example = "null", value = "Set the DPI when rendering CSS. Defaults to 96 but can be set with Prince 9.0 and up.")
   @JsonProperty("css_dpi")
   public Integer getCssDpi() {
     return cssDpi;
@@ -429,8 +533,12 @@ public class PrinceOptions   {
   /**
    * In Prince 9.0 and up you can set the PDF profile.
    **/
+  public PrinceOptions profile(String profile) {
+    this.profile = profile;
+    return this;
+  }
 
-  @ApiModelProperty(value = "In Prince 9.0 and up you can set the PDF profile.")
+  @ApiModelProperty(example = "null", value = "In Prince 9.0 and up you can set the PDF profile.")
   @JsonProperty("profile")
   public String getProfile() {
     return profile;
@@ -450,35 +558,33 @@ public class PrinceOptions   {
       return false;
     }
     PrinceOptions princeOptions = (PrinceOptions) o;
-
-    return true && Objects.equals(baseurl, princeOptions.baseurl) &&
-        Objects.equals(noXinclude, princeOptions.noXinclude) &&
-        Objects.equals(noNetwork, princeOptions.noNetwork) &&
-        Objects.equals(httpUser, princeOptions.httpUser) &&
-        Objects.equals(httpPassword, princeOptions.httpPassword) &&
-        Objects.equals(httpProxy, princeOptions.httpProxy) &&
-        Objects.equals(httpTimeout, princeOptions.httpTimeout) &&
-        Objects.equals(insecure, princeOptions.insecure) &&
-        Objects.equals(media, princeOptions.media) &&
-        Objects.equals(noAuthorStyle, princeOptions.noAuthorStyle) &&
-        Objects.equals(noDefaultStyle, princeOptions.noDefaultStyle) &&
-        Objects.equals(noEmbedFonts, princeOptions.noEmbedFonts) &&
-        Objects.equals(noSubsetFonts, princeOptions.noSubsetFonts) &&
-        Objects.equals(noCompress, princeOptions.noCompress) &&
-        Objects.equals(encrypt, princeOptions.encrypt) &&
-        Objects.equals(keyBits, princeOptions.keyBits) &&
-        Objects.equals(userPassword, princeOptions.userPassword) &&
-        Objects.equals(ownerPassword, princeOptions.ownerPassword) &&
-        Objects.equals(disallowPrint, princeOptions.disallowPrint) &&
-        Objects.equals(disallowCopy, princeOptions.disallowCopy) &&
-        Objects.equals(disallowAnnotate, princeOptions.disallowAnnotate) &&
-        Objects.equals(disallowModify, princeOptions.disallowModify) &&
-        Objects.equals(input, princeOptions.input) &&
-        Objects.equals(version, princeOptions.version) &&
-        Objects.equals(javascript, princeOptions.javascript) &&
-        Objects.equals(cssDpi, princeOptions.cssDpi) &&
-        Objects.equals(profile, princeOptions.profile)
-    ;
+    return Objects.equals(this.baseurl, princeOptions.baseurl) &&
+        Objects.equals(this.noXinclude, princeOptions.noXinclude) &&
+        Objects.equals(this.noNetwork, princeOptions.noNetwork) &&
+        Objects.equals(this.httpUser, princeOptions.httpUser) &&
+        Objects.equals(this.httpPassword, princeOptions.httpPassword) &&
+        Objects.equals(this.httpProxy, princeOptions.httpProxy) &&
+        Objects.equals(this.httpTimeout, princeOptions.httpTimeout) &&
+        Objects.equals(this.insecure, princeOptions.insecure) &&
+        Objects.equals(this.media, princeOptions.media) &&
+        Objects.equals(this.noAuthorStyle, princeOptions.noAuthorStyle) &&
+        Objects.equals(this.noDefaultStyle, princeOptions.noDefaultStyle) &&
+        Objects.equals(this.noEmbedFonts, princeOptions.noEmbedFonts) &&
+        Objects.equals(this.noSubsetFonts, princeOptions.noSubsetFonts) &&
+        Objects.equals(this.noCompress, princeOptions.noCompress) &&
+        Objects.equals(this.encrypt, princeOptions.encrypt) &&
+        Objects.equals(this.keyBits, princeOptions.keyBits) &&
+        Objects.equals(this.userPassword, princeOptions.userPassword) &&
+        Objects.equals(this.ownerPassword, princeOptions.ownerPassword) &&
+        Objects.equals(this.disallowPrint, princeOptions.disallowPrint) &&
+        Objects.equals(this.disallowCopy, princeOptions.disallowCopy) &&
+        Objects.equals(this.disallowAnnotate, princeOptions.disallowAnnotate) &&
+        Objects.equals(this.disallowModify, princeOptions.disallowModify) &&
+        Objects.equals(this.input, princeOptions.input) &&
+        Objects.equals(this.version, princeOptions.version) &&
+        Objects.equals(this.javascript, princeOptions.javascript) &&
+        Objects.equals(this.cssDpi, princeOptions.cssDpi) &&
+        Objects.equals(this.profile, princeOptions.profile);
   }
 
   @Override

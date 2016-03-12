@@ -70,8 +70,12 @@ public class Doc   {
   /**
    * A name for identifying your document.
    **/
+  public Doc name(String name) {
+    this.name = name;
+    return this;
+  }
 
-  @ApiModelProperty(required = true, value = "A name for identifying your document.")
+  @ApiModelProperty(example = "null", required = true, value = "A name for identifying your document.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -84,8 +88,12 @@ public class Doc   {
   /**
    * The type of document being created.
    **/
+  public Doc documentType(DocumentTypeEnum documentType) {
+    this.documentType = documentType;
+    return this;
+  }
 
-  @ApiModelProperty(required = true, value = "The type of document being created.")
+  @ApiModelProperty(example = "null", required = true, value = "The type of document being created.")
   @JsonProperty("document_type")
   public DocumentTypeEnum getDocumentType() {
     return documentType;
@@ -98,8 +106,12 @@ public class Doc   {
   /**
    * The HTML data to be transformed into a document. You must supply content using document_content or document_url.
    **/
+  public Doc documentContent(String documentContent) {
+    this.documentContent = documentContent;
+    return this;
+  }
 
-  @ApiModelProperty(required = true, value = "The HTML data to be transformed into a document. You must supply content using document_content or document_url.")
+  @ApiModelProperty(example = "null", required = true, value = "The HTML data to be transformed into a document. You must supply content using document_content or document_url.")
   @JsonProperty("document_content")
   public String getDocumentContent() {
     return documentContent;
@@ -112,8 +124,12 @@ public class Doc   {
   /**
    * The URL to fetch the HTML data to be transformed into a document. You must supply content using document_content or document_url.
    **/
+  public Doc documentUrl(String documentUrl) {
+    this.documentUrl = documentUrl;
+    return this;
+  }
 
-  @ApiModelProperty(value = "The URL to fetch the HTML data to be transformed into a document. You must supply content using document_content or document_url.")
+  @ApiModelProperty(example = "null", value = "The URL to fetch the HTML data to be transformed into a document. You must supply content using document_content or document_url.")
   @JsonProperty("document_url")
   public String getDocumentUrl() {
     return documentUrl;
@@ -126,8 +142,12 @@ public class Doc   {
   /**
    * Enable test mode for this document. Test documents are not charged for but include a watermark.
    **/
+  public Doc test(Boolean test) {
+    this.test = test;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Enable test mode for this document. Test documents are not charged for but include a watermark.")
+  @ApiModelProperty(example = "null", value = "Enable test mode for this document. Test documents are not charged for but include a watermark.")
   @JsonProperty("test")
   public Boolean getTest() {
     return test;
@@ -140,8 +160,12 @@ public class Doc   {
   /**
    * Force strict HTML validation.
    **/
+  public Doc strict(StrictEnum strict) {
+    this.strict = strict;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Force strict HTML validation.")
+  @ApiModelProperty(example = "null", value = "Force strict HTML validation.")
   @JsonProperty("strict")
   public StrictEnum getStrict() {
     return strict;
@@ -154,8 +178,12 @@ public class Doc   {
   /**
    * Failed loading of images/javascripts/stylesheets/etc. will not cause the rendering to stop.
    **/
+  public Doc ignoreResourceErrors(Boolean ignoreResourceErrors) {
+    this.ignoreResourceErrors = ignoreResourceErrors;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Failed loading of images/javascripts/stylesheets/etc. will not cause the rendering to stop.")
+  @ApiModelProperty(example = "null", value = "Failed loading of images/javascripts/stylesheets/etc. will not cause the rendering to stop.")
   @JsonProperty("ignore_resource_errors")
   public Boolean getIgnoreResourceErrors() {
     return ignoreResourceErrors;
@@ -168,8 +196,12 @@ public class Doc   {
   /**
    * A field for storing a small amount of metadata with this document.
    **/
+  public Doc tag(String tag) {
+    this.tag = tag;
+    return this;
+  }
 
-  @ApiModelProperty(value = "A field for storing a small amount of metadata with this document.")
+  @ApiModelProperty(example = "null", value = "A field for storing a small amount of metadata with this document.")
   @JsonProperty("tag")
   public String getTag() {
     return tag;
@@ -182,8 +214,12 @@ public class Doc   {
   /**
    * Request support help with this request if it succeeds.
    **/
+  public Doc help(Boolean help) {
+    this.help = help;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Request support help with this request if it succeeds.")
+  @ApiModelProperty(example = "null", value = "Request support help with this request if it succeeds.")
   @JsonProperty("help")
   public Boolean getHelp() {
     return help;
@@ -196,8 +232,12 @@ public class Doc   {
   /**
    * Enable DocRaptor JavaScript parsing. PrinceXML JavaScript parsing is also available elsewhere.
    **/
+  public Doc javascript(Boolean javascript) {
+    this.javascript = javascript;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Enable DocRaptor JavaScript parsing. PrinceXML JavaScript parsing is also available elsewhere.")
+  @ApiModelProperty(example = "null", value = "Enable DocRaptor JavaScript parsing. PrinceXML JavaScript parsing is also available elsewhere.")
   @JsonProperty("javascript")
   public Boolean getJavascript() {
     return javascript;
@@ -210,8 +250,12 @@ public class Doc   {
   /**
    * Set HTTP referrer when generating this document.
    **/
+  public Doc referrer(String referrer) {
+    this.referrer = referrer;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Set HTTP referrer when generating this document.")
+  @ApiModelProperty(example = "null", value = "Set HTTP referrer when generating this document.")
   @JsonProperty("referrer")
   public String getReferrer() {
     return referrer;
@@ -224,8 +268,12 @@ public class Doc   {
   /**
    * A URL that will receive a POST request after successfully completing an asynchronous document. The POST data will include download_url and download_id similar to status api responses. WARNING: this only works on asynchronous documents.
    **/
+  public Doc callbackUrl(String callbackUrl) {
+    this.callbackUrl = callbackUrl;
+    return this;
+  }
 
-  @ApiModelProperty(value = "A URL that will receive a POST request after successfully completing an asynchronous document. The POST data will include download_url and download_id similar to status api responses. WARNING: this only works on asynchronous documents.")
+  @ApiModelProperty(example = "null", value = "A URL that will receive a POST request after successfully completing an asynchronous document. The POST data will include download_url and download_id similar to status api responses. WARNING: this only works on asynchronous documents.")
   @JsonProperty("callback_url")
   public String getCallbackUrl() {
     return callbackUrl;
@@ -237,8 +285,12 @@ public class Doc   {
 
   /**
    **/
+  public Doc princeOptions(PrinceOptions princeOptions) {
+    this.princeOptions = princeOptions;
+    return this;
+  }
 
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "null", value = "")
   @JsonProperty("prince_options")
   public PrinceOptions getPrinceOptions() {
     return princeOptions;
@@ -258,21 +310,19 @@ public class Doc   {
       return false;
     }
     Doc doc = (Doc) o;
-
-    return true && Objects.equals(name, doc.name) &&
-        Objects.equals(documentType, doc.documentType) &&
-        Objects.equals(documentContent, doc.documentContent) &&
-        Objects.equals(documentUrl, doc.documentUrl) &&
-        Objects.equals(test, doc.test) &&
-        Objects.equals(strict, doc.strict) &&
-        Objects.equals(ignoreResourceErrors, doc.ignoreResourceErrors) &&
-        Objects.equals(tag, doc.tag) &&
-        Objects.equals(help, doc.help) &&
-        Objects.equals(javascript, doc.javascript) &&
-        Objects.equals(referrer, doc.referrer) &&
-        Objects.equals(callbackUrl, doc.callbackUrl) &&
-        Objects.equals(princeOptions, doc.princeOptions)
-    ;
+    return Objects.equals(this.name, doc.name) &&
+        Objects.equals(this.documentType, doc.documentType) &&
+        Objects.equals(this.documentContent, doc.documentContent) &&
+        Objects.equals(this.documentUrl, doc.documentUrl) &&
+        Objects.equals(this.test, doc.test) &&
+        Objects.equals(this.strict, doc.strict) &&
+        Objects.equals(this.ignoreResourceErrors, doc.ignoreResourceErrors) &&
+        Objects.equals(this.tag, doc.tag) &&
+        Objects.equals(this.help, doc.help) &&
+        Objects.equals(this.javascript, doc.javascript) &&
+        Objects.equals(this.referrer, doc.referrer) &&
+        Objects.equals(this.callbackUrl, doc.callbackUrl) &&
+        Objects.equals(this.princeOptions, doc.princeOptions);
   }
 
   @Override

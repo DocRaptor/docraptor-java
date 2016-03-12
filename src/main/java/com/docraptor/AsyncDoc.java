@@ -2,7 +2,6 @@ package com.docraptor;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -19,8 +18,12 @@ public class AsyncDoc   {
   /**
    * The identifier used to get the status of the document using the status api.
    **/
+  public AsyncDoc statusId(String statusId) {
+    this.statusId = statusId;
+    return this;
+  }
 
-  @ApiModelProperty(value = "The identifier used to get the status of the document using the status api.")
+  @ApiModelProperty(example = "null", value = "The identifier used to get the status of the document using the status api.")
   @JsonProperty("status_id")
   public String getStatusId() {
     return statusId;
@@ -40,9 +43,7 @@ public class AsyncDoc   {
       return false;
     }
     AsyncDoc asyncDoc = (AsyncDoc) o;
-
-    return true && Objects.equals(statusId, asyncDoc.statusId)
-    ;
+    return Objects.equals(this.statusId, asyncDoc.statusId);
   }
 
   @Override

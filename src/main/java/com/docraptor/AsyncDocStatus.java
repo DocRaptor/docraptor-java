@@ -2,7 +2,6 @@ package com.docraptor;
 
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -24,8 +23,12 @@ public class AsyncDocStatus   {
   /**
    * The present status of the document. Can be queued, working, completed, and failed.
    **/
+  public AsyncDocStatus status(String status) {
+    this.status = status;
+    return this;
+  }
 
-  @ApiModelProperty(value = "The present status of the document. Can be queued, working, completed, and failed.")
+  @ApiModelProperty(example = "null", value = "The present status of the document. Can be queued, working, completed, and failed.")
   @JsonProperty("status")
   public String getStatus() {
     return status;
@@ -38,8 +41,12 @@ public class AsyncDocStatus   {
   /**
    * The URL where the document can be retrieved. This URL may only be used a few times.
    **/
+  public AsyncDocStatus downloadUrl(String downloadUrl) {
+    this.downloadUrl = downloadUrl;
+    return this;
+  }
 
-  @ApiModelProperty(value = "The URL where the document can be retrieved. This URL may only be used a few times.")
+  @ApiModelProperty(example = "null", value = "The URL where the document can be retrieved. This URL may only be used a few times.")
   @JsonProperty("download_url")
   public String getDownloadUrl() {
     return downloadUrl;
@@ -52,8 +59,12 @@ public class AsyncDocStatus   {
   /**
    * The identifier for downloading the document with the download api.
    **/
+  public AsyncDocStatus downloadId(String downloadId) {
+    this.downloadId = downloadId;
+    return this;
+  }
 
-  @ApiModelProperty(value = "The identifier for downloading the document with the download api.")
+  @ApiModelProperty(example = "null", value = "The identifier for downloading the document with the download api.")
   @JsonProperty("download_id")
   public String getDownloadId() {
     return downloadId;
@@ -66,8 +77,12 @@ public class AsyncDocStatus   {
   /**
    * Additional information.
    **/
+  public AsyncDocStatus message(String message) {
+    this.message = message;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Additional information.")
+  @ApiModelProperty(example = "null", value = "Additional information.")
   @JsonProperty("message")
   public String getMessage() {
     return message;
@@ -80,8 +95,12 @@ public class AsyncDocStatus   {
   /**
    * Number of PDF pages in document.
    **/
+  public AsyncDocStatus numberOfPages(Integer numberOfPages) {
+    this.numberOfPages = numberOfPages;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Number of PDF pages in document.")
+  @ApiModelProperty(example = "null", value = "Number of PDF pages in document.")
   @JsonProperty("number_of_pages")
   public Integer getNumberOfPages() {
     return numberOfPages;
@@ -94,8 +113,12 @@ public class AsyncDocStatus   {
   /**
    * Error information.
    **/
+  public AsyncDocStatus validationErrors(String validationErrors) {
+    this.validationErrors = validationErrors;
+    return this;
+  }
 
-  @ApiModelProperty(value = "Error information.")
+  @ApiModelProperty(example = "null", value = "Error information.")
   @JsonProperty("validation_errors")
   public String getValidationErrors() {
     return validationErrors;
@@ -115,14 +138,12 @@ public class AsyncDocStatus   {
       return false;
     }
     AsyncDocStatus asyncDocStatus = (AsyncDocStatus) o;
-
-    return true && Objects.equals(status, asyncDocStatus.status) &&
-        Objects.equals(downloadUrl, asyncDocStatus.downloadUrl) &&
-        Objects.equals(downloadId, asyncDocStatus.downloadId) &&
-        Objects.equals(message, asyncDocStatus.message) &&
-        Objects.equals(numberOfPages, asyncDocStatus.numberOfPages) &&
-        Objects.equals(validationErrors, asyncDocStatus.validationErrors)
-    ;
+    return Objects.equals(this.status, asyncDocStatus.status) &&
+        Objects.equals(this.downloadUrl, asyncDocStatus.downloadUrl) &&
+        Objects.equals(this.downloadId, asyncDocStatus.downloadId) &&
+        Objects.equals(this.message, asyncDocStatus.message) &&
+        Objects.equals(this.numberOfPages, asyncDocStatus.numberOfPages) &&
+        Objects.equals(this.validationErrors, asyncDocStatus.validationErrors);
   }
 
   @Override
