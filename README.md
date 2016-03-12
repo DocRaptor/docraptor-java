@@ -99,7 +99,7 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 10. `echo | gpg --use-agent --armor --detach-sign`
 11. `mvn clean deploy`
 12. Use the git tag and make a new release with `target/docraptor-*` attached, https://github.com/DocRaptor/docraptor-java/tags
-13. Update documentation on docraptor.com
+13. Refresh documentation on docraptor.com
 
 
 ## Version Policy
