@@ -35,6 +35,7 @@ public class PrinceOptions   {
   private Boolean disallowCopy = null;
   private Boolean disallowAnnotate = null;
   private Boolean disallowModify = null;
+  private Boolean debug = null;
 
 
   public enum InputEnum {
@@ -459,6 +460,24 @@ public class PrinceOptions   {
 
 
   /**
+   * Enable Prince debug mode.
+   **/
+  public PrinceOptions debug(Boolean debug) {
+    this.debug = debug;
+    return this;
+  }
+
+  @ApiModelProperty(example = "null", value = "Enable Prince debug mode.")
+  @JsonProperty("debug")
+  public Boolean getDebug() {
+    return debug;
+  }
+  public void setDebug(Boolean debug) {
+    this.debug = debug;
+  }
+
+
+  /**
    * Specify the input format.
    **/
   public PrinceOptions input(InputEnum input) {
@@ -580,6 +599,7 @@ public class PrinceOptions   {
         Objects.equals(this.disallowCopy, princeOptions.disallowCopy) &&
         Objects.equals(this.disallowAnnotate, princeOptions.disallowAnnotate) &&
         Objects.equals(this.disallowModify, princeOptions.disallowModify) &&
+        Objects.equals(this.debug, princeOptions.debug) &&
         Objects.equals(this.input, princeOptions.input) &&
         Objects.equals(this.version, princeOptions.version) &&
         Objects.equals(this.javascript, princeOptions.javascript) &&
@@ -589,7 +609,7 @@ public class PrinceOptions   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseurl, noXinclude, noNetwork, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, input, version, javascript, cssDpi, profile);
+    return Objects.hash(baseurl, noXinclude, noNetwork, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, debug, input, version, javascript, cssDpi, profile);
   }
 
   @Override
@@ -619,6 +639,7 @@ public class PrinceOptions   {
     sb.append("    disallowCopy: ").append(toIndentedString(disallowCopy)).append("\n");
     sb.append("    disallowAnnotate: ").append(toIndentedString(disallowAnnotate)).append("\n");
     sb.append("    disallowModify: ").append(toIndentedString(disallowModify)).append("\n");
+    sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
     sb.append("    input: ").append(toIndentedString(input)).append("\n");
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    javascript: ").append(toIndentedString(javascript)).append("\n");
