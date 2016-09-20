@@ -119,14 +119,14 @@ public class PrinceOptions   {
 
 
   /**
-   * Disable parallel downloads.
+   * Disables parallel fetching of assets during PDF creation. Useful if your asset host has strict rate limiting.
    **/
   public PrinceOptions noParallelDownloads(Boolean noParallelDownloads) {
     this.noParallelDownloads = noParallelDownloads;
     return this;
   }
 
-  @ApiModelProperty(example = "null", value = "Disable parallel downloads.")
+  @ApiModelProperty(example = "null", value = "Disables parallel fetching of assets during PDF creation. Useful if your asset host has strict rate limiting.")
   @JsonProperty("no_parallel_downloads")
   public Boolean getNoParallelDownloads() {
     return noParallelDownloads;
