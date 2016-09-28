@@ -15,6 +15,16 @@ public class Sync {
     doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 
-    docraptor.createDoc(doc);
+    byte data[] = docraptor.createDoc(doc);
+
+    FileOutputStream out = new FileOutputStream("/tmp/the-file-name.pdf");
+    out.write(data);
+    out.close();
+
+    BufferedReader br = new BufferedReader(new FileReader("/tmp/the-file-name.pdf"));
+    String line = br.readLine();
+    if (!line.contains("%PDF-1.4")) {
+      throw new IllegalArgumentException("unexpected file header: " + line);
+    }
   }
 }
