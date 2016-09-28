@@ -16,6 +16,7 @@ public class PrinceOptions   {
   private String baseurl = null;
   private Boolean noXinclude = null;
   private Boolean noNetwork = null;
+  private Boolean noParallelDownloads = null;
   private String httpUser = null;
   private String httpPassword = null;
   private String httpProxy = null;
@@ -114,6 +115,24 @@ public class PrinceOptions   {
   }
   public void setNoNetwork(Boolean noNetwork) {
     this.noNetwork = noNetwork;
+  }
+
+
+  /**
+   * Disables parallel fetching of assets during PDF creation. Useful if your asset host has strict rate limiting.
+   **/
+  public PrinceOptions noParallelDownloads(Boolean noParallelDownloads) {
+    this.noParallelDownloads = noParallelDownloads;
+    return this;
+  }
+
+  @ApiModelProperty(example = "null", value = "Disables parallel fetching of assets during PDF creation. Useful if your asset host has strict rate limiting.")
+  @JsonProperty("no_parallel_downloads")
+  public Boolean getNoParallelDownloads() {
+    return noParallelDownloads;
+  }
+  public void setNoParallelDownloads(Boolean noParallelDownloads) {
+    this.noParallelDownloads = noParallelDownloads;
   }
 
 
@@ -580,6 +599,7 @@ public class PrinceOptions   {
     return Objects.equals(this.baseurl, princeOptions.baseurl) &&
         Objects.equals(this.noXinclude, princeOptions.noXinclude) &&
         Objects.equals(this.noNetwork, princeOptions.noNetwork) &&
+        Objects.equals(this.noParallelDownloads, princeOptions.noParallelDownloads) &&
         Objects.equals(this.httpUser, princeOptions.httpUser) &&
         Objects.equals(this.httpPassword, princeOptions.httpPassword) &&
         Objects.equals(this.httpProxy, princeOptions.httpProxy) &&
@@ -609,7 +629,7 @@ public class PrinceOptions   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseurl, noXinclude, noNetwork, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, debug, input, version, javascript, cssDpi, profile);
+    return Objects.hash(baseurl, noXinclude, noNetwork, noParallelDownloads, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, debug, input, version, javascript, cssDpi, profile);
   }
 
   @Override
@@ -620,6 +640,7 @@ public class PrinceOptions   {
     sb.append("    baseurl: ").append(toIndentedString(baseurl)).append("\n");
     sb.append("    noXinclude: ").append(toIndentedString(noXinclude)).append("\n");
     sb.append("    noNetwork: ").append(toIndentedString(noNetwork)).append("\n");
+    sb.append("    noParallelDownloads: ").append(toIndentedString(noParallelDownloads)).append("\n");
     sb.append("    httpUser: ").append(toIndentedString(httpUser)).append("\n");
     sb.append("    httpPassword: ").append(toIndentedString(httpPassword)).append("\n");
     sb.append("    httpProxy: ").append(toIndentedString(httpProxy)).append("\n");
