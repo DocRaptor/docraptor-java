@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Doc   {
 
+  private String pipeline = null;
   private String name = null;
 
 
@@ -65,6 +66,24 @@ public class Doc   {
   private String referrer = null;
   private String callbackUrl = null;
   private PrinceOptions princeOptions = null;
+
+
+  /**
+   * Specify a specific verison of the DocRaptor Pipeline to use.
+   **/
+  public Doc pipeline(String pipeline) {
+    this.pipeline = pipeline;
+    return this;
+  }
+
+  @ApiModelProperty(example = "null", value = "Specify a specific verison of the DocRaptor Pipeline to use.")
+  @JsonProperty("pipeline")
+  public String getPipeline() {
+    return pipeline;
+  }
+  public void setPipeline(String pipeline) {
+    this.pipeline = pipeline;
+  }
 
 
   /**
@@ -310,7 +329,8 @@ public class Doc   {
       return false;
     }
     Doc doc = (Doc) o;
-    return Objects.equals(this.name, doc.name) &&
+    return Objects.equals(this.pipeline, doc.pipeline) &&
+        Objects.equals(this.name, doc.name) &&
         Objects.equals(this.documentType, doc.documentType) &&
         Objects.equals(this.documentContent, doc.documentContent) &&
         Objects.equals(this.documentUrl, doc.documentUrl) &&
@@ -327,7 +347,7 @@ public class Doc   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, documentType, documentContent, documentUrl, test, strict, ignoreResourceErrors, tag, help, javascript, referrer, callbackUrl, princeOptions);
+    return Objects.hash(pipeline, name, documentType, documentContent, documentUrl, test, strict, ignoreResourceErrors, tag, help, javascript, referrer, callbackUrl, princeOptions);
   }
 
   @Override
@@ -335,6 +355,7 @@ public class Doc   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Doc {\n");
 
+    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");
