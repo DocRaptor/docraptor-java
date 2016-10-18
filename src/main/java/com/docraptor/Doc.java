@@ -94,7 +94,7 @@ public class Doc   {
     return this;
   }
 
-  @ApiModelProperty(example = "null", required = true, value = "A name for identifying your document.")
+  @ApiModelProperty(example = "null", value = "A name for identifying your document.")
   @JsonProperty("name")
   public String getName() {
     return name;
