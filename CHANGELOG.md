@@ -1,4 +1,4 @@
-### 1.0.0 [October 13, 2016]
+### 1.0.0 [October 18, 2016]
 * No significant code changes
 
 ### 0.4.0 [September 27, 2016]
