@@ -11,7 +11,7 @@ public class Async {
 
     Doc doc = new Doc();
     doc.setName("java-async.pdf");
-    doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
+    doc.setType(Doc.TypeEnum.PDF);
     doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 

@@ -27,7 +27,7 @@ public class Sync {
       doc.setTest(true);                                                   // test documents are free but watermarked
       doc.setDocumentContent("<html><body>Hello World</body></html>");     // supply content directly
       // doc.setDocumentUrl("http://docraptor.com/examples/invoice.html"); // or use a url
-      doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
+      doc.setType(Doc.TypeEnum.PDF);                                       // PDF or XLS or XLSX
       doc.setJavascript(true);                                             // enable JavaScript processing
       // prince_options = new PrinceOptions();
       // doc.setPrinceOptions(prince_options);

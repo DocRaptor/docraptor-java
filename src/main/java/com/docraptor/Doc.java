@@ -18,14 +18,14 @@ public class Doc   {
   private String name = null;
 
 
-  public enum DocumentTypeEnum {
+  public enum TypeEnum {
     PDF("pdf"),
     XLS("xls"),
     XLSX("xlsx");
 
     private String value;
 
-    DocumentTypeEnum(String value) {
+    TypeEnum(String value) {
       this.value = value;
     }
 
@@ -36,7 +36,7 @@ public class Doc   {
     }
   }
 
-  private DocumentTypeEnum documentType = null;
+  private TypeEnum type = null;
   private String documentContent = null;
   private String documentUrl = null;
   private Boolean test = true;
@@ -105,20 +105,20 @@ public class Doc   {
 
 
   /**
-   * The type of document being created.
+   * The kind of document being created.
    **/
-  public Doc documentType(DocumentTypeEnum documentType) {
-    this.documentType = documentType;
+  public Doc type(TypeEnum type) {
+    this.type = type;
     return this;
   }
 
-  @ApiModelProperty(example = "null", required = true, value = "The type of document being created.")
-  @JsonProperty("document_type")
-  public DocumentTypeEnum getDocumentType() {
-    return documentType;
+  @ApiModelProperty(example = "null", required = true, value = "The kind of document being created.")
+  @JsonProperty("type")
+  public TypeEnum getType() {
+    return type;
   }
-  public void setDocumentType(DocumentTypeEnum documentType) {
-    this.documentType = documentType;
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -331,7 +331,7 @@ public class Doc   {
     Doc doc = (Doc) o;
     return Objects.equals(this.pipeline, doc.pipeline) &&
         Objects.equals(this.name, doc.name) &&
-        Objects.equals(this.documentType, doc.documentType) &&
+        Objects.equals(this.type, doc.type) &&
         Objects.equals(this.documentContent, doc.documentContent) &&
         Objects.equals(this.documentUrl, doc.documentUrl) &&
         Objects.equals(this.test, doc.test) &&
@@ -347,7 +347,7 @@ public class Doc   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pipeline, name, documentType, documentContent, documentUrl, test, strict, ignoreResourceErrors, tag, help, javascript, referrer, callbackUrl, princeOptions);
+    return Objects.hash(pipeline, name, type, documentContent, documentUrl, test, strict, ignoreResourceErrors, tag, help, javascript, referrer, callbackUrl, princeOptions);
   }
 
   @Override
@@ -357,7 +357,7 @@ public class Doc   {
 
     sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");
     sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");

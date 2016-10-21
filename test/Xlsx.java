@@ -11,7 +11,7 @@ public class Xlsx {
 
     Doc doc = new Doc();
     doc.setName("java-xlsx.xlsx");
-    doc.setDocumentType(Doc.DocumentTypeEnum.XLSX);
+    doc.setType(Doc.TypeEnum.XLSX);
     doc.setDocumentContent("<html><body><table><tr><td>Hello from Java</td></tr></table></body></html>");
     doc.setTest(true);
 

@@ -11,7 +11,7 @@ public class InvalidAsync {
 
     Doc doc = new Doc();
     doc.setName(new String(new char[201]).replace("\0", "s")); // limit is 200 characters
-    doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
+    doc.setType(Doc.TypeEnum.PDF);
     doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 
