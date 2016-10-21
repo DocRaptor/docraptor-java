@@ -14,17 +14,18 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class Doc   {
 
+  private String pipeline = null;
   private String name = null;
 
 
-  public enum DocumentTypeEnum {
+  public enum TypeEnum {
     PDF("pdf"),
     XLS("xls"),
     XLSX("xlsx");
 
     private String value;
 
-    DocumentTypeEnum(String value) {
+    TypeEnum(String value) {
       this.value = value;
     }
 
@@ -35,7 +36,7 @@ public class Doc   {
     }
   }
 
-  private DocumentTypeEnum documentType = null;
+  private TypeEnum type = null;
   private String documentContent = null;
   private String documentUrl = null;
   private Boolean test = true;
@@ -68,6 +69,24 @@ public class Doc   {
 
 
   /**
+   * Specify a specific verison of the DocRaptor Pipeline to use.
+   **/
+  public Doc pipeline(String pipeline) {
+    this.pipeline = pipeline;
+    return this;
+  }
+
+  @ApiModelProperty(example = "null", value = "Specify a specific verison of the DocRaptor Pipeline to use.")
+  @JsonProperty("pipeline")
+  public String getPipeline() {
+    return pipeline;
+  }
+  public void setPipeline(String pipeline) {
+    this.pipeline = pipeline;
+  }
+
+
+  /**
    * A name for identifying your document.
    **/
   public Doc name(String name) {
@@ -75,7 +94,7 @@ public class Doc   {
     return this;
   }
 
-  @ApiModelProperty(example = "null", required = true, value = "A name for identifying your document.")
+  @ApiModelProperty(example = "null", value = "A name for identifying your document.")
   @JsonProperty("name")
   public String getName() {
     return name;
@@ -86,20 +105,20 @@ public class Doc   {
 
 
   /**
-   * The type of document being created.
+   * The kind of document being created.
    **/
-  public Doc documentType(DocumentTypeEnum documentType) {
-    this.documentType = documentType;
+  public Doc type(TypeEnum type) {
+    this.type = type;
     return this;
   }
 
-  @ApiModelProperty(example = "null", required = true, value = "The type of document being created.")
-  @JsonProperty("document_type")
-  public DocumentTypeEnum getDocumentType() {
-    return documentType;
+  @ApiModelProperty(example = "null", required = true, value = "The kind of document being created.")
+  @JsonProperty("type")
+  public TypeEnum getType() {
+    return type;
   }
-  public void setDocumentType(DocumentTypeEnum documentType) {
-    this.documentType = documentType;
+  public void setType(TypeEnum type) {
+    this.type = type;
   }
 
 
@@ -310,8 +329,9 @@ public class Doc   {
       return false;
     }
     Doc doc = (Doc) o;
-    return Objects.equals(this.name, doc.name) &&
-        Objects.equals(this.documentType, doc.documentType) &&
+    return Objects.equals(this.pipeline, doc.pipeline) &&
+        Objects.equals(this.name, doc.name) &&
+        Objects.equals(this.type, doc.type) &&
         Objects.equals(this.documentContent, doc.documentContent) &&
         Objects.equals(this.documentUrl, doc.documentUrl) &&
         Objects.equals(this.test, doc.test) &&
@@ -327,7 +347,7 @@ public class Doc   {
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, documentType, documentContent, documentUrl, test, strict, ignoreResourceErrors, tag, help, javascript, referrer, callbackUrl, princeOptions);
+    return Objects.hash(pipeline, name, type, documentContent, documentUrl, test, strict, ignoreResourceErrors, tag, help, javascript, referrer, callbackUrl, princeOptions);
   }
 
   @Override
@@ -335,8 +355,9 @@ public class Doc   {
     StringBuilder sb = new StringBuilder();
     sb.append("class Doc {\n");
 
+    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
+    sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");
     sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
