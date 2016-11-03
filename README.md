@@ -98,8 +98,9 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 9. `eval $(gpg-agent --daemon)`
 10. `gpg --use-agent --armor --detach-sign` and press ^C after authenticating
 11. `mvn clean deploy`
-12. Use the git tag and make a new release with `target/docraptor-*` attached, https://github.com/DocRaptor/docraptor-java/tags
-13. Refresh documentation on docraptor.com
+12. Verify package release at [Central](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.docraptor%22%20AND%20a%3A%22docraptor%22)  (takes anywhere from minutes to days)
+13. Use the git tag and make a new release with `target/docraptor-*` attached, https://github.com/DocRaptor/docraptor-java/tags
+14. Refresh documentation on docraptor.com
 
 
 ## Version Policy
