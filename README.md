@@ -83,6 +83,8 @@ The majority of the code in this repo is generated using swagger-codegen on [doc
 
 ## Release Process
 
+If you haven't released before, please see the [release setup guide](RELEASE_SETUP.md). 
+
 1. Pull latest master
 2. Merge feature branch(es) into master
 3. `script/test`
