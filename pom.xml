@@ -5,7 +5,7 @@
   <artifactId>docraptor</artifactId>
   <packaging>jar</packaging>
   <name>docraptor</name>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
   <url>https://github.com/DocRaptor/docraptor-java</url>
   <description>A native client library for the DocRaptor HTML to PDF/XLS service.</description>
 
@@ -23,8 +23,8 @@
 
   <developers>
     <developer>
-      <name>Elijah Miller</name>
-      <email>elijah.miller@gmail.com</email>
+      <name>Expected Behavior</name>
+      <email>support@docraptor.com</email>
       <organization>DocRaptor</organization>
       <organizationUrl>https://docraptor.com</organizationUrl>
     </developer>

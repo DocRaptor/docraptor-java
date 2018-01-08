@@ -1,3 +1,6 @@
+### 1.1.1 [January 8, 2017]
+* correct ownership and contact details
+
 ### 1.1.0 [November 3, 2016]
 * Added support for the pipeline API parameter
 
