@@ -17,7 +17,7 @@ To deploy it to a remote Maven repository instead, configure the settings of the
 mvn deploy
 ```
 
-After the client libarary is installed/deployed, you can use it in your Maven project by adding the following to your *pom.xml*:
+After the client library is installed/deployed, you can use it in your Maven project by adding the following to your *pom.xml*:
 
 ```xml
 <dependency>
