@@ -19,5 +19,5 @@
   "dateLibrary": "joda",
   "library": "jersey1",
   "supportJava6": "false",
-  "hideGenerationTimestamp": "false"
+  "hideGenerationTimestamp": "true"
 }
