@@ -4,7 +4,7 @@
   "apiPackage": "com.docraptor",
   "groupId": "com.docraptor",
   "artifactId": "docraptor",
-  "artifactVersion": "1.1.1",
+  "artifactVersion": "2.0.0",
   "artifactUrl": "https://github.com/DocRaptor/docraptor-java",
   "artifactDescription": "A native client library for the DocRaptor HTML to PDF/XLS service.",
   "scmConnection": "scm:git:git@github.com:DocRaptor/docraptor-java.git",
