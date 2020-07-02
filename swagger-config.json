@@ -4,5 +4,20 @@
   "apiPackage": "com.docraptor",
   "groupId": "com.docraptor",
   "artifactId": "docraptor",
-  "artifactVersion": "1.1.1"
+  "artifactVersion": "1.1.1",
+  "artifactUrl": "https://github.com/DocRaptor/docraptor-java",
+  "artifactDescription": "A native client library for the DocRaptor HTML to PDF/XLS service.",
+  "scmConnection": "scm:git:git@github.com:DocRaptor/docraptor-java.git",
+  "scmDeveloperConnection": "scm:git:git@github.com:DocRaptor/docraptor-java.git",
+  "scmUrl": "https://github.com/DocRaptor/docraptor-java",
+  "developerName": "Expected Behavior",
+  "developerEmail": "support@docraptor.com",
+  "developerOrganization": "DocRaptor",
+  "developerOrganizationUrl": "https://docraptor.com",
+  "licenseName": "Apache License, Version 2.0",
+  "licenseUrl": "http://www.apache.org/licenses/LICENSE-2.0.txt",
+  "dateLibrary": "joda",
+  "library": "jersey1",
+  "supportJava6": "false",
+  "hideGenerationTimestamp": "true"
 }
