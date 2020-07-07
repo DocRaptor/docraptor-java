@@ -1,5 +1,6 @@
 .DS_Store
 swagger-codegen
+.docraptor_key
 *.class
 
 # Mobile Tools for Java (J2ME)
