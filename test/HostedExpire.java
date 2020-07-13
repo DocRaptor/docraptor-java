@@ -33,7 +33,7 @@ public class HostedExpire {
 
     DocStatus status_response = docraptor.createHostedDoc(doc);
     if (!status_response.getStatus().equals("completed")) {
-      throw new RuntimeException("Failed creating hosted async document");
+      throw new RuntimeException("Failed creating hosted document");
     }
 
     byte data[] = docraptor.getAsyncDoc(status_response.getDownloadId());
