@@ -27,9 +27,6 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 public class Doc {
-  @JsonProperty("pipeline")
-  private String pipeline = null;
-
   @JsonProperty("name")
   private String name = null;
 
@@ -82,11 +79,16 @@ public class Doc {
   @JsonProperty("test")
   private Boolean test = true;
 
+  @JsonProperty("pipeline")
+  private String pipeline = null;
+
   /**
    * Force strict HTML validation.
    */
   public enum StrictEnum {
-    NONE("none");
+    NONE("none"),
+
+    HTML("html");
 
     private String value;
 
@@ -116,7 +118,7 @@ public class Doc {
   }
 
   @JsonProperty("strict")
-  private StrictEnum strict = StrictEnum.NONE;
+  private StrictEnum strict = null;
 
   @JsonProperty("ignore_resource_errors")
   private Boolean ignoreResourceErrors = true;
@@ -147,24 +149,6 @@ public class Doc {
 
   @JsonProperty("prince_options")
   private PrinceOptions princeOptions = null;
-
-  public Doc pipeline(String pipeline) {
-    this.pipeline = pipeline;
-    return this;
-  }
-
-   /**
-   * Specify a specific verison of the DocRaptor Pipeline to use.
-   * @return pipeline
-  **/
-  @ApiModelProperty(value = "Specify a specific verison of the DocRaptor Pipeline to use.")
-  public String getPipeline() {
-    return pipeline;
-  }
-
-  public void setPipeline(String pipeline) {
-    this.pipeline = pipeline;
-  }
 
   public Doc name(String name) {
     this.name = name;
@@ -254,6 +238,24 @@ public class Doc {
 
   public void setTest(Boolean test) {
     this.test = test;
+  }
+
+  public Doc pipeline(String pipeline) {
+    this.pipeline = pipeline;
+    return this;
+  }
+
+   /**
+   * Specify a specific verison of the DocRaptor Pipeline to use.
+   * @return pipeline
+  **/
+  @ApiModelProperty(value = "Specify a specific verison of the DocRaptor Pipeline to use.")
+  public String getPipeline() {
+    return pipeline;
+  }
+
+  public void setPipeline(String pipeline) {
+    this.pipeline = pipeline;
   }
 
   public Doc strict(StrictEnum strict) {
@@ -464,12 +466,12 @@ public class Doc {
       return false;
     }
     Doc doc = (Doc) o;
-    return Objects.equals(this.pipeline, doc.pipeline) &&
-        Objects.equals(this.name, doc.name) &&
+    return Objects.equals(this.name, doc.name) &&
         Objects.equals(this.documentType, doc.documentType) &&
         Objects.equals(this.documentContent, doc.documentContent) &&
         Objects.equals(this.documentUrl, doc.documentUrl) &&
         Objects.equals(this.test, doc.test) &&
+        Objects.equals(this.pipeline, doc.pipeline) &&
         Objects.equals(this.strict, doc.strict) &&
         Objects.equals(this.ignoreResourceErrors, doc.ignoreResourceErrors) &&
         Objects.equals(this.ignoreConsoleMessages, doc.ignoreConsoleMessages) &&
@@ -485,7 +487,7 @@ public class Doc {
 
   @Override
   public int hashCode() {
-    return Objects.hash(pipeline, name, documentType, documentContent, documentUrl, test, strict, ignoreResourceErrors, ignoreConsoleMessages, tag, help, javascript, referrer, callbackUrl, hostedDownloadLimit, hostedExpiresAt, princeOptions);
+    return Objects.hash(name, documentType, documentContent, documentUrl, test, pipeline, strict, ignoreResourceErrors, ignoreConsoleMessages, tag, help, javascript, referrer, callbackUrl, hostedDownloadLimit, hostedExpiresAt, princeOptions);
   }
 
 
@@ -494,12 +496,12 @@ public class Doc {
     StringBuilder sb = new StringBuilder();
     sb.append("class Doc {\n");
 
-    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    documentType: ").append(toIndentedString(documentType)).append("\n");
     sb.append("    documentContent: ").append(toIndentedString(documentContent)).append("\n");
     sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
+    sb.append("    pipeline: ").append(toIndentedString(pipeline)).append("\n");
     sb.append("    strict: ").append(toIndentedString(strict)).append("\n");
     sb.append("    ignoreResourceErrors: ").append(toIndentedString(ignoreResourceErrors)).append("\n");
     sb.append("    ignoreConsoleMessages: ").append(toIndentedString(ignoreConsoleMessages)).append("\n");
