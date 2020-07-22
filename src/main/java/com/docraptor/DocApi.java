@@ -21,6 +21,7 @@ import com.docraptor.*;
 import com.docraptor.Pair;
 
 import com.docraptor.AsyncDoc;
+import com.docraptor.AsyncDocStatus;
 import com.docraptor.Doc;
 import com.docraptor.DocStatus;
 
@@ -307,10 +308,10 @@ public class DocApi {
    *
    * Check on the status of an asynchronously created document.
    * @param id The status_id returned when creating an asynchronous document. (required)
-   * @return DocStatus
+   * @return AsyncDocStatus
    * @throws ApiException if fails to make API call
    */
-  public DocStatus getAsyncDocStatus(String id) throws ApiException {
+  public AsyncDocStatus getAsyncDocStatus(String id) throws ApiException {
     Object localVarPostBody = null;
 
     // verify the required parameter 'id' is set
@@ -343,7 +344,7 @@ public class DocApi {
 
     String[] localVarAuthNames = new String[] { "basicAuth" };
 
-    GenericType<DocStatus> localVarReturnType = new GenericType<DocStatus>() {};
+    GenericType<AsyncDocStatus> localVarReturnType = new GenericType<AsyncDocStatus>() {};
     return apiClient.invokeAPI(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
       }
 }

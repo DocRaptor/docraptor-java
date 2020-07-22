@@ -15,7 +15,6 @@ package com.docraptor;
 
 import java.util.Objects;
 import java.util.Arrays;
-import com.docraptor.AsyncDocStatus;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -23,10 +22,10 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
 /**
- * DocStatus
+ * AsyncDocStatus
  */
 
-public class DocStatus {
+public class AsyncDocStatus {
   @JsonProperty("status")
   private String status = null;
 
@@ -45,7 +44,7 @@ public class DocStatus {
   @JsonProperty("validation_errors")
   private String validationErrors = null;
 
-  public DocStatus status(String status) {
+  public AsyncDocStatus status(String status) {
     this.status = status;
     return this;
   }
@@ -63,7 +62,7 @@ public class DocStatus {
     this.status = status;
   }
 
-  public DocStatus downloadUrl(String downloadUrl) {
+  public AsyncDocStatus downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
     return this;
   }
@@ -81,7 +80,7 @@ public class DocStatus {
     this.downloadUrl = downloadUrl;
   }
 
-  public DocStatus downloadId(String downloadId) {
+  public AsyncDocStatus downloadId(String downloadId) {
     this.downloadId = downloadId;
     return this;
   }
@@ -99,7 +98,7 @@ public class DocStatus {
     this.downloadId = downloadId;
   }
 
-  public DocStatus message(String message) {
+  public AsyncDocStatus message(String message) {
     this.message = message;
     return this;
   }
@@ -117,7 +116,7 @@ public class DocStatus {
     this.message = message;
   }
 
-  public DocStatus numberOfPages(Integer numberOfPages) {
+  public AsyncDocStatus numberOfPages(Integer numberOfPages) {
     this.numberOfPages = numberOfPages;
     return this;
   }
@@ -135,7 +134,7 @@ public class DocStatus {
     this.numberOfPages = numberOfPages;
   }
 
-  public DocStatus validationErrors(String validationErrors) {
+  public AsyncDocStatus validationErrors(String validationErrors) {
     this.validationErrors = validationErrors;
     return this;
   }
@@ -162,13 +161,13 @@ public class DocStatus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    DocStatus docStatus = (DocStatus) o;
-    return Objects.equals(this.status, docStatus.status) &&
-        Objects.equals(this.downloadUrl, docStatus.downloadUrl) &&
-        Objects.equals(this.downloadId, docStatus.downloadId) &&
-        Objects.equals(this.message, docStatus.message) &&
-        Objects.equals(this.numberOfPages, docStatus.numberOfPages) &&
-        Objects.equals(this.validationErrors, docStatus.validationErrors);
+    AsyncDocStatus asyncDocStatus = (AsyncDocStatus) o;
+    return Objects.equals(this.status, asyncDocStatus.status) &&
+        Objects.equals(this.downloadUrl, asyncDocStatus.downloadUrl) &&
+        Objects.equals(this.downloadId, asyncDocStatus.downloadId) &&
+        Objects.equals(this.message, asyncDocStatus.message) &&
+        Objects.equals(this.numberOfPages, asyncDocStatus.numberOfPages) &&
+        Objects.equals(this.validationErrors, asyncDocStatus.validationErrors);
   }
 
   @Override
@@ -180,7 +179,7 @@ public class DocStatus {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class DocStatus {\n");
+    sb.append("class AsyncDocStatus {\n");
 
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");

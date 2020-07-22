@@ -17,7 +17,7 @@ public class Async {
 
     AsyncDoc response = docraptor.createAsyncDoc(doc);
 
-    DocStatus status_response = null;
+    AsyncDocStatus status_response = null;
     while(true) {
       status_response = docraptor.getAsyncDocStatus(response.getStatusId());
       if (status_response.getStatus().equals("completed")) {
