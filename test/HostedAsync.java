@@ -33,7 +33,7 @@ public class HostedAsync {
 
     AsyncDoc response = docraptor.createHostedAsyncDoc(doc);
 
-    AsyncDocStatus status_response = null;
+    DocStatus status_response = null;
     while(true) {
       status_response = docraptor.getAsyncDocStatus(response.getStatusId());
       if (status_response.getStatus().equals("completed")) {
