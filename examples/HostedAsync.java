@@ -16,13 +16,13 @@
 // DocRaptor supports many options for output customization, the full list is
 // https://docraptor.com/documentation/api#api_general
 //
-// You can run this example with: ./script/run_java_file examples/Hosted_Async.java
+// You can run this example with: ./script/run_java_file examples/HostedAsync.java
 
 import java.io.*;
 import java.net.*;
 import com.docraptor.*;
 
-public class Hosted_Async {
+public class HostedAsync {
   public static void main(String[] args) throws Exception {
     try {
       DocApi docraptor = new DocApi();
