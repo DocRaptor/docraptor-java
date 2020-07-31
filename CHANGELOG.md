@@ -1,3 +1,8 @@
+### 2.0.0 [July 31, 2020]
+* add support for hosted documents
+* upgrade to latest swagger 2.4.14
+* **BREAKING CHANGE**: renamed AsyncDocStatus to DocStatus
+
 ### 1.1.1 [January 8, 2017]
 * correct ownership and contact details
 

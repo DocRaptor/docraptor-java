@@ -1,25 +1,33 @@
-// This example demonstrates creating a PDF using common options and saving it
-// to a place on the filesystem.
+// As a paid add-on, DocRaptor can provide long-term, publicly-accessible hosting for your documents.
+// This allows you to provide a URL to your end users, third party tools like Zapier and Salesforce,
+// or anyone else. We'll host the document on your behalf at a completely unbranded URL for as long
+// as you want, or within the limits you specify.
 //
-// It is created asynchronously, which means DocRaptor will render it for up to
-// 10 minutes. This is useful when creating many documents in parallel, or very
-// large documents with lots of assets.
+// This example demonstrates creating a PDF using common options that DocRaptor will host for you.
+// By default, hosted documents do not have limits on downloads or hosting time, though you may
+// pass additional parameters to the document generation call to set your own limits. Learn more
+// about the specific options in the hosted API documentation.
+// https://docraptor.com/documentation/api#api_hosted
+//
+// The document is created asynchronously, which means DocRaptor will allow it to generate for up to
+// 10 minutes. This is useful when creating many documents in parallel, or very large documents with
+// lots of assets.
 //
 // DocRaptor supports many options for output customization, the full list is
 // https://docraptor.com/documentation/api#api_general
 //
-// You can run this example with: ./script/run_java_file examples/Async.java
+// You can run this example with: ./script/run_java_file examples/HostedAsync.java
 
 import java.io.*;
 import java.net.*;
 import com.docraptor.*;
 
-public class Async {
+public class HostedAsync {
   public static void main(String[] args) throws Exception {
     try {
       DocApi docraptor = new DocApi();
       ApiClient client = docraptor.getApiClient();
-      client.setUsername("YOUR_API_KEY_HERE"); // this key works for test documents
+      client.setUsername("YOUR_API_KEY_HERE"); // you will need a real api key to test hosted documents
       // client.setDebugging(true);
 
       Doc doc = new Doc();
@@ -34,7 +42,7 @@ public class Async {
       // prince_options.setMedia("screen");                                // use screen styles instead of print styles
       // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
-      AsyncDoc response = docraptor.createAsyncDoc(doc);
+      AsyncDoc response = docraptor.createHostedAsyncDoc(doc);
 
       while(true) {
         DocStatus status_response = docraptor.getAsyncDocStatus(response.getStatusId());

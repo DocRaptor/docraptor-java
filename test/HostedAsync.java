@@ -1,12 +1,22 @@
 import java.io.*;
+import java.lang.*;
 import java.net.*;
+import java.text.*;
+import java.util.*;
 import com.docraptor.*;
 
-public class Async {
+public class HostedAsync {
   public static void main(String[] args) throws Exception {
+    String api_key = "YOUR_API_KEY_HERE";
+    try (BufferedReader br = new BufferedReader(new FileReader("../.docraptor_key"))) {
+      api_key = br.readLine().trim();
+    } catch (IOException e) {
+      throw new RuntimeException("Please put a valid (paid plan) api key in the .docraptor_key file when testing this feature.", e);
+    }
+
     DocApi docraptor = new DocApi();
     ApiClient client = docraptor.getApiClient();
-    client.setUsername("YOUR_API_KEY_HERE");
+    client.setUsername(api_key);
     // client.setDebugging(true);
 
     Doc doc = new Doc();
@@ -15,13 +25,22 @@ public class Async {
     doc.setDocumentContent("<html><body>Hello from Java</body></html>");
     doc.setTest(true);
 
-    AsyncDoc response = docraptor.createAsyncDoc(doc);
+    Date tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+    df.setTimeZone(TimeZone.getTimeZone("UTC"));
+    String tomorrow_str = df.format(tomorrow);
+    doc.setHostedExpiresAt(tomorrow_str);
+
+    AsyncDoc response = docraptor.createHostedAsyncDoc(doc);
 
     DocStatus status_response = null;
     while(true) {
       status_response = docraptor.getAsyncDocStatus(response.getStatusId());
       if (status_response.getStatus().equals("completed")) {
         break;
+      }
+      if (status_response.getStatus().equals("failed")) {
+        throw new RuntimeException("Failed creating hosted async document");
       }
       Thread.sleep(1000);
     }

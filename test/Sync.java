@@ -23,7 +23,7 @@ public class Sync {
 
     BufferedReader br = new BufferedReader(new FileReader("/tmp/the-file-name.pdf"));
     String line = br.readLine();
-    if (!line.contains("%PDF-1.4")) {
+    if (!line.contains("%PDF-1.5")) {
       throw new IllegalArgumentException("unexpected file header: " + line);
     }
   }
