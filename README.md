@@ -117,6 +117,7 @@ If you haven't released before, please see the [release setup guide](RELEASE_SET
 8. Tag version: `git tag 'vX.Y.Z' && git push --tags`
 9. `eval $(gpg-agent --daemon)`
 10. `gpg --use-agent --armor --detach-sign` and press ^C after authenticating
+    - if you run into issues with gpg [this](https://stackoverflow.com/questions/57591432/gpg-signing-failed-inappropriate-ioctl-for-device-on-macos-with-maven) might help
 11. `mvn clean deploy`
 12. Verify package release at [Central](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.docraptor%22%20AND%20a%3A%22docraptor%22)  (takes anywhere from minutes to days)
 13. Use the git tag and make a new release with `target/docraptor-*` attached, https://github.com/DocRaptor/docraptor-java/tags
