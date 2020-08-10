@@ -30,7 +30,7 @@ After the client library is installed/deployed, you can use it in your Maven pro
 
 ## Usage
 
-See [examples](examples/) for runnable examples with file output, error handling, etc.
+Below is a barebones example, more robust examples with [file output and error handling](examples/Sync.java), [asynchronous generation](examples/Async.java), [hosted documents](examples/HostedSync.java), or [asynchronous hosted documents](examples/HostedAsync.java) are also available.
 
 ```java
 import java.io.*;
@@ -60,14 +60,9 @@ public class Sync {
 }
 ```
 
-Docs created like this are limited to 60 seconds to render, check out the [async example](examples/Async.java) which allows 10 minutes.
+Documents created synchronously like above are limited to 60 seconds of generation time, the [asynchronous method](examples/Async.java) allows up to 10 minutes.
 
-We have guides for doing some of the common things:
-
-* [Headers and Footers](https://docraptor.com/documentation/style#pdf-headers-footers) including page skipping
-* [CSS Media Selector](https://docraptor.com/documentation/api#api_basic_pdf) to make the page look exactly as it does in your browser
-* Protect content with [HTTP authentication](https://docraptor.com/documentation/api#api_http_user) or [proxies](https://docraptor.com/documentation/api#api_http_proxy) so only DocRaptor can access them
-
+Our [styling documentation](https://docraptor.com/documentation/style) and [knowledgebase](https://help.docraptor.com) contain tips and guides on creating headers, footers, page numbers, table of contents, and much more.
 
 ## More Help
 
