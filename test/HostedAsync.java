@@ -45,10 +45,18 @@ public class HostedAsync {
       Thread.sleep(1000);
     }
 
-    byte data[] = docraptor.getAsyncDoc(statusResponse.getDownloadId());
-    FileOutputStream out = new FileOutputStream("/tmp/the-file-name.pdf");
-    out.write(data);
-    out.close();
+    try {
+      BufferedInputStream in = new BufferedInputStream(new URL(statusResponse.getDownloadUrl()).openStream());
+      FileOutputStream fileOutputStream = new FileOutputStream("/tmp/the-file-name.pdf");
+
+      byte dataBuffer[] = new byte[1024];
+      int bytesRead;
+      while ((bytesRead = in.read(dataBuffer, 0, 1024)) != -1) {
+          fileOutputStream.write(dataBuffer, 0, bytesRead);
+      }
+    } catch (IOException e) {
+      throw new IOException("Error downloading hosted document from " + statusResponse.getDownloadUrl(), e);
+    }
 
     BufferedReader br = new BufferedReader(new FileReader("/tmp/the-file-name.pdf"));
     String line = br.readLine();

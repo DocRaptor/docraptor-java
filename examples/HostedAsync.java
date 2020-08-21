@@ -49,11 +49,7 @@ public class HostedAsync {
         System.err.println("status: " + statusResponse.getStatus());
         switch (statusResponse.getStatus()) {
         case "completed":
-          byte[] docResponse = docraptor.getAsyncDoc(statusResponse.getDownloadId());
-          FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-          file.write(docResponse);
-          file.close();
-          System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
+          System.err.println("Hosted Async Download URL: " + statusResponse.getDownloadUrl());
           return;
         case "failed":
           System.err.println("FAILED");
