@@ -45,19 +45,19 @@ public class HostedAsync {
       AsyncDoc response = docraptor.createHostedAsyncDoc(doc);
 
       while(true) {
-        DocStatus status_response = docraptor.getAsyncDocStatus(response.getStatusId());
-        System.err.println("status: " + status_response.getStatus());
-        switch (status_response.getStatus()) {
+        DocStatus statusResponse = docraptor.getAsyncDocStatus(response.getStatusId());
+        System.err.println("status: " + statusResponse.getStatus());
+        switch (statusResponse.getStatus()) {
         case "completed":
-          byte[] doc_response = docraptor.getAsyncDoc(status_response.getDownloadId());
+          byte[] docResponse = docraptor.getAsyncDoc(statusResponse.getDownloadId());
           FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-          file.write(doc_response);
+          file.write(docResponse);
           file.close();
           System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
           return;
         case "failed":
           System.err.println("FAILED");
-          System.err.println(status_response);
+          System.err.println(statusResponse);
           return;
         default:
           Thread.sleep(1000);

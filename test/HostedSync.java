@@ -28,11 +28,11 @@ public class HostedSync {
     Date tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     df.setTimeZone(TimeZone.getTimeZone("UTC"));
-    String tomorrow_str = df.format(tomorrow);
-    doc.setHostedExpiresAt(tomorrow_str);
+    String tomorrowStr = df.format(tomorrow);
+    doc.setHostedExpiresAt(tomorrowStr);
 
-    DocStatus status_response = docraptor.createHostedDoc(doc);
-    byte data[] = docraptor.getAsyncDoc(status_response.getDownloadId());
+    DocStatus statusResponse = docraptor.createHostedDoc(doc);
+    byte data[] = docraptor.getAsyncDoc(statusResponse.getDownloadId());
     FileOutputStream out = new FileOutputStream("/tmp/the-file-name.pdf");
     out.write(data);
     out.close();

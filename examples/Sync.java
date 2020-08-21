@@ -35,9 +35,9 @@ public class Sync {
       // prince_options.setMedia("screen");                                // use screen styles instead of print styles
       // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
-      byte[] create_response = docraptor.createDoc(doc);
+      byte[] createResponse = docraptor.createDoc(doc);
       FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-      file.write(create_response);
+      file.write(createResponse);
       file.close();
       System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
     } catch (com.docraptor.ApiException error) {

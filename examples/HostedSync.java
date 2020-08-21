@@ -42,8 +42,8 @@ public class HostedSync {
       // prince_options.setMedia("screen");                                // use screen styles instead of print styles
       // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
-      DocStatus status_response = docraptor.createHostedDoc(doc);
-      byte data[] = docraptor.getAsyncDoc(status_response.getDownloadId());
+      DocStatus statusResponse = docraptor.createHostedDoc(doc);
+      byte data[] = docraptor.getAsyncDoc(statusResponse.getDownloadId());
       FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
       file.write(data);
       file.close();

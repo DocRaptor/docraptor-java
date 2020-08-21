@@ -17,10 +17,10 @@ public class InvalidAsync {
 
     AsyncDoc response = docraptor.createAsyncDoc(doc);
 
-    DocStatus status_response = null;
+    DocStatus statusResponse = null;
     for(int i=0; i<30; i++) {
-      status_response = docraptor.getAsyncDocStatus(response.getStatusId());
-      if (status_response.getStatus().equals("failed")) {
+      statusResponse = docraptor.getAsyncDocStatus(response.getStatusId());
+      if (statusResponse.getStatus().equals("failed")) {
         System.exit(0);
       }
       Thread.sleep(1000);

@@ -28,15 +28,15 @@ public class HostedExpire {
     Date tomorrow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
     DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
     df.setTimeZone(TimeZone.getTimeZone("UTC"));
-    String tomorrow_str = df.format(tomorrow);
-    doc.setHostedExpiresAt(tomorrow_str);
+    String tomorrowStr = df.format(tomorrow);
+    doc.setHostedExpiresAt(tomorrowStr);
 
-    DocStatus status_response = docraptor.createHostedDoc(doc);
-    if (!status_response.getStatus().equals("completed")) {
+    DocStatus statusResponse = docraptor.createHostedDoc(doc);
+    if (!statusResponse.getStatus().equals("completed")) {
       throw new RuntimeException("Failed creating hosted document");
     }
 
-    byte data[] = docraptor.getAsyncDoc(status_response.getDownloadId());
+    byte data[] = docraptor.getAsyncDoc(statusResponse.getDownloadId());
     FileOutputStream out = new FileOutputStream("/tmp/the-file-name.pdf");
     out.write(data);
     out.close();
@@ -47,9 +47,9 @@ public class HostedExpire {
       throw new IllegalArgumentException("unexpected file header: " + line);
     }
 
-    docraptor.expire(status_response.getDownloadId());
+    docraptor.expire(statusResponse.getDownloadId());
     try {
-      data = docraptor.getAsyncDoc(status_response.getDownloadId());
+      data = docraptor.getAsyncDoc(statusResponse.getDownloadId());
       throw new RuntimeException("Document should not exist");
     } catch (ApiException e) {
       // success
