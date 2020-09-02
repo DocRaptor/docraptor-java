@@ -26,7 +26,7 @@ public class HostedSync {
   public static void main(String[] args) throws Exception {
     DocApi docraptor = new DocApi();
     ApiClient client = docraptor.getApiClient();
-    client.setUsername("YOUR_API_KEY_HERE"); // you will need a real api key to test hosted documents
+    client.setUsername("YOUR_API_KEY_HERE");
     // client.setDebugging(true);
 
     try {

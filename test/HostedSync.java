@@ -7,16 +7,9 @@ import com.docraptor.*;
 
 public class HostedSync {
   public static void main(String[] args) throws Exception {
-    String api_key = "YOUR_API_KEY_HERE";
-    try (BufferedReader br = new BufferedReader(new FileReader("../.docraptor_key"))) {
-      api_key = br.readLine().trim();
-    } catch (IOException e) {
-      throw new RuntimeException("Please put a valid (paid plan) api key in the .docraptor_key file when testing this feature.", e);
-    }
-
     DocApi docraptor = new DocApi();
     ApiClient client = docraptor.getApiClient();
-    client.setUsername(api_key);
+    client.setUsername("YOUR_API_KEY_HERE");
     // client.setDebugging(true);
 
     Doc doc = new Doc();
