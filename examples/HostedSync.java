@@ -37,10 +37,10 @@ public class HostedSync {
       doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
       doc.setName("docraptor-java.pdf");                                   // help you find a document later
       doc.setJavascript(true);                                             // enable JavaScript processing
-      // prince_options = new PrinceOptions();
-      // doc.setPrinceOptions(prince_options);
-      // prince_options.setMedia("screen");                                // use screen styles instead of print styles
-      // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
+      // princeOptions = new PrinceOptions();
+      // doc.setPrinceOptions(princeOptions);
+      // princeOptions.setMedia("screen");                                // use screen styles instead of print styles
+      // princeOptions.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
       DocStatus statusResponse = docraptor.createHostedDoc(doc);
       System.err.println("Hosted Async Download URL: " + statusResponse.getDownloadUrl());
