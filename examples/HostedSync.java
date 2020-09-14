@@ -26,7 +26,7 @@ public class HostedSync {
   public static void main(String[] args) throws Exception {
     DocApi docraptor = new DocApi();
     ApiClient client = docraptor.getApiClient();
-    client.setUsername("YOUR_API_KEY_HERE"); // you will need a real api key to test hosted documents
+    client.setUsername("YOUR_API_KEY_HERE");
     // client.setDebugging(true);
 
     try {
@@ -37,17 +37,13 @@ public class HostedSync {
       doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
       doc.setName("docraptor-java.pdf");                                   // help you find a document later
       doc.setJavascript(true);                                             // enable JavaScript processing
-      // prince_options = new PrinceOptions();
-      // doc.setPrinceOptions(prince_options);
-      // prince_options.setMedia("screen");                                // use screen styles instead of print styles
-      // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
+      // princeOptions = new PrinceOptions();
+      // doc.setPrinceOptions(princeOptions);
+      // princeOptions.setMedia("screen");                                // use screen styles instead of print styles
+      // princeOptions.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
-      DocStatus status_response = docraptor.createHostedDoc(doc);
-      byte data[] = docraptor.getAsyncDoc(status_response.getDownloadId());
-      FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-      file.write(data);
-      file.close();
-      System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
+      DocStatus statusResponse = docraptor.createHostedDoc(doc);
+      System.err.println("Hosted Async Download URL: " + statusResponse.getDownloadUrl());
     } catch (com.docraptor.ApiException error) {
       System.err.println(error);
       System.err.println(error.getCode());

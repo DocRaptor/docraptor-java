@@ -29,27 +29,27 @@ public class Async {
       doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
       doc.setName("docraptor-java.pdf");                                   // help you find a document later
       doc.setJavascript(true);                                             // enable JavaScript processing
-      // prince_options = new PrinceOptions();
-      // doc.setPrinceOptions(prince_options);
-      // prince_options.setMedia("screen");                                // use screen styles instead of print styles
-      // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
+      // princeOptions = new PrinceOptions();
+      // doc.setPrinceOptions(princeOptions);
+      // princeOptions.setMedia("screen");                                // use screen styles instead of print styles
+      // princeOptions.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
       AsyncDoc response = docraptor.createAsyncDoc(doc);
 
       while(true) {
-        DocStatus status_response = docraptor.getAsyncDocStatus(response.getStatusId());
-        System.err.println("status: " + status_response.getStatus());
-        switch (status_response.getStatus()) {
+        DocStatus statusResponse = docraptor.getAsyncDocStatus(response.getStatusId());
+        System.err.println("status: " + statusResponse.getStatus());
+        switch (statusResponse.getStatus()) {
         case "completed":
-          byte[] doc_response = docraptor.getAsyncDoc(status_response.getDownloadId());
+          byte[] docResponse = docraptor.getAsyncDoc(statusResponse.getDownloadId());
           FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-          file.write(doc_response);
+          file.write(docResponse);
           file.close();
           System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
           return;
         case "failed":
           System.err.println("FAILED");
-          System.err.println(status_response);
+          System.err.println(statusResponse);
           return;
         default:
           Thread.sleep(1000);

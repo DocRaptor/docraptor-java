@@ -17,16 +17,16 @@ public class Async {
 
     AsyncDoc response = docraptor.createAsyncDoc(doc);
 
-    DocStatus status_response = null;
+    DocStatus statusResponse = null;
     while(true) {
-      status_response = docraptor.getAsyncDocStatus(response.getStatusId());
-      if (status_response.getStatus().equals("completed")) {
+      statusResponse = docraptor.getAsyncDocStatus(response.getStatusId());
+      if (statusResponse.getStatus().equals("completed")) {
         break;
       }
       Thread.sleep(1000);
     }
 
-    byte data[] = docraptor.getAsyncDoc(status_response.getDownloadId());
+    byte data[] = docraptor.getAsyncDoc(statusResponse.getDownloadId());
     FileOutputStream out = new FileOutputStream("/tmp/the-file-name.pdf");
     out.write(data);
     out.close();

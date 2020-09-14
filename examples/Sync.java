@@ -30,14 +30,14 @@ public class Sync {
       doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
       doc.setName("docraptor-java.pdf");                                   // help you find a document later
       doc.setJavascript(true);                                             // enable JavaScript processing
-      // prince_options = new PrinceOptions();
-      // doc.setPrinceOptions(prince_options);
-      // prince_options.setMedia("screen");                                // use screen styles instead of print styles
-      // prince_options.setBaseurl("http://hello.com")                     // pretend URL when using document_content
+      // princeOptions = new PrinceOptions();
+      // doc.setPrinceOptions(princeOptions);
+      // princeOptions.setMedia("screen");                                // use screen styles instead of print styles
+      // princeOptions.setBaseurl("http://hello.com")                     // pretend URL when using document_content
 
-      byte[] create_response = docraptor.createDoc(doc);
+      byte[] createResponse = docraptor.createDoc(doc);
       FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-      file.write(create_response);
+      file.write(createResponse);
       file.close();
       System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
     } catch (com.docraptor.ApiException error) {
