@@ -6,41 +6,45 @@
 // interface but making many documents in parallel or very large documents with
 // lots of assets will require the async api.
 //
-// DocRaptor supports many options for output customization, the full list is
-// https://docraptor.com/documentation/api#api_general
+// DocRaptor supports many CSS and API options for output customization. Visit
+// https://docraptor.com/documentation/ for full details.
 //
 // You can run this example with: ./script/run_java_file examples/Sync.java
 
+import com.docraptor.*;
 import java.io.*;
 import java.net.*;
-import com.docraptor.*;
+import java.nio.file.*;
 
 public class Sync {
+
   public static void main(String[] args) throws Exception {
     DocApi docraptor = new DocApi();
     ApiClient client = docraptor.getApiClient();
-    client.setUsername("YOUR_API_KEY_HERE"); // this key works for test documents
-    // client.setDebugging(true);
+    client.setUsername("YOUR_API_KEY_HERE"); // this key works in test mode!
 
     try {
       Doc doc = new Doc();
-      doc.setTest(true);                                                   // test documents are free but watermarked
-      doc.setDocumentContent("<html><body>Hello World</body></html>");     // supply content directly
-      // doc.setDocumentUrl("http://docraptor.com/examples/invoice.html"); // or use a url
-      doc.setDocumentType(Doc.DocumentTypeEnum.PDF);                       // PDF or XLS or XLSX
-      doc.setName("docraptor-java.pdf");                                   // help you find a document later
-      doc.setJavascript(true);                                             // enable JavaScript processing
-      // princeOptions = new PrinceOptions();
-      // doc.setPrinceOptions(princeOptions);
-      // princeOptions.setMedia("screen");                                // use screen styles instead of print styles
-      // princeOptions.setBaseurl("http://hello.com")                     // pretend URL when using document_content
+      doc.setTest(true); // test documents are free but watermarked
+      doc.setDocumentType(Doc.DocumentTypeEnum.PDF);
 
-      byte[] createResponse = docraptor.createDoc(doc);
-      FileOutputStream file = new FileOutputStream("/tmp/docraptor-java.pdf");
-      file.write(createResponse);
+      doc.setDocumentContent("<html><body>Hello World!</body></html>");
+
+      // doc.setDocumentUrl("https://docraptor.com/examples/invoice.html");
+      // doc.setJavascript(true);
+      // PrinceOptions princeOptions = new PrinceOptions();
+      // princeOptions.setMedia("print"); // @media 'screen' or 'print' CSS
+      // princeOptions.setBaseurl("https://yoursite.com"); // the base URL for any relative URLs
+      // doc.setPrinceOptions(princeOptions);
+
+      byte[] document = docraptor.createDoc(doc);
+
+      // createDoc() returns a binary string
+      FileOutputStream file = new FileOutputStream("github-sync.pdf");
+      file.write(document);
       file.close();
-      System.err.println("Wrote PDF to /tmp/docraptor-java.pdf");
-    } catch (com.docraptor.ApiException error) {
+      System.out.println("Successfully created github-sync.pdf!");
+    } catch (ApiException error) {
       System.err.println(error);
       System.err.println(error.getCode());
       System.err.println(error.getMessage());
