@@ -23,7 +23,7 @@ import java.io.*;
 import java.net.*;
 import java.nio.file.*;
 
-public class Sync {
+public class DocRaptorExample {
 
   public static void main(String[] args) throws Exception {
     DocApi docraptor = new DocApi();
