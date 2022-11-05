@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-cd "`dirname \"$0\"`/.."
+cd "$(dirname "$0")/.."
 
 if [[ $1 != *".java" ]]; then
   echo "Must be called with a .java file."
@@ -9,11 +9,11 @@ fi
 
 ./script/build lazy
 
-class_name=`basename -s .java $1`
+class_name="$(basename -s .java $1)"
 
 export CLASSPATH=".:$PWD/target/*:$PWD/target/lib/*"
 
 javac $1
 
-cd `dirname $1`
-java $class_name
+cd "$(dirname $1)"
+java "$class_name"
