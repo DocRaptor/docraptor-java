@@ -1,0 +1,12 @@
+# Versions without patch numbers will test the latest patch version. We include
+# specific patch versions to provide consistency. We include version numbers
+# without the patch version in order to automatically test the latest patch
+# version of each minor version.
+maven:latest
+maven:eclipse-temurin
+maven:3.8.6-eclipse-temurin-19
+maven:3.8.6-eclipse-temurin-17
+maven:3.8.6-eclipse-temurin-11
+maven:3.8.6-eclipse-temurin
+maven:3.8-eclipse-temurin
+maven:3.8.6-eclipse-temurin-8-focal

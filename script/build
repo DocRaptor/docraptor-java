@@ -6,6 +6,10 @@ if [[ `ls target/*.jar` ]] && [ "$1" == "lazy" ]; then
   exit
 fi
 
+if uname | grep Darwin; then
+  exec script/docker /app/script/build
+fi
+
 # check dependencies
 which mvn > /dev/null     || (echo "mvn (aka maven) must be installed"; exit 1)
 java -version > /dev/null || (echo "java must be installed"; exit 1)
