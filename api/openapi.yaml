@@ -8,7 +8,7 @@ info:
   title: DocRaptor
   version: 2.0.0
 servers:
-- url: https://docraptor.com/
+- url: https://api.docraptor.com/
 paths:
   /docs:
     post:

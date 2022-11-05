@@ -60,10 +60,10 @@ import com.docraptor.auth.HttpBasicAuth;
 public class ApiClient {
   private Map<String, String> defaultHeaderMap = new HashMap<String, String>();
   private Map<String, String> defaultCookieMap = new HashMap<String, String>();
-  private String basePath = "https://docraptor.com";
+  private String basePath = "https://api.docraptor.com";
   protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
     new ServerConfiguration(
-      "https://docraptor.com",
+      "https://api.docraptor.com",
       "No description provided",
       new HashMap<String, ServerVariable>()
     )
