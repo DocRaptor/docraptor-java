@@ -1,0 +1,670 @@
+openapi: 3.0.1
+info:
+  description: A native client library for the DocRaptor HTML to PDF/XLS service.
+  license:
+    name: MIT
+    url: https://mit-license.org/
+  termsOfService: https://docraptor.com/tos
+  title: DocRaptor
+  version: 2.0.0
+servers:
+- url: https://docraptor.com/
+paths:
+  /docs:
+    post:
+      description: |
+        Creates a document synchronously.
+      operationId: createDoc
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Doc'
+        description: The document to be created.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: byte
+                type: string
+            application/xml:
+              schema:
+                format: byte
+                type: string
+            application/pdf:
+              schema:
+                format: byte
+                type: string
+            application/vnd.ms-excel:
+              schema:
+                format: byte
+                type: string
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                format: byte
+                type: string
+          description: Successful response
+        "400":
+          content: {}
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "422":
+          content: {}
+          description: Unprocessable Entity
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-codegen-request-body-name: doc
+      x-content-type: '*/*'
+      x-accepts: application/json
+  /hosted_docs:
+    post:
+      description: |
+        Creates a hosted document synchronously.
+      operationId: createHostedDoc
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Doc'
+        description: The document to be created.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/vnd.ms-excel:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+          description: Successful response
+        "400":
+          content: {}
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "422":
+          content: {}
+          description: Unprocessable Entity
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-codegen-request-body-name: doc
+      x-content-type: '*/*'
+      x-accepts: application/json
+  /async_docs:
+    post:
+      description: |
+        Creates a document asynchronously. You must use a callback url or the returned status id and the status API to find out when it completes. Then use the download API to get the document.
+      operationId: createAsyncDoc
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Doc'
+        description: The document to be created.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/vnd.ms-excel:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+          description: Successful response
+        "400":
+          content: {}
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "422":
+          content: {}
+          description: Unprocessable Entity
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-codegen-request-body-name: doc
+      x-content-type: '*/*'
+      x-accepts: application/json
+  /hosted_async_docs:
+    post:
+      description: |
+        Creates a hosted document asynchronously. You must use a callback url or the returned status id and the status API to find out when it completes. Then use the download API to get the document.
+      operationId: createHostedAsyncDoc
+      requestBody:
+        content:
+          '*/*':
+            schema:
+              $ref: '#/components/schemas/Doc'
+        description: The document to be created.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/vnd.ms-excel:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/AsyncDoc'
+          description: Successful response
+        "400":
+          content: {}
+          description: Bad Request
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "422":
+          content: {}
+          description: Unprocessable Entity
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-codegen-request-body-name: doc
+      x-content-type: '*/*'
+      x-accepts: application/json
+  /status/{id}:
+    get:
+      description: |
+        Check on the status of an asynchronously created document.
+      operationId: getAsyncDocStatus
+      parameters:
+      - description: The status_id returned when creating an asynchronous document.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/pdf:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/vnd.ms-excel:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                $ref: '#/components/schemas/DocStatus'
+          description: Successful response
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-accepts: application/json
+  /download/{id}:
+    get:
+      description: |
+        Downloads a finished document.
+      operationId: getAsyncDoc
+      parameters:
+      - description: The download_id returned from an async status request or callback.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                format: byte
+                type: string
+            application/xml:
+              schema:
+                format: byte
+                type: string
+            application/pdf:
+              schema:
+                format: byte
+                type: string
+            application/vnd.ms-excel:
+              schema:
+                format: byte
+                type: string
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                format: byte
+                type: string
+          description: Successful response
+        "400":
+          content: {}
+          description: Bad Request
+        "403":
+          content: {}
+          description: Forbidden
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-accepts: application/json
+  /expire/{id}:
+    patch:
+      description: |
+        Expires a previously created hosted doc.
+      operationId: expire
+      parameters:
+      - description: The download_id returned from status request or hosted document
+          response.
+        in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content: {}
+          description: Successful response
+        "401":
+          content: {}
+          description: Unauthorized
+        "403":
+          content: {}
+          description: Forbidden
+        "500":
+          content: {}
+          description: Server Error
+      security:
+      - basicAuth: []
+      tags:
+      - Doc
+      x-accepts: application/json
+components:
+  schemas:
+    Doc:
+      example:
+        test: true
+        hosted_expires_at: hosted_expires_at
+        ignore_console_messages: false
+        javascript: false
+        document_content: document_content
+        hosted_download_limit: 0
+        pipeline: pipeline
+        callback_url: callback_url
+        help: false
+        referrer: referrer
+        prince_options:
+          user_password: user_password
+          media: print
+          no_embed_fonts: true
+          baseurl: baseurl
+          encrypt: true
+          http_password: http_password
+          insecure: true
+          pdf_title: pdf_title
+          http_user: http_user
+          no_network: true
+          disallow_modify: true
+          no_parallel_downloads: true
+          http_proxy: http_proxy
+          owner_password: owner_password
+          no_default_style: true
+          debug: true
+          css_dpi: 5
+          profile: profile
+          http_timeout: 6
+          no_compress: true
+          disallow_annotate: true
+          version: version
+          javascript: true
+          no_author_style: true
+          key_bits: 1
+          input: html
+          no_subset_fonts: true
+          no_xinclude: true
+          disallow_print: true
+          disallow_copy: true
+        name: name
+        tag: tag
+        strict: none
+        document_url: document_url
+        ignore_resource_errors: true
+        document_type: pdf
+      properties:
+        name:
+          description: A name for identifying your document.
+          type: string
+        document_type:
+          description: The type of document being created.
+          enum:
+          - pdf
+          - xls
+          - xlsx
+          type: string
+        document_content:
+          description: |
+            The HTML data to be transformed into a document. You must supply content using document_content or document_url.
+          type: string
+        document_url:
+          description: |
+            The URL to fetch the HTML data to be transformed into a document. You must supply content using document_content or document_url.
+          type: string
+        test:
+          default: true
+          description: Enable test mode for this document. Test documents are not
+            charged for but include a watermark.
+          type: boolean
+        pipeline:
+          description: Specify a specific verison of the DocRaptor Pipeline to use.
+          type: string
+        strict:
+          description: Force strict HTML validation.
+          enum:
+          - none
+          - html
+          type: string
+        ignore_resource_errors:
+          default: true
+          description: Failed loading of images/javascripts/stylesheets/etc. will
+            not cause the rendering to stop.
+          type: boolean
+        ignore_console_messages:
+          default: false
+          description: Prevent console.log from stopping document rendering during
+            JavaScript execution.
+          type: boolean
+        tag:
+          description: A field for storing a small amount of metadata with this document.
+          type: string
+        help:
+          default: false
+          description: Request support help with this request if it succeeds.
+          type: boolean
+        javascript:
+          default: false
+          description: Enable DocRaptor JavaScript parsing. PrinceXML JavaScript parsing
+            is also available elsewhere.
+          type: boolean
+        referrer:
+          description: Set HTTP referrer when generating this document.
+          type: string
+        callback_url:
+          description: "A URL that will receive a POST request after successfully\
+            \ completing an asynchronous document. The POST data will include download_url\
+            \ and download_id similar to status API responses. WARNING: this only\
+            \ works on asynchronous documents.\n"
+          type: string
+        hosted_download_limit:
+          description: "The number of times a hosted document can be downloaded. \
+            \ If no limit is specified, the document will be available for an unlimited\
+            \ number of downloads."
+          type: integer
+        hosted_expires_at:
+          description: "The date and time at which a hosted document will be removed\
+            \ and no longer available. Must be a properly formatted ISO 8601 datetime,\
+            \ like 1981-01-23T08:02:30-05:00."
+          type: string
+        prince_options:
+          $ref: '#/components/schemas/PrinceOptions'
+      required:
+      - document_content
+      - document_type
+      - name
+      type: object
+    PrinceOptions:
+      example:
+        user_password: user_password
+        media: print
+        no_embed_fonts: true
+        baseurl: baseurl
+        encrypt: true
+        http_password: http_password
+        insecure: true
+        pdf_title: pdf_title
+        http_user: http_user
+        no_network: true
+        disallow_modify: true
+        no_parallel_downloads: true
+        http_proxy: http_proxy
+        owner_password: owner_password
+        no_default_style: true
+        debug: true
+        css_dpi: 5
+        profile: profile
+        http_timeout: 6
+        no_compress: true
+        disallow_annotate: true
+        version: version
+        javascript: true
+        no_author_style: true
+        key_bits: 1
+        input: html
+        no_subset_fonts: true
+        no_xinclude: true
+        disallow_print: true
+        disallow_copy: true
+      properties:
+        baseurl:
+          description: Set the baseurl for assets.
+          type: string
+        no_xinclude:
+          description: Disable XML inclusion.
+          type: boolean
+        no_network:
+          description: Disable network access.
+          type: boolean
+        no_parallel_downloads:
+          description: Disables parallel fetching of assets during PDF creation. Useful
+            if your asset host has strict rate limiting.
+          type: boolean
+        http_user:
+          description: Set the user for HTTP authentication.
+          type: string
+        http_password:
+          description: Set the password for HTTP authentication.
+          type: string
+        http_proxy:
+          description: Set the HTTP proxy server.
+          type: string
+        http_timeout:
+          description: Set the HTTP request timeout.
+          type: integer
+        insecure:
+          description: Disable SSL verification.
+          type: boolean
+        media:
+          default: print
+          description: Specify the CSS media type. Defaults to "print" but you may
+            want to use "screen" for web styles.
+          type: string
+        no_author_style:
+          description: Ignore author stylesheets.
+          type: boolean
+        no_default_style:
+          description: Ignore default stylesheets.
+          type: boolean
+        no_embed_fonts:
+          description: Disable font embedding in PDFs.
+          type: boolean
+        no_subset_fonts:
+          description: Disable font subsetting in PDFs.
+          type: boolean
+        no_compress:
+          description: Disable PDF compression.
+          type: boolean
+        encrypt:
+          description: Encrypt PDF output.
+          type: boolean
+        key_bits:
+          description: Set encryption key size.
+          type: integer
+        user_password:
+          description: Set the PDF user password.
+          type: string
+        owner_password:
+          description: Set the PDF owner password.
+          type: string
+        disallow_print:
+          description: Disallow printing of this PDF.
+          type: boolean
+        disallow_copy:
+          description: Disallow copying of this PDF.
+          type: boolean
+        disallow_annotate:
+          description: Disallow annotation of this PDF.
+          type: boolean
+        disallow_modify:
+          description: Disallow modification of this PDF.
+          type: boolean
+        debug:
+          description: Enable Prince debug mode.
+          type: boolean
+        input:
+          default: html
+          description: Specify the input format.
+          enum:
+          - html
+          - xml
+          - auto
+          type: string
+        version:
+          description: "Deprecated, use the appropriate `pipeline` version. Specify\
+            \ a specific verison of PrinceXML to use."
+          type: string
+        javascript:
+          description: Enable PrinceXML JavaScript. DocRaptor JavaScript parsing is
+            also available elsewhere.
+          type: boolean
+        css_dpi:
+          description: Set the DPI when rendering CSS. Defaults to 96 but can be set
+            with Prince 9.0 and up.
+          type: integer
+        profile:
+          description: In Prince 9.0 and up you can set the PDF profile.
+          type: string
+        pdf_title:
+          description: "Specify the PDF title, part of the document's metadata."
+          type: string
+      type: object
+    AsyncDoc:
+      example:
+        status_id: status_id
+      properties:
+        status_id:
+          description: The identifier used to get the status of the document using
+            the status API.
+          type: string
+      type: object
+    DocStatus:
+      example:
+        number_of_pages: 0
+        download_url: download_url
+        validation_errors: validation_errors
+        message: message
+        download_id: download_id
+        status: status
+      properties:
+        status:
+          description: "The present status of the document. Can be queued, working,\
+            \ completed, and failed."
+          type: string
+        download_url:
+          description: The URL where the document can be retrieved. This URL may only
+            be used a few times.
+          type: string
+        download_id:
+          description: The identifier for downloading the document with the download
+            API.
+          type: string
+        message:
+          description: Additional information.
+          type: string
+        number_of_pages:
+          description: Number of PDF pages in document.
+          type: integer
+        validation_errors:
+          description: Error information.
+          type: string
+      type: object
+  securitySchemes:
+    basicAuth:
+      description: Use your API key as the username. Password does not need to be
+        set.
+      scheme: basic
+      type: http
+x-original-swagger-version: "2.0"
+
