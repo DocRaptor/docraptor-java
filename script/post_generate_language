@@ -6,3 +6,8 @@ echo "Removing trailing whitespace..."
 find src -name "*.java" -type f -exec sed -E -i '' 's/[[:space:]]+$//g' {} +
 find . -name "*.gradle" -depth 1 -type f -exec sed -E -i '' 's/[[:space:]]+$//g' {} +
 find . -name "*.xml" -depth 1 -type f -exec sed -E -i '' 's/[[:space:]]+$//g' {} +
+
+if compgen -G "patches/*.patch" > /dev/null; then
+  echo "Apply patches to generated code"
+  git apply --verbose patches/*.patch
+fi
