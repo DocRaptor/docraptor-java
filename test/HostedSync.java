@@ -24,10 +24,14 @@ public class HostedSync {
     String tomorrowStr = df.format(tomorrow);
     doc.setHostedExpiresAt(tomorrowStr);
 
+    String output_file = System.getenv("TEST_OUTPUT_DIR") +
+      "/" + System.getenv("TEST_NAME") + "_csharp_" +
+      System.getenv("RUNTIME_ENV") + ".pdf";
+
     DocStatus statusResponse = docraptor.createHostedDoc(doc);
     try {
       BufferedInputStream in = new BufferedInputStream(new URL(statusResponse.getDownloadUrl()).openStream());
-      FileOutputStream fileOutputStream = new FileOutputStream("/tmp/the-file-name.pdf");
+      FileOutputStream fileOutputStream = new FileOutputStream(output_file);
 
       byte dataBuffer[] = new byte[1024];
       int bytesRead;
@@ -38,7 +42,7 @@ public class HostedSync {
       throw new IOException("Error downloading hosted document from " + statusResponse.getDownloadUrl(), e);
     }
 
-    BufferedReader br = new BufferedReader(new FileReader("/tmp/the-file-name.pdf"));
+    BufferedReader br = new BufferedReader(new FileReader(output_file));
     String line = br.readLine();
     if (!line.contains("%PDF-1.5")) {
       throw new IllegalArgumentException("unexpected file header: " + line);

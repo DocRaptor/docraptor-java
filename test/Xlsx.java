@@ -15,6 +15,15 @@ public class Xlsx {
     doc.setDocumentContent("<html><body><table><tr><td>Hello from Java</td></tr></table></body></html>");
     doc.setTest(true);
 
-    docraptor.createDoc(doc);
+    byte data[] = docraptor.createDoc(doc);
+
+    String output_file = System.getenv("TEST_OUTPUT_DIR") +
+      "/" + System.getenv("TEST_NAME") + "_csharp_" +
+      System.getenv("RUNTIME_ENV") + ".xlsx";
+
+    FileOutputStream out = new FileOutputStream(output_file);
+    out.write(data);
+    out.close();
+
   }
 }

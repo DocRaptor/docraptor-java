@@ -26,12 +26,15 @@ public class Async {
       Thread.sleep(1000);
     }
 
+    String output_file = System.getenv("TEST_OUTPUT_DIR") +
+      "/" + System.getenv("TEST_NAME") + "_csharp_" +
+      System.getenv("RUNTIME_ENV") + ".pdf";
     byte data[] = docraptor.getAsyncDoc(statusResponse.getDownloadId());
-    FileOutputStream out = new FileOutputStream("/tmp/the-file-name.pdf");
+    FileOutputStream out = new FileOutputStream(output_file);
     out.write(data);
     out.close();
 
-    BufferedReader br = new BufferedReader(new FileReader("/tmp/the-file-name.pdf"));
+    BufferedReader br = new BufferedReader(new FileReader(output_file));
     String line = br.readLine();
     if (!line.contains("%PDF-1.5")) {
       throw new IllegalArgumentException("unexpected file header: " + line);
