@@ -1,15 +1,23 @@
 If you haven't released this package before, there are a few things you'll need to do
 
 ## Create a GPG key
+
+`script/release` should handle this for you, but if you run into trouble
+read more.
+
 `brew install gpg2`
 
 Use [this guide](http://central.sonatype.org/pages/working-with-pgp-signatures.html) for generating a key.
 
 ## Publish your public key to several key servers
 
+`script/release` should handle this for you, but if you run into trouble
+read more. Note you may get a verification email for keys.openpgp.org and you
+may need to click the link in that email.
+
 Get your key id `gpg2 --list-keys` (looks something like `453D1C92`)
 
-- `gpg2 --keyserver hkp://pool.sks-keyservers.net --send-keys KEY_ID`
+- `gpg --keyserver keys.openpgp.org --send-keys KEY_ID`
 - `gpg --keyserver keyserver.ubuntu.com --send-keys KEY_ID`
 - `gpg --keyserver pgp.mit.edu --send-keys KEY_ID`
 
@@ -17,10 +25,14 @@ Then verify that your key is on one of those servers by looking on those servers
 
 - http://pgp.mit.edu/
 - http://keyserver.ubuntu.com/
-- https://sks-keyservers.net/i/
+- https://keys.openpgp.org/
 
 ## Sign up for Sonatype jira account at https://issues.sonatype.org
-## Put those Sonatype credentials in ~/.m2/settings.xml
+
+`script/release` should handle this for you, but if you run into trouble
+read more.
+
+Put those Sonatype credentials in ~/.m2/settings.xml
 
 it will look like
 ```
@@ -28,8 +40,8 @@ it will look like
   <servers>
     <server>
       <id>ossrh</id>
-      <username>divanov-oss.sonatype.org-account</username>
-      <password>divanov-oss.sonatype.org-password</password>
+      <username>YOUR_USERNAME</username>
+      <password>YOUR_PASSWORD</password>
     </server>
   </servers>
 </settings>

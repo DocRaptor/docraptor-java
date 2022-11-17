@@ -36,11 +36,16 @@ command="$1"
 cache_dir="$(pwd)/tmp/cache_${image}"
 mkdir -p "$cache_dir"
 
+dr_gpg_home="${HOME}/.gnupg/docraptor"
+mkdir -p "$dr_gpg_home"
+chmod -R 700 "$(dirname "$dr_gpg_home")"
+
 set -x
 docker run -it --rm \
   --env-file .docker_env.list \
   --env RUNTIME_ENV="${image}" \
   --mount type=bind,source="$(pwd)",target=/app \
+  --mount type=bind,source="$dr_gpg_home",target=/root/.gnupg \
   --mount type=bind,source="${cache_dir}",target=/app/tmp/cache \
   "$image" \
   "$command"

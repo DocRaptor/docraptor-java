@@ -1,0 +1,111 @@
+#!/bin/bash
+set -e
+[[ "$TRACE" == "true" ]] && set -x
+cd "$(dirname "$0")/.."
+
+if [[ "$INSIDE_DOCKER" != "true" ]]; then
+  exec script/docker "/app/script/$(basename "$0")"
+fi
+
+maven_settings_path="tmp/settings.xml"
+if ! [ -f "$maven_settings_path" ]; then
+  echo "If you haven't already, you need to sign up for a Sonatype jira account"
+  echo "at https://issues.sonatype.org"
+  echo "Storing jira login information for maven publishing..."
+  read -p "Username: " username
+  read -s -p "Password: " password
+  echo
+  echo
+  cat >"$maven_settings_path" <<EOF
+    <settings>
+      <servers>
+        <server>
+          <id>ossrh</id>
+          <username>${username}</username>
+          <password>${password}</password>
+        </server>
+      </servers>
+    </settings>
+EOF
+fi
+
+echo "Moving maven $maven_settings_path into place..."
+mkdir -pv ~/.m2
+cp -vb "$maven_settings_path" ~/.m2/"$(basename "$maven_settings_path")"
+echo "Moved."
+echo
+
+echo "Installing gpg-agent..."
+apt-get update
+DEBIAN_FRONTEND=noninteractive apt-get install -qq gpg-agent
+echo "gpg-agent installed."
+echo
+
+if [[ "$(gpg --list-keys)" == "" ]]; then
+
+  echo "Collecting information for new gpg key used for maven publishing..."
+  read -p "Enter your first and last name: " name
+  read -p "Enter your email address: " email
+
+  cat >tmp/keydetails <<EOF
+    %echo Generating a basic OpenPGP key
+    Key-Type: RSA
+    Key-Length: 4096
+    Name-Real: $name
+    Name-Comment: DR Java publish key
+    Name-Email: $email
+    Expire-Date: 0
+    # Do a commit here, so that we can later print "done" :-)
+    %commit
+    %echo done
+EOF
+
+  echo "About to generate a new GPG key for maven publishing. Make a very"
+  echo "strong password and save it in 1Password, then hit [ENTER] when ready."
+  read
+  gpg --verbose --batch --gen-key tmp/keydetails
+  echo "Key generated."
+  echo
+fi
+
+key_id="$(gpg --list-keys --with-colons | grep '^pub' | cut -d: -f5)"
+
+for keyserver in keys.openpgp.org keyserver.ubuntu.com pgp.mit.edu; do
+  echo "Searching for key (${key_id}) on keyserver (${keyserver})..."
+  search_result="$(gpg --batch --keyserver "$keyserver" --search-key "$key_id" || true)"
+  if [[ "$search_result" == "" ]]; then
+    echo "Key not found, publishing key (${key_id}) to keyservers (${keyserver})..."
+    gpg --keyserver "$keyserver" --send-keys "$key_id"
+    echo "Key published."
+  else
+    echo "Found key:"
+    echo "$search_result"
+  fi
+  echo
+done
+
+echo "Setting up gpg agent in the shell..."
+eval $(gpg-agent --daemon)
+echo "Shell configured."
+echo
+
+echo "Ensuring GPG key is unlocked and available in the agent..."
+# https://stackoverflow.com/questions/57591432/gpg-signing-failed-inappropriate-ioctl-for-device-on-macos-with-maven
+# Setting GPG_TTY tells gpg how it can ask for your passphrase. This avoids an
+# error with GPG (`gpg: signing failed: Inappropriate ioctl for device`) where
+# it gets confused because stdin isn't a tty (because of the echo). The `echo |`
+# provides some input for gpg to sign, and notably, closes gpg's stdin telling
+# gpg that it has all the input and it should ask for the passphrase now.
+# Without the echo gpg will just hang until you hit ctrl-d, which isn't very
+# obvious. Lastly, we `> /dev/null` because we don't actually care about the
+# signature output. This whole exercise is just to make sure the key is
+# decrypted in the agent so mvn can sign files below.
+export GPG_TTY=$(tty)
+echo | gpg --use-agent --armor --detach-sign > /dev/null
+echo "GPG key unlocked."
+echo
+
+echo "Releasing..."
+mvn clean deploy -P sign-artifacts
+echo "Released."
+echo
