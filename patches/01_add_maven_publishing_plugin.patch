@@ -1,0 +1,77 @@
+commit 7ccaab3c86c432b54fbbdbc79255bf68f9082930
+Author: Jason Gladish <jason@expectedbehavior.com>
+Date:   Wed Nov 16 18:32:31 2022 -0500
+
+    Fix release issue with nexus-staging-maven-plugin
+    
+    Why is this change needed?
+    --------------------------
+    The generated pom.xml doesn't include this plugin, and it is necessary
+    to publish the finished package. Because it's a big XML file it's not
+    very obvious that it gets removed on generation. We want the rest of the
+    generated file so we get reasonable dependency version updates.
+    
+    How does it address the issue?
+    ------------------------------
+    This commit adds the plugin back, which allows
+    `mvn clean deploy -P sign-artifacts` to work. This is slightly different
+    than the previous `mvn clean deploy` because the generated file moved
+    artifact signing into a different profile, in theory to keep most tasks
+    faster. `-P sign-artifacts` tell maven to apply the `sign-artifacts`
+    profile, which augments the deafult profile.
+    
+    This plugin is added to the default profile in case the gpg plugin is
+    moved to the default profile in the future (then we could remove the
+    `-P sign-artifacts` above). At the moment, though, it doesn't really
+    matter.
+    
+    The next commit will add an automatically applied patch after client
+    gneration that will reapply this change when necessary. This will help
+    by handling the situation automatically, or failing that complain that
+    the patch can't be applied which will indicate to the user that things
+    have changed and roughly what needs to happen next (fix and apply the
+    patch).
+    
+    The generated code seems to have some support to publishing to maven
+    using grandle, but it didn't seem to just work out of the box so this
+    commit preserves the previous behavior. In the future it might be worth
+    attempting to get closer to the golden path by switching to gradle.
+    
+    Any links to any relevant tickets, articles, or other resources?
+    ---------------------------------------------------------------
+    https://central.sonatype.org/publish/publish-guide/#initial-setup
+    https://central.sonatype.org/publish/publish-maven/#nexus-staging-maven-plugin-for-deployment-and-release
+    https://books.sonatype.com/mvnref-book/reference/profiles-sect-maven-profiles.html
+    https://stackoverflow.com/questions/31740785/why-order-of-maven-dependencies-matter
+    
+    Any screenshots?
+    ----------------
+    
+    Did you complete all of the following?
+    --------------------------------------
+    - Run test suite?
+    - Add new tests?
+    - Consider security implications and practices?
+
+diff --git a/pom.xml b/pom.xml
+index 6c7bdb0..f918a1c 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -179,6 +179,17 @@
+                     </execution>
+                 </executions>
+             </plugin>
++            <plugin>
++                <groupId>org.sonatype.plugins</groupId>
++                <artifactId>nexus-staging-maven-plugin</artifactId>
++                <version>1.6.8</version>
++                <extensions>true</extensions>
++                <configuration>
++                    <serverId>ossrh</serverId>
++                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
++                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
++                </configuration>
++            </plugin>
+         </plugins>
+     </build>
+ 
