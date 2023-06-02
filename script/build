@@ -7,7 +7,7 @@ if [[ `ls target/*.jar` ]] && [ "$1" == "lazy" ]; then
   exit
 fi
 
-if uname | grep Darwin; then
+if [[ "$INSIDE_DOCKER" != "true" ]]; then
   exec script/docker /app/script/build
 fi
 
