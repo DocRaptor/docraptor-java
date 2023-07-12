@@ -58,7 +58,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   PrinceOptions.JSON_PROPERTY_JAVASCRIPT,
   PrinceOptions.JSON_PROPERTY_CSS_DPI,
   PrinceOptions.JSON_PROPERTY_PROFILE,
-  PrinceOptions.JSON_PROPERTY_PDF_TITLE
+  PrinceOptions.JSON_PROPERTY_PDF_TITLE,
+  PrinceOptions.JSON_PROPERTY_IFRAMES,
+  PrinceOptions.JSON_PROPERTY_PAGE_MARGIN,
+  PrinceOptions.JSON_PROPERTY_PDF_FORMS
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class PrinceOptions {
@@ -188,6 +191,15 @@ public class PrinceOptions {
 
   public static final String JSON_PROPERTY_PDF_TITLE = "pdf_title";
   private String pdfTitle;
+
+  public static final String JSON_PROPERTY_IFRAMES = "iframes";
+  private Boolean iframes;
+
+  public static final String JSON_PROPERTY_PAGE_MARGIN = "page_margin";
+  private String pageMargin;
+
+  public static final String JSON_PROPERTY_PDF_FORMS = "pdf_forms";
+  private Boolean pdfForms;
 
   public PrinceOptions() {
   }
@@ -1002,6 +1014,87 @@ public class PrinceOptions {
   }
 
 
+  public PrinceOptions iframes(Boolean iframes) {
+
+    this.iframes = iframes;
+    return this;
+  }
+
+   /**
+   * Enable loading of iframes.
+   * @return iframes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Enable loading of iframes.")
+  @JsonProperty(JSON_PROPERTY_IFRAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getIframes() {
+    return iframes;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_IFRAMES)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setIframes(Boolean iframes) {
+    this.iframes = iframes;
+  }
+
+
+  public PrinceOptions pageMargin(String pageMargin) {
+
+    this.pageMargin = pageMargin;
+    return this;
+  }
+
+   /**
+   * Specify the page margin distance.
+   * @return pageMargin
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specify the page margin distance.")
+  @JsonProperty(JSON_PROPERTY_PAGE_MARGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getPageMargin() {
+    return pageMargin;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PAGE_MARGIN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPageMargin(String pageMargin) {
+    this.pageMargin = pageMargin;
+  }
+
+
+  public PrinceOptions pdfForms(Boolean pdfForms) {
+
+    this.pdfForms = pdfForms;
+    return this;
+  }
+
+   /**
+   * Make form fields editable by default.
+   * @return pdfForms
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Make form fields editable by default.")
+  @JsonProperty(JSON_PROPERTY_PDF_FORMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getPdfForms() {
+    return pdfForms;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PDF_FORMS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setPdfForms(Boolean pdfForms) {
+    this.pdfForms = pdfForms;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -1040,12 +1133,15 @@ public class PrinceOptions {
         Objects.equals(this.javascript, princeOptions.javascript) &&
         Objects.equals(this.cssDpi, princeOptions.cssDpi) &&
         Objects.equals(this.profile, princeOptions.profile) &&
-        Objects.equals(this.pdfTitle, princeOptions.pdfTitle);
+        Objects.equals(this.pdfTitle, princeOptions.pdfTitle) &&
+        Objects.equals(this.iframes, princeOptions.iframes) &&
+        Objects.equals(this.pageMargin, princeOptions.pageMargin) &&
+        Objects.equals(this.pdfForms, princeOptions.pdfForms);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(baseurl, noXinclude, noNetwork, noParallelDownloads, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, debug, input, version, javascript, cssDpi, profile, pdfTitle);
+    return Objects.hash(baseurl, noXinclude, noNetwork, noParallelDownloads, httpUser, httpPassword, httpProxy, httpTimeout, insecure, media, noAuthorStyle, noDefaultStyle, noEmbedFonts, noSubsetFonts, noCompress, encrypt, keyBits, userPassword, ownerPassword, disallowPrint, disallowCopy, disallowAnnotate, disallowModify, debug, input, version, javascript, cssDpi, profile, pdfTitle, iframes, pageMargin, pdfForms);
   }
 
   @Override
@@ -1082,6 +1178,9 @@ public class PrinceOptions {
     sb.append("    cssDpi: ").append(toIndentedString(cssDpi)).append("\n");
     sb.append("    profile: ").append(toIndentedString(profile)).append("\n");
     sb.append("    pdfTitle: ").append(toIndentedString(pdfTitle)).append("\n");
+    sb.append("    iframes: ").append(toIndentedString(iframes)).append("\n");
+    sb.append("    pageMargin: ").append(toIndentedString(pageMargin)).append("\n");
+    sb.append("    pdfForms: ").append(toIndentedString(pdfForms)).append("\n");
     sb.append("}");
     return sb.toString();
   }

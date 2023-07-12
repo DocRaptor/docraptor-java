@@ -384,12 +384,14 @@ components:
           owner_password: owner_password
           no_default_style: true
           debug: true
+          page_margin: page_margin
           css_dpi: 5
           profile: profile
           http_timeout: 6
           no_compress: true
           disallow_annotate: true
           version: version
+          pdf_forms: true
           javascript: true
           no_author_style: true
           key_bits: 1
@@ -398,6 +400,7 @@ components:
           no_xinclude: true
           disallow_print: true
           disallow_copy: true
+          iframes: true
         name: name
         tag: tag
         strict: none
@@ -503,12 +506,14 @@ components:
         owner_password: owner_password
         no_default_style: true
         debug: true
+        page_margin: page_margin
         css_dpi: 5
         profile: profile
         http_timeout: 6
         no_compress: true
         disallow_annotate: true
         version: version
+        pdf_forms: true
         javascript: true
         no_author_style: true
         key_bits: 1
@@ -517,6 +522,7 @@ components:
         no_xinclude: true
         disallow_print: true
         disallow_copy: true
+        iframes: true
       properties:
         baseurl:
           description: Set the baseurl for assets.
@@ -619,6 +625,15 @@ components:
         pdf_title:
           description: "Specify the PDF title, part of the document's metadata."
           type: string
+        iframes:
+          description: Enable loading of iframes.
+          type: boolean
+        page_margin:
+          description: Specify the page margin distance.
+          type: string
+        pdf_forms:
+          description: Make form fields editable by default.
+          type: boolean
       type: object
     AsyncDoc:
       example:

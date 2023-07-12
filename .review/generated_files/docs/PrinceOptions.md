@@ -37,6 +37,9 @@
 |**cssDpi** | **Integer** | Set the DPI when rendering CSS. Defaults to 96 but can be set with Prince 9.0 and up. |  [optional] |
 |**profile** | **String** | In Prince 9.0 and up you can set the PDF profile. |  [optional] |
 |**pdfTitle** | **String** | Specify the PDF title, part of the document&#39;s metadata. |  [optional] |
+|**iframes** | **Boolean** | Enable loading of iframes. |  [optional] |
+|**pageMargin** | **String** | Specify the page margin distance. |  [optional] |
+|**pdfForms** | **Boolean** | Make form fields editable by default. |  [optional] |
 
 
 

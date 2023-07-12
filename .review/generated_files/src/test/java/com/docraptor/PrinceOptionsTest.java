@@ -279,4 +279,28 @@ public class PrinceOptionsTest {
         // TODO: test pdfTitle
     }
 
+    /**
+     * Test the property 'iframes'
+     */
+    @Test
+    public void iframesTest() {
+        // TODO: test iframes
+    }
+
+    /**
+     * Test the property 'pageMargin'
+     */
+    @Test
+    public void pageMarginTest() {
+        // TODO: test pageMargin
+    }
+
+    /**
+     * Test the property 'pdfForms'
+     */
+    @Test
+    public void pdfFormsTest() {
+        // TODO: test pdfForms
+    }
+
 }
