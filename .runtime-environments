@@ -9,6 +9,9 @@ maven:3.8.6-eclipse-temurin
 maven:3.8.6-eclipse-temurin-19
 maven:3.8.6-eclipse-temurin-17
 maven:3.8.6-eclipse-temurin-11
-maven:3-jdk-10
-maven:3-jdk-9
 maven:3.8.6-eclipse-temurin-8-focal
+
+# These are EOL and debian rotated apt keys, so `apt update` will fail. Leaving
+# these commented so it's obvious why they're missing in the future.
+# maven:3-jdk-10
+# maven:3-jdk-9

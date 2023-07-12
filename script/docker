@@ -21,7 +21,7 @@ done
 shift $((OPTIND-1))
 
 if [[ "$image" == "" ]]; then
-  image="$(cat .runtime-environments | grep -v '^#' | tail -n 1)"
+  image="$(cat .runtime-environments | sed 's/[[:blank:]]*#.*//;/^[[:blank:]]*$/d' | tail -n 1)"
   echo "docker image (-i) unset, defaulting to: $image"
 fi
 

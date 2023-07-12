@@ -32,7 +32,7 @@ run_tests() {
 
 success="true"
 
-for runtime_env in $(cat .runtime-environments | grep -v '^#'); do
+for runtime_env in $(cat .runtime-environments | sed 's/[[:blank:]]*#.*//;/^[[:blank:]]*$/d'); do
   echo
   echo
   echo "Testing runtime env $runtime_env"
