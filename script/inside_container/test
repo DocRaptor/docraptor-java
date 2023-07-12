@@ -2,6 +2,9 @@
 set -e
 cd "$(dirname "$0")/../.."
 
+apt update
+apt install poppler-utils -y
+
 cd test
 
 # runs a test file with PASS/FAIL message
