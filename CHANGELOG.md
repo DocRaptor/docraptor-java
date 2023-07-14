@@ -1,3 +1,6 @@
+### 3.1.0 [July 14, 2023]
+* Add new API options
+
 ### 3.0.0 [November 15, 2022]
 * Switch API host to more secure api.docraptor.com (dropping old TLS)
 * Switch from swagger to openapi-generator v6.0.1 (better maintained)
