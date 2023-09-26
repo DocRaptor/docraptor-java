@@ -1,5 +1,5 @@
 ### 3.1.0 [July 14, 2023]
-* Add new API options
+* Add new API options (including prince_options[pdf_forms] to enable PDF forms)
 
 ### 3.0.0 [November 15, 2022]
 * Switch API host to more secure api.docraptor.com (dropping old TLS)
