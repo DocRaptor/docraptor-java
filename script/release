@@ -35,6 +35,11 @@ cp -vb "$maven_settings_path" ~/.m2/"$(basename "$maven_settings_path")"
 echo "Moved."
 echo
 
+echo "Setting up gnupg..."
+mkdir -v ~/.gnupg
+find ~/.gnupg_host_docraptor/ -maxdepth 1 -mindepth 1 -type d,f,l -exec cp -vr '{}' ~/.gnupg/ \;
+chmod -R 700 ~/.gnupg/
+
 echo "Installing gpg-agent..."
 apt-get update
 DEBIAN_FRONTEND=noninteractive apt-get install -qq gpg-agent
