@@ -1,3 +1,6 @@
+### 3.2.0 [April 2, 2024]
+* Add the new userAgentToken API option, to enable passing a key that will be passed back on resource requests
+
 ### 3.1.0 [July 14, 2023]
 * Add new API options (including prince_options[pdf_forms] to enable PDF forms)
 

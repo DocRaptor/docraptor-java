@@ -307,6 +307,9 @@ definitions:
         description: The date and time at which a hosted document will be removed and no longer available. Must be a properly formatted ISO 8601 datetime, like 1981-01-23T08:02:30-05:00.
       prince_options:
         $ref: '#/definitions/PrinceOptions'
+      user_agent_token:
+        type: string
+        description: A token that will be added to the user agent for all requests made for document content while creating a PDF.
 
   PrinceOptions:
     type: object

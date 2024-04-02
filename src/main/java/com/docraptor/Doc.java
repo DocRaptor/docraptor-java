@@ -46,7 +46,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Doc.JSON_PROPERTY_CALLBACK_URL,
   Doc.JSON_PROPERTY_HOSTED_DOWNLOAD_LIMIT,
   Doc.JSON_PROPERTY_HOSTED_EXPIRES_AT,
-  Doc.JSON_PROPERTY_PRINCE_OPTIONS
+  Doc.JSON_PROPERTY_PRINCE_OPTIONS,
+  Doc.JSON_PROPERTY_USER_AGENT_TOKEN
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Doc {
@@ -172,6 +173,9 @@ public class Doc {
 
   public static final String JSON_PROPERTY_PRINCE_OPTIONS = "prince_options";
   private PrinceOptions princeOptions;
+
+  public static final String JSON_PROPERTY_USER_AGENT_TOKEN = "user_agent_token";
+  private String userAgentToken;
 
   public Doc() {
   }
@@ -635,6 +639,33 @@ public class Doc {
   }
 
 
+  public Doc userAgentToken(String userAgentToken) {
+
+    this.userAgentToken = userAgentToken;
+    return this;
+  }
+
+   /**
+   * A token that will be added to the user agent for all requests made for document content while creating a PDF.
+   * @return userAgentToken
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "A token that will be added to the user agent for all requests made for document content while creating a PDF.")
+  @JsonProperty(JSON_PROPERTY_USER_AGENT_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getUserAgentToken() {
+    return userAgentToken;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_USER_AGENT_TOKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setUserAgentToken(String userAgentToken) {
+    this.userAgentToken = userAgentToken;
+  }
+
+
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -660,12 +691,13 @@ public class Doc {
         Objects.equals(this.callbackUrl, doc.callbackUrl) &&
         Objects.equals(this.hostedDownloadLimit, doc.hostedDownloadLimit) &&
         Objects.equals(this.hostedExpiresAt, doc.hostedExpiresAt) &&
-        Objects.equals(this.princeOptions, doc.princeOptions);
+        Objects.equals(this.princeOptions, doc.princeOptions) &&
+        Objects.equals(this.userAgentToken, doc.userAgentToken);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, documentType, documentContent, documentUrl, test, pipeline, strict, ignoreResourceErrors, ignoreConsoleMessages, tag, help, javascript, referrer, callbackUrl, hostedDownloadLimit, hostedExpiresAt, princeOptions);
+    return Objects.hash(name, documentType, documentContent, documentUrl, test, pipeline, strict, ignoreResourceErrors, ignoreConsoleMessages, tag, help, javascript, referrer, callbackUrl, hostedDownloadLimit, hostedExpiresAt, princeOptions, userAgentToken);
   }
 
   @Override
@@ -689,6 +721,7 @@ public class Doc {
     sb.append("    hostedDownloadLimit: ").append(toIndentedString(hostedDownloadLimit)).append("\n");
     sb.append("    hostedExpiresAt: ").append(toIndentedString(hostedExpiresAt)).append("\n");
     sb.append("    princeOptions: ").append(toIndentedString(princeOptions)).append("\n");
+    sb.append("    userAgentToken: ").append(toIndentedString(userAgentToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }

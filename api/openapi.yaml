@@ -401,6 +401,7 @@ components:
           disallow_print: true
           disallow_copy: true
           iframes: true
+        user_agent_token: user_agent_token
         name: name
         tag: tag
         strict: none
@@ -483,6 +484,10 @@ components:
           type: string
         prince_options:
           $ref: '#/components/schemas/PrinceOptions'
+        user_agent_token:
+          description: A token that will be added to the user agent for all requests
+            made for document content while creating a PDF.
+          type: string
       required:
       - document_content
       - document_type

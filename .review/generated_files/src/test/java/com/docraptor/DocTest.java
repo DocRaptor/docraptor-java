@@ -176,4 +176,12 @@ public class DocTest {
         // TODO: test princeOptions
     }
 
+    /**
+     * Test the property 'userAgentToken'
+     */
+    @Test
+    public void userAgentTokenTest() {
+        // TODO: test userAgentToken
+    }
+
 }

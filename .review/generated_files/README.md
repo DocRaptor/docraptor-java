@@ -40,7 +40,7 @@ Add this dependency to your project's POM:
 <dependency>
   <groupId>com.docraptor</groupId>
   <artifactId>docraptor</artifactId>
-  <version>3.1.0</version>
+  <version>3.2.0</version>
   <scope>compile</scope>
 </dependency>
 ```
@@ -56,7 +56,7 @@ Add this dependency to your project's build file:
   }
 
   dependencies {
-     implementation "com.docraptor:docraptor:3.1.0"
+     implementation "com.docraptor:docraptor:3.2.0"
   }
 ```
 
@@ -70,7 +70,7 @@ mvn clean package
 
 Then manually install the following JARs:
 
-- `target/docraptor-3.1.0.jar`
+- `target/docraptor-3.2.0.jar`
 - `target/lib/*.jar`
 
 ## Getting Started

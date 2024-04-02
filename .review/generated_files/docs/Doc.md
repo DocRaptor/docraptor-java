@@ -24,6 +24,7 @@
 |**hostedDownloadLimit** | **Integer** | The number of times a hosted document can be downloaded.  If no limit is specified, the document will be available for an unlimited number of downloads. |  [optional] |
 |**hostedExpiresAt** | **String** | The date and time at which a hosted document will be removed and no longer available. Must be a properly formatted ISO 8601 datetime, like 1981-01-23T08:02:30-05:00. |  [optional] |
 |**princeOptions** | [**PrinceOptions**](PrinceOptions.md) |  |  [optional] |
+|**userAgentToken** | **String** | A token that will be added to the user agent for all requests made for document content while creating a PDF. |  [optional] |
 
 
 
