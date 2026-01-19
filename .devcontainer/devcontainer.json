@@ -1,0 +1,40 @@
+{
+  "name": "DocRaptor Java",
+  "image": "mcr.microsoft.com/devcontainers/java:21",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "jdkDistro": "tem",
+      "installGradle": "true",
+      "installMaven": "true",
+      "additionalVersions": "8"
+    },
+    "ghcr.io/devcontainers/features/git-lfs:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-gradle",
+        "redhat.java"
+      ],
+      "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.compile.nullAnalysis.mode": "automatic",
+        "java.configuration.runtimes": [
+          {
+            "name": "JavaSE-21",
+            "path": "/usr/lib/jvm/msopenjdk-21",
+            "default": true
+          },
+          {
+            "name": "JavaSE-1.8",
+            "path": "/usr/lib/jvm/msopenjdk-8"
+          }
+        ]
+      }
+    }
+  },
+  "postCreateCommand": "echo 'Java 21:' && /usr/lib/jvm/msopenjdk-21/bin/java -version && echo 'Java 8:' && /usr/lib/jvm/msopenjdk-8/bin/java -version",
+  "remoteUser": "vscode"
+}

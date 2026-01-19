@@ -238,8 +238,8 @@ public class ApiClient {
    */
   public void setUsername(String username) {
     for (Authentication auth : authentications.values()) {
-      if (auth instanceof HttpBasicAuth) {
-        ((HttpBasicAuth) auth).setUsername(username);
+      if (auth instanceof HttpBasicAuth basicAuth) {
+        basicAuth.setUsername(username);
         return;
       }
     }
@@ -252,8 +252,8 @@ public class ApiClient {
    */
   public void setPassword(String password) {
     for (Authentication auth : authentications.values()) {
-      if (auth instanceof HttpBasicAuth) {
-        ((HttpBasicAuth) auth).setPassword(password);
+      if (auth instanceof HttpBasicAuth basicAuth) {
+        basicAuth.setPassword(password);
         return;
       }
     }
@@ -391,11 +391,11 @@ public class ApiClient {
   public String parameterToString(Object param) {
     if (param == null) {
       return "";
-    } else if (param instanceof Date) {
-      return formatDate((Date) param);
-    } else if (param instanceof Collection) {
+    } else if (param instanceof Date date) {
+      return formatDate(date);
+    } else if (param instanceof Collection<?> collection) {
       StringBuilder b = new StringBuilder();
-      for(Object o : (Collection<?>)param) {
+      for(Object o : collection) {
         if(b.length() > 0) {
           b.append(',');
         }
@@ -560,7 +560,7 @@ public class ApiClient {
       FormDataMultiPart mp = new FormDataMultiPart();
       for (Entry<String, Object> param: formParams.entrySet()) {
         if( param.getValue() instanceof List && !( ( List ) param.getValue() ).isEmpty()
-                  && ( ( List ) param.getValue() ).get( 0 ) instanceof File ) {
+                  && ( ( List ) param.getValue() ).getFirst() instanceof File ) {
             @SuppressWarnings( "unchecked" )
             List<File> files = ( List<File> ) param.getValue();
             for( File file : files ) {
@@ -594,8 +594,7 @@ public class ApiClient {
     String baseURL;
     if (serverIndex != null) {
       if (serverIndex < 0 || serverIndex >= servers.size()) {
-        throw new ArrayIndexOutOfBoundsException(String.format(
-          "Invalid index %d when selecting the host settings. Must be less than %d", serverIndex, servers.size()
+        throw new ArrayIndexOutOfBoundsException("Invalid index %d when selecting the host settings. Must be less than %d".formatted(serverIndex, servers.size()
         ));
       }
       baseURL = servers.get(serverIndex).URL(serverVariables);
